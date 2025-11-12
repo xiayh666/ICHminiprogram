@@ -4,10 +4,13 @@
     "pages/classification/index",
     "pages/live-stream/index",
     "pages/shopping-cart/index",
-    "pages/me/index",
     "pages/me_good_more/index",
     "pages/study_more/index",
-    "pages/orderList/index"
+    "pages/orderList/index",
+    "pages/goods/goods",
+    "pages/community/community",
+    "pages/shopping-cart/shopping-cart",
+    "pages/me/me"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -25,19 +28,20 @@
       "text": "首页"
     },
     {
-      "pagePath": "pages/classification/index",
-      "text": "分类"
+      "pagePath": "pages/goods/goods",
+      "text": "商品"
     },
     {
-      "pagePath": "pages/live-stream/index",
-      "text": "直播"
+      "pagePath": "pages/community/community",
+      "text": "社区"
+
     },
     {
-      "pagePath": "pages/shopping-cart/index",
+      "pagePath": "pages/shopping-cart/shopping-cart",
       "text": "购物车"
     },
     {
-      "pagePath": "pages/me/index",
+      "pagePath": "pages/me/me",
       "text": "我的"
     }
     ]

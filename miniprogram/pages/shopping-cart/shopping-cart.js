@@ -1,4 +1,4 @@
-// pages/live-stream/index.js
+// pages/shopping-cart/shopping-cart.js
 Page({
 
   /**

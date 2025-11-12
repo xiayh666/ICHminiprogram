@@ -1,6 +1,74 @@
 <!-- index.wxml -->
-pgaes/index/index.html
-<view>
-    hello world
+<!-- 搜索框 -->
+<view class="search">
+    <image src="/images/index/20 20 search.png" class="search-left"></image>
+    <input class="search-right" type="text" placeholder="搜索非遗好物、手艺课程"></input>
+</view>
+<!-- 轮播图 -->
+<view class="swiper">
+    <swiper class="swiper-wrapper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}" duration="{{500}}">
+        <block wx:for="{{ swiper_images }}">
+            <swiper-item>
+                <image mode="aspectFill" class="swiper-image" src="{{item}}" />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<!-- 小菜单(快捷功能入口) -->
+<view class="menu">
+    <view wx:for="{{menu.entries}}" id="{{item.id}}" class="menu-item">
+        <image class="icon" src="{{item.icon}}" />
+        <view class="menu-name">{{item.name}}</view>
+    </view>
+</view>
+<!-- 推荐内容(商品) -->
+<view class="more-bar">
+    <view class="left">
+        {{suggestions.goods.more.title}}
+    </view>
+    <view class="right">
+       更多 
+    </view>
+</view> 
+<view class="suggestion-goods">
+    <view class="suggestion-card" wx:for="{{suggestions.goods.items}}">
+        <image class="card-image" src="{{item.image}}"/>
+        <view class="card-name"></view> 
+    </view>
+</view>
+
+<!-- 推荐内容(课程) -->
+<view class="more-bar">
+    <view class="left">
+        {{suggestions.courses.more.title}}
+    </view>
+    <view class="right">
+       更多 
+    </view>
+</view> 
+<view class="suggestion-courses">
+    <view class="suggestion-card" wx:for="{{suggestions.courses.items}}">
+        <image class="card-image" src="{{item.image}}"/>
+        <view class="card-name"></view> 
+    </view>
+</view>
+
+
+
+<view class="more-bar">
+    <view class="left">
+       {{suggestions.craftman.more.title}} 
+    </view>
+    <view class="right">
+       更多 
+    </view>
+</view> 
+<view class="suggestion-craftman">
+     <view class="avatar">
+        <image class="" src="{{suggestions.craftman.avatar}}" />
+          
+     </view>
+        
+    
 </view>
   

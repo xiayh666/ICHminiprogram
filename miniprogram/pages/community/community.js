@@ -1,4 +1,4 @@
-// pages/live-stream/index.js
+// pages/community/community.js
 Page({
 
   /**
