@@ -1,0 +1,131 @@
+/* 全局样式 */
+page {
+  background-color: #F8F5F0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  background-color: #C52E2A;
+  padding: 50rpx 50rpx 100rpx;
+  position: relative;
+}
+.user-info { 
+  display: flex;  
+  position: relative;
+}
+.avatar { 
+  width: 120rpx; 
+  height: 120rpx; 
+  border-radius: 50%; 
+  border: 4rpx solid rgba(255,255,255,0.3);
+  background-color: #666;
+ }
+.user-tag { 
+  background: #E04E4B; 
+  color: #fff; 
+  font-size: 24rpx; 
+  height: 30rpx;
+  padding: 6rpx 16rpx; 
+  border-radius: 20rpx; 
+  position: absolute;
+  bottom: 10%;
+  left: 20%;
+}
+.function{
+  color: #fff;
+  padding-left: 50rpx;
+  width: 75%;
+  height: 20rpx;
+  align-items: center;
+  font-size:26rpx;
+  display: flex;
+  justify-content: space-between;
+  position:absolute;
+  bottom: 10%;
+}
+
+/* 订单状态栏 */
+.order-status {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 30rpx 0;
+  margin: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+.status-item { display: flex; flex-direction: column; align-items: center; }
+.status-icon { width: 60rpx; height: 60rpx; margin-bottom: 10rpx; }
+.status-item text { font-size: 24rpx; color: #666; }
+
+/* 功能入口 */
+.function-list {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  padding: 30rpx 0;
+}
+.function-item { width: 33.33%; display: flex; flex-direction: column; align-items: center; margin-bottom: 20rpx; }
+.function-icon { width: 60rpx; height: 60rpx; margin-bottom: 10rpx; }
+.function-item text { font-size: 24rpx; color: #333; }
+
+/* 推荐区域通用样式 */
+.recommend-section, .more-section {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  padding: 30rpx;
+}
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30rpx; }
+.section-header text { font-size: 32rpx; font-weight: bold; color: #333; }
+.view-more { font-size: 24rpx; color: #999; }
+
+/* 非遗商品推荐-横向滚动 */
+.goods-scroll { white-space: nowrap; }
+.goods-item { display: inline-block; width: 240rpx; margin-right: 20rpx; vertical-align: top; }
+.goods-image { width: 240rpx; height: 240rpx; border-radius: 8rpx; }
+.goods-name { display: block; width: 240rpx; font-size: 24rpx; color: #333; margin-top: 10rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* 优惠券区 */
+.coupon-section { background: #fff; margin: 20rpx; border-radius: 12rpx; box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05); padding: 30rpx; }
+.coupon-item { display: flex; background: #C52E2A; color: #fff; border-radius: 8rpx; padding: 30rpx; margin-bottom: 20rpx; }
+.coupon-left { flex: 1; }
+.coupon-desc { font-size: 32rpx; display: block; margin-bottom: 10rpx; }
+.coupon-type { font-size: 24rpx; opacity: 0.8; }
+.coupon-right { display: flex; align-items: center; }
+.coupon-btn { background: #fff; color: #C52E2A; font-size: 24rpx; padding: 8rpx 20rpx; border-radius: 20rpx; font-weight: bold; }
+
+/* 更多推荐-网格布局 */
+.goods-grid { display: flex; flex-wrap: wrap; justify-content: space-between; }
+.goods-grid .goods-item { width: 31%; margin-right: 0; margin-bottom: 20rpx; }
+.goods-grid .goods-image { width: 100%; height: 200rpx; }
+
+/* 底部导航栏 */
+.tab-bar {
+  display: flex;
+  background: #fff;
+  border-top: 1rpx solid #eee;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  align-items: center;
+}
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
+}
+.tab-icon { width: 40rpx; height: 40rpx; margin-bottom: 6rpx; }
+.tab-item text { font-size: 20rpx; color: #999; }
+.tab-item.active text { color: #C52E2A; }
+.tab-item.active .tab-icon { filter: brightness(0) saturate(100%) invert(33%) sepia(71%) saturate(3558%) hue-rotate(348deg) brightness(94%) contrast(91%); }

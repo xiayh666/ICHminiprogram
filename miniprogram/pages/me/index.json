@@ -1,5 +1,9 @@
 {
-  "navigationBarTitleText": "基础能力",
-  "usingComponents": {
-  }
+  "usingComponents": {},
+  "backgroundColor": "#C52E2A",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#C52E2A",
+  "navigationBarTitleText": "",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false
 }
