@@ -1,2 +1,37 @@
-<!--pages/shopping-cart/shopping-cart.wxml-->
-<text>pages/shopping-cart/shopping-cart.wxml</text>
+<!-- pages/shopping-cart/shopping-cart.wxml -->
+<view class="shopping-cart-list-container">
+    <view class="functional-bar">
+        <view class="left">全选</view>
+        <view class="right">管理</view>
+    </view>
+    <view class="shopping-cart-list">
+        <view wx:for="{{shopping_cart.items}}" class="good">
+            <view class="good-left"></view>
+            <view class="good-right">
+                <view class="good-image">
+                    <image src="{{item.image}}" />
+                </view>
+                <view class="good-details">
+                    <view class="good-name">{{item.name}}</view>
+                    <view class="good-attr">{{item.attr}}</view>
+                    <view class="good-price">￥{{item.price}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="suggestions"></view>
+<view class="bottem-of-page"></view>
+<view class="bottom-bar">
+    <view class="left">全选</view>
+    <view class="right">
+        <view class="total">
+            合计：
+            <view class="text">￥{{total.price}}</view>
+        </view>
+        <view class="checkout">
+            结算
+            <text class="text" wx:if="{{total.num > 0 }}">({{total.num}})</text>
+        </view>
+    </view>
+</view>
