@@ -1,2 +1,106 @@
 <!--pages/community/community.wxml-->
-<text>pages/community/community.wxml</text>
+<!-- 顶部搜索栏 -->
+<view class="search-bar">
+  <icon type="search" size="14" color="#999" />
+  <input placeholder="搜索话题、技艺交流、匠人" class="search-input" />
+</view>
+
+<!-- 导航标签栏 -->
+
+<view class="tab-bar">
+  <!-- 可横向滚动的容器 -->
+  <scroll-view scroll-x class="tab-scroll" enable-flex>
+    <!-- 循环渲染 Tab 项，通过 data-index 绑定索引 -->
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{tabList}}" 
+      wx:key="index"
+      data-index="{{index}}" 
+      bindtap="switchTab"     
+    >
+      {{item}}
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 热门话题列表 -->
+<view class="topic-section">
+  <view class="section-header">
+   <text>热门话题</text>
+   <image src="/images/community/more.png" class="more" mode="widthFix"/>
+  </view>
+  <view class="topic-list" wx:for="{{topicList}}" wx:key="id">
+  <view class="topic-item">
+    <view class="topic-header">
+      <image src="{{item.avatar}}" class="topic-avatar" />
+      <view class="topic-info">
+        <view class="topic-author">{{item.author}}</view>
+        <view class="topic-time">{{item.time}}</view> 
+      </view>
+      <view class="topic-tag">{{item.tag}}</view>
+    </view>
+    <view class="topic-title">{{item.title}}</view>
+    <view class="topic-desc">{{item.desc}} </view>
+    <!-- 待修改 -->
+    <view class="topic-images {{item.images.length === 1 ? 'one-img' : (item.images.length === 3 ? 'three-imgs' : (item.images.length <= 4 ? 'few-imgs' : 'many-imgs'))}}">
+    <image 
+      wx:for="{{item.images}}" 
+      wx:key="*this" 
+      src="{{item}}" 
+      class="flex-img {{item.images.length === 3 ? 'img-' + (index + 1) : ''}}"
+    ></image>
+    </view>
+    <!-- 待修改 -->
+    <view class="topic-meta">
+      <view class="meta-item">
+        <icon type="cart" size="14" color="#999" /> {{item.cart}}
+      </view>
+      <view class="meta-item">
+        <icon type="search" size="14" color="#999" /> {{item.search}}
+      </view>
+      <view class="meta-item">
+        <icon type="cart" size="14" color="#999" /> {{item.cart2}}
+      </view>
+    </view>
+  </view>
+  </view>
+</view>
+
+<!-- 活跃匠人栏 -->
+<view class="craftsman-section">
+  <view class="section-header">
+    <text>活跃匠人</text>
+    <image src="/images/community/more.png" class="more" mode="widthFix"/>
+  </view>
+  <scroll-view scroll-x class="craftsman-list-scroll">
+    <view class="craftsman-item" wx:for="{{craftsmanList}}" wx:key="id">
+      <image src="{{item.avatar}}" class="craftsman-avatar" />
+      <view class="craftsman-name">{{item.name}}</view>
+      <view class="craftsman-tag">{{item.tag}}</view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 推荐话题栏 -->
+<view class="topic-section">
+  <view class="section-header">
+    <text>推荐话题</text>
+  </view>
+  <scroll-view scroll-y class="topic-card-list">
+    <view class="topic-card" wx:for="{{topicCardList}}" wx:key="id">
+      <view class="topic-icon">
+        <icon type="cart" size="20" color="#999" />
+      </view>
+      <view class="topic-content">
+        <view class="topic-name">{{item.name}}</view>
+        <view class="topic-meta">{{item.meta}}</view>
+      </view>
+      <view class="topic-action">{{item.action}}</view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 悬浮按钮 -->
+<view class="add-btn">
+  <image src="/images/community/加号.png" />
+</view>

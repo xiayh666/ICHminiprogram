@@ -21,7 +21,7 @@ Page({
     ],
     studyInfo:{
       image:'/images/me/english_ppt.jpg',
-      momo:'学习更多的知识'
+      memo:'学习更多的知识'
     }
   },
   onLoad() {
