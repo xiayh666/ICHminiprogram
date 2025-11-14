@@ -35,11 +35,11 @@ Page({
           name: "直播教学",
           icon: "/images/index/56 56直播教学.png"
         },
-        {
-          id: "explore",
-          name: "文化探索",
-          icon: "/images/index/56 56文化探索.png"
-        }
+        // {
+        //   id: "explore",
+        //   name: "文化探索",
+        //   icon: "/images/index/56 56文化探索.png"
+        // }
       ]
     },
     suggestions: {

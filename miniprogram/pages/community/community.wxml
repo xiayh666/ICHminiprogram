@@ -9,7 +9,7 @@
 
 <view class="tab-bar">
   <!-- 可横向滚动的容器 -->
-  <scroll-view scroll-x class="tab-scroll" enable-flex>
+  <scroll-view scroll-x class="tab-scroll" enable-flex scroll-left="{{scrollLeft}}">
     <!-- 循环渲染 Tab 项，通过 data-index 绑定索引 -->
     <view 
       class="tab-item {{currentTab === index ? 'active' : ''}}" 

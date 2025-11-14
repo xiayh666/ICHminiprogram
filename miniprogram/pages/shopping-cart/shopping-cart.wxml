@@ -1,12 +1,15 @@
 <!-- pages/shopping-cart/shopping-cart.wxml -->
 <view class="shopping-cart-list-container">
     <view class="functional-bar">
-        <view class="left">全选</view>
+        <view class="left">
+            <image class="toogle" src="" />全选</view>
         <view class="right">管理</view>
     </view>
     <view class="shopping-cart-list">
-        <view wx:for="{{shopping_cart.items}}" class="good">
-            <view class="good-left"></view>
+        <view wx:for="{{shopping_cart.items}}" class="good" good-id="{{item.id}}">
+            <view class="good-left">
+                <image class="toogle" src="" bind:tap="toogleSelect"/>
+            </view>
             <view class="good-right">
                 <view class="good-image">
                     <image src="{{item.image}}" />
@@ -15,6 +18,11 @@
                     <view class="good-name">{{item.name}}</view>
                     <view class="good-attr">{{item.attr}}</view>
                     <view class="good-price">￥{{item.price}}</view>
+                    <view class="good-num">
+                        <view class="inc-btn" type="warn">+</view>
+                        <input class="val" type="number" value="{{item.num}}"></input>
+                        <view class="dec-btn">-</view>
+                    </view>
                 </view>
             </view>
         </view>
@@ -23,7 +31,7 @@
 <view class="suggestions"></view>
 <view class="bottem-of-page"></view>
 <view class="bottom-bar">
-    <view class="left">全选</view>
+    <view class="left"><image class="toogle" src="" />全选</view>
     <view class="right">
         <view class="total">
             合计：

@@ -1,5 +1,8 @@
 /* 全局样式 */
 page {
+  margin: 0;
+  padding: 0;
+  border: none;
   background-color: #F8F5F0;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 }
