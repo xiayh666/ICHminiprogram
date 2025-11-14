@@ -75,6 +75,7 @@
   <scroll-view scroll-x class="craftsman-list-scroll">
     <view class="craftsman-item" wx:for="{{craftsmanList}}" wx:key="id">
       <image src="{{item.avatar}}" class="craftsman-avatar" />
+      <text class="{{item.num <= 3 ? 'craftsman-num ' : 'craftsman-num-null'}}">{{item.num}}</text>
       <view class="craftsman-name">{{item.name}}</view>
       <view class="craftsman-tag">{{item.tag}}</view>
     </view>
@@ -101,6 +102,7 @@
 </view>
 
 <!-- 悬浮按钮 -->
-<view class="add-btn">
+<view class="float-btn" bindtap="handleFloatBtnClick">
+  <!-- 可替换为图标或文字 -->
   <image src="/images/community/加号.png" />
 </view>

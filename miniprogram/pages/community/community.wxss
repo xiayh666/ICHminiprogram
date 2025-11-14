@@ -53,6 +53,7 @@ page {
 /* 话题列表 */
 .topic-section,.craftsman-section {
   padding: 30rpx;
+  /* padding-bottom: 30rpx; */
   background-color: #f8f5f2;
 }
 .section-header {
@@ -211,6 +212,7 @@ page {
   padding-bottom: 10rpx;
 }
 .craftsman-item {
+  position: relative;
   display: inline-block;
   width: 140rpx;
   text-align: center;
@@ -221,6 +223,22 @@ page {
   height: 120rpx;
   border-radius: 50%;
   margin-bottom: 8rpx;
+}
+.craftsman-num{
+  background-color: #c92a2a;
+  border: solid 6rpx #F8F4E9;
+  color: #F8F4E9;
+  font-size: smaller;
+  text-align: center;
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 36%;
+  right: 9%;
+}
+.craftsman-num-null{
+  display: none;
 }
 .craftsman-name {
   font-size: 30rpx;
@@ -237,10 +255,10 @@ page {
 }
 
 /* 推荐话题栏 */
-/* .topic-section {
-  padding: 0 30rpx 30rpx;
-  background-color: #f8f5f2;
-} */
+.topic-card-list {
+  padding-bottom: 80rpx;
+  /* background-color: #f8f5f2; */
+}
 .topic-card {
   display: flex;
   align-items: center;
@@ -274,17 +292,26 @@ page {
 
 
 /* 悬浮按钮 */
-.add-btn {
-  position: relative;
-  padding:20rpx 30rpx;
-  height: 120rpx;
+
+
+.float-btn {
+  position: fixed;
+  right: 30rpx;
+  bottom: 80rpx;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: #c92a2a; */
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 0.9;
 }
-.add-btn image{
+
+.float-btn:active {
+  opacity: 1;
+  transform: scale(0.95);
+}
+.float-btn image{
   position: absolute;
   width: 120rpx;
   height: 120rpx;

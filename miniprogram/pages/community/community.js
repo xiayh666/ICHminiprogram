@@ -34,32 +34,38 @@ Page({
       {
         avatar:"/images/me/userimg.jpg",
         name:"刘师傅",
-        tag:"景德镇陶艺"
+        tag:"景德镇陶艺",
+        num:1
       },
       {
         avatar:"/images/me/userimg.jpg",
         name:"刘师傅",
-        tag:"景德镇陶艺"
+        tag:"景德镇陶艺",
+        num:2
       },
       {
         avatar:"/images/me/userimg.jpg",
         name:"刘师傅",
-        tag:"景德镇陶艺"
+        tag:"景德镇陶艺",
+        num:3
       },
       {
         avatar:"/images/me/userimg.jpg",
         name:"刘师傅",
-        tag:"景德镇陶艺"
+        tag:"景德镇陶艺",
+        num:4
       },
       {
         avatar:"/images/me/userimg.jpg",
         name:"刘师傅",
-        tag:"景德镇陶艺"
+        tag:"景德镇陶艺",
+        num:5
       },
       {
         avatar:"/images/me/userimg.jpg",
         name:"刘师傅",
-        tag:"景德镇陶艺"
+        tag:"景德镇陶艺",
+        num:6
       }
     ],
     topicCardList:[
@@ -98,5 +104,13 @@ Page({
         scrollLeft: scrollLeft + tabLeft - 100 // 滚动到选中项（100为居中偏移量，可调整）
       });
     });
+  },
+  // 悬浮按钮点击事件
+  handleFloatBtnClick() {
+    console.log('悬浮按钮被点击');
+    // 可执行跳转、弹窗等操作
+    // 示例：跳转至指定页面
+    // wx.navigateTo({ url: '/pages/add/add' })
   }
 });
+  
