@@ -79,7 +79,8 @@ page {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content:  center;
+    /* justify-content:  center; */
+    justify-content: space-evenly;
 }
 .icon {
     /* display: block; */

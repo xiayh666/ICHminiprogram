@@ -97,14 +97,18 @@ Page({
     });
 
     // 可选：滚动到当前选中的 Tab（优化体验）
+    //:nth-child(${index + 1})
     const query = wx.createSelectorQuery();
-    query.select(`.tab-item:nth-child(${index + 1})`).boundingClientRect();
+    query.selectAll(`.tab-item`).boundingClientRect()
+    query.select('.tab-scroll').boundingClientRect();
     query.select('.tab-scroll').scrollOffset();
+
     query.exec(res => {
-      const tabLeft = res[0].left; // 选中项的左偏移量
-      const scrollLeft = res[1].scrollLeft; // 容器当前滚动位置
+      const tabLeft = res[0][index].left; // 选中项的左偏移量
+      const scrollviewWidth = res[1].width
+      const scrollLeft = res[2].scrollLeft; // 容器当前滚动位置
       this.setData({
-        scrollLeft: scrollLeft + tabLeft - 100 // 滚动到选中项（100为居中偏移量，可调整）
+        scrollLeft: scrollLeft + tabLeft - scrollviewWidth/2 // 滚动到选中项（100为居中偏移量，可调整）
       });
     });
   },

@@ -1,137 +1,213 @@
 // pages/shopping-cart/shopping-cart.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     shopping_cart: {
       items: [
         {
+          id: "a",
           name: "大足石刻树脂冰箱贴",
           price: 68,
           attr: ["红色", "23cm"],
           num: 1,
-          image: ""
+          image: "",
+          selected: true
         },
         {
+          id: "b",
           name: "荣昌夏布围巾",
           price: 158,
           attr: ["蓝色"],
           num: 2,
-          image: ""
+          image: "",
+          selected: true
         },
         {
+          id: "c",
           name: "重启垫江手工绒花",
           price: 259,
           attr: ["蓝色配粉色"],
           num: 1,
-          image: ""
+          image: "",
+          selected: false
         },
         {
+          id: "d",
           name: "荣昌陶茶具",
           price: 280,
           attr: ["原厂紫泥", "250ml"],
           num: 1,
-          image: ""
-        },
-        {
-          name: "大足石刻树脂冰箱贴",
-          price: 68,
-          attr: ["红色", "23cm"],
-          num: 1,
-          image: ""
-        },
-        {
-          name: "大足石刻树脂冰箱贴",
-          price: 68,
-          attr: ["红色", "23cm"],
-          num: 1,
-          image: ""
-        },
-        {
-          name: "大足石刻树脂冰箱贴",
-          price: 68,
-          attr: ["红色", "23cm"],
-          num: 1,
-          image: ""
-        },
-        {
-          name: "大足石刻树脂冰箱贴",
-          price: 68,
-          attr: ["红色", "23cm"],
-          num: 1,
-          image: ""
-        },
-        {
-          name: "大足石刻树脂冰箱贴",
-          price: 68,
-          attr: ["红色", "23cm"],
-          num: 1,
-          image: ""
-        },
+          image: "",
+          selected: false
+        }
       ]
     },
     total: {
-      price: 100,
-      num: 1
-    }
-
+      price: 0,
+      num: 0
+    },
+    allSelected: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.calcTotal();
+    this.checkAllSelected();
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 计算总价和总数量
    */
-  onReady() {
+  calcTotal() {
+    const items = this.data.shopping_cart.items;
+    let totalPrice = 0;
+    let totalNum = 0;
 
+    items.forEach(item => {
+      if (item.selected) {
+        totalPrice += item.price * item.num;
+        totalNum += item.num;
+      }
+    });
+
+
+    this.setData({
+      total: {
+        price: totalPrice,
+        num: totalNum
+      }
+    });
+  },
+
+  /**
+   * 检查是否全选
+   */
+  checkAllSelected() {
+    const items = this.data.shopping_cart.items;
+    const allSelected = items.every(item => item.selected);
+    this.setData({ allSelected });
+  },
+
+  /**
+   * 切换单个商品选中状态
+   */
+  toggleSelect(e) {
+    const id = e.currentTarget.dataset.id;
+    const items = this.data.shopping_cart.items;
+    
+    items.forEach(item => {
+      if (item.id === id) {
+        item.selected = !item.selected;
+      }
+    });
+
+    this.setData({
+      'shopping_cart.items': items
+    });
+
+    this.calcTotal();
+    this.checkAllSelected();
+  },
+
+  /**
+   * 切换全选状态
+   */
+  toggleAllSelect() {
+    // allSelected: bool
+    const allSelected = !this.data.allSelected;
+    const items = this.data.shopping_cart.items;
+    
+    items.forEach(item => {
+      item.selected = allSelected;
+    });
+
+    this.setData({
+      allSelected,
+      'shopping_cart.items': items
+    });
+
+    this.calcTotal();
+  },
+
+  /**
+   * 增加商品数量
+   */
+  increaseNum(e) {
+    const id = e.currentTarget.dataset.id;
+    const items = this.data.shopping_cart.items;
+    
+    items.forEach(item => {
+      if (item.id === id) {
+        item.num++;
+      }
+    });
+
+    this.setData({
+      'shopping_cart.items': items
+    });
+
+    this.calcTotal();
+  },
+
+  /**
+   * 减少商品数量
+   */
+  decreaseNum(e) {
+    const id = e.currentTarget.dataset.id;
+    const items = this.data.shopping_cart.items;
+    
+    items.forEach(item => {
+      if (item.id === id && item.num > 1) {
+        item.num--;
+      }
+    });
+
+    this.setData({
+      'shopping_cart.items': items
+    });
+
+    this.calcTotal();
+  },
+
+  /**
+   * 直接修改数量
+   */
+  changeNum(e) {
+    const id = e.currentTarget.dataset.id;
+    let num = parseInt(e.detail.value);
+    
+    if (isNaN(num) || num < 1) {
+      num = 1;
+    }
+
+    const items = this.data.shopping_cart.items;
+    
+    items.forEach(item => {
+      if (item.id === id) {
+        item.num = num;
+      }
+    });
+
+    this.setData({
+      'shopping_cart.items': items
+    });
+
+    this.calcTotal();
+  },
+
+  /**
+   * 结算（未完善，可能要跳转到结算页面？）
+   */
+  checkout(e) {
+    console.log(e)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+    this.calcTotal();
   }
+
 })

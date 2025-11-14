@@ -1,10 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+<<<<<<< HEAD
     "pages/classification/index",
     "pages/live-stream/index",
     "pages/shopping-cart/index",
     "pages/star/star",
+=======
+    "pages/me_good_more/index",
+    "pages/study_more/index",
+>>>>>>> ace4d367627554649565668d12c90619d3eb1698
     "pages/orderList/index",
     "pages/goods/goods",
     "pages/community/community",
@@ -15,7 +20,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
