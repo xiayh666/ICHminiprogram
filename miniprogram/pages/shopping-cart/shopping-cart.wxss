@@ -40,7 +40,7 @@ page {
     justify-content: center;
 }
 
-.toogle {
+.toggle {
     width: 30rpx;
     height: 30rpx;
     border: 1px solid #a02c2c;
@@ -107,13 +107,13 @@ page {
     height: 100%;
     flex: 10;
 }
-.inc-btn {
+.dec-btn {
 
     border-top-left-radius: 10rpx;
     border-bottom-left-radius: 10rpx;
 }
 
-.dec-btn {
+.inc-btn {
     border-top-right-radius: 10rpx;
     border-bottom-right-radius: 10rpx;
 
