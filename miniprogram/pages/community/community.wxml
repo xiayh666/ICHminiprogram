@@ -37,7 +37,7 @@
         <view class="topic-author">{{item.author}}</view>
         <view class="topic-time">{{item.time}}</view> 
       </view>
-      <view class="topic-tag">{{item.tag}}</view>
+      <view class="{{item.tag !=null ?'topic-tag' : 'topic-tag-null'}}">{{item.tag}}</view>
     </view>
     <view class="topic-title">{{item.title}}</view>
     <view class="topic-desc">{{item.desc}} </view>
@@ -53,13 +53,16 @@
     <!-- 待修改 -->
     <view class="topic-meta">
       <view class="meta-item">
-        <icon type="cart" size="14" color="#999" /> {{item.cart}}
+        <image src="/images/community/购物车.png"></image>
+        <text class="cart">{{item.cart}}</text>
       </view>
       <view class="meta-item">
-        <icon type="search" size="14" color="#999" /> {{item.search}}
+        <icon type="search" size="14" color="#999"  /> 
+        <text class="cart">{{item.search}}</text>
       </view>
       <view class="meta-item">
-        <icon type="cart" size="14" color="#999" /> {{item.cart2}}
+        <image src="/images/community/购物车.png"></image>
+        <text class="cart">{{item.cart2}}</text>
       </view>
     </view>
   </view>
@@ -90,7 +93,7 @@
   <scroll-view scroll-y class="topic-card-list">
     <view class="topic-card" wx:for="{{topicCardList}}" wx:key="id">
       <view class="topic-icon">
-        <icon type="cart" size="20" color="#999" />
+        <image src="{{item.image}}" class="topic-image"/>
       </view>
       <view class="topic-content">
         <view class="topic-name">{{item.name}}</view>

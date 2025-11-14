@@ -8,7 +8,7 @@
 
 /* 标题 */
 .title {
-  font-size: 36rpx;
+  font-size: 38rpx;
   font-weight: bold;
   margin: 30rpx 20rpx;
 }
@@ -40,7 +40,8 @@
 }
 
 .goods-name {
-  font-size: 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
   margin-bottom: 8rpx;
   white-space: nowrap;
   overflow: hidden;
@@ -50,6 +51,7 @@
 .goods-desc {
   font-size: 26rpx;
   color: #666;
+  padding-bottom: 12rpx;
   margin-bottom: 12rpx;
   white-space: nowrap;
   overflow: hidden;
@@ -57,17 +59,17 @@
 }
 
 .goods-price {
-  font-size: 28rpx;
+  font-size: 30rpx;
   color: #e4393c;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .cart-icon {
-  width: 60rpx;
-  height: 60rpx;
+  width: 55rpx;
+  height: 55rpx;
   position: absolute;
   bottom: 16rpx;
-  right: 16rpx;
+  right: 18rpx;
 }
 
 /* 底部导航 */

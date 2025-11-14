@@ -2,40 +2,50 @@
 <view class="custom-nav">
   <view class="user-info">
     <image src="{{userInfo.avatar}}"class="avatar"  mode="widthFix" />
-    <text class="user-tag">{{userInfo.name}}</text>
+    <text class="user-name">{{userInfo.name}}</text>
+    <text class="user-tag">{{userInfo.tag}}</text>
   </view>
   <view class="function">
-  <text>收藏夹</text>
-  <text>优惠卷</text>
-  <text>课程</text>
+  <view class="star">
+    <text class="num">{{functionInfo.starNum}}</text>
+    <text class="text">收藏夹</text>
+  </view>
+  <view class="coupon">
+    <text class="num">{{functionInfo.couponNum}}</text>
+    <text class="text">优惠卷</text>
+  </view>
+  <view class="lesson">
+    <text class="num">{{functionInfo.lessonNum}}</text>
+    <text class="text">课程</text>
+  </view>
   </view>
 </view>
 
 <!-- 订单状态栏 -->
 <view class="order-status">
   <view class="title">
-  <text></text>
+  <text>我的订单</text>
   <navigator url="/pages/orderList/index" class="view-more">全部订单 ></navigator>
   </view>
   <view class="good_information">
   <view class="status-item">
-    <image src="/images/设置.png" class="status-icon" />
+    <image src="/images/me/待付款.png" class="status-icon" />
     <text>待付款</text>
   </view>
   <view class="status-item">
-    <image src="/images/设置.png" class="status-icon" />
+    <image src="/images/me/待发货.png" class="status-icon" />
     <text>待发货</text>
   </view>
   <view class="status-item">
-    <image src="/images/设置.png" class="status-icon" />
+    <image src="/images/me/待收货.png" class="status-icon" />
     <text>待收货</text>
   </view>
   <view class="status-item">
-    <image src="/images/设置.png" class="status-icon" />
+    <image src="/images/me/待评价.png" class="status-icon" />
     <text>待评价</text>
   </view>
   <view class="status-item">
-    <image src="/images/设置.png" class="status-icon" />
+    <image src="/images/me/售后.png" class="status-icon" />
     <text>售后</text>
   </view>
   </view>
@@ -43,51 +53,63 @@
 
 <!-- 功能入口 -->
 <view class="function-list">
+  <view class="function-header">
+    <text>我的服务</text>
+  </view>
+  <view class="item-list">
   <view class="function-item">
-    <image src="/images/设置.png" class="function-icon" />
+    <image src="/images/me/收藏夹.png" class="function-icon" />
     <text>收藏夹</text>
   </view>
   <view class="function-item">
-    <image src="/images/设置.png" class="function-icon" />
+    <image src="/images/me/优惠券.png" class="function-icon" />
     <text>优惠券</text>
   </view>
   <view class="function-item">
-    <image src="/images/设置.png" class="function-icon" />
+    <image src="/images/me/收货地址.png" class="function-icon" />
     <text>收货地址</text>
   </view>
   <view class="function-item">
-    <image src="/images/设置.png" class="function-icon" />
+    <image src="/images/me/售后.png" class="function-icon" />
     <text>客服</text>
   </view>
   <view class="function-item">
-    <image src="/images/设置.png" class="function-icon" />
+    <image src="/images/me/浏览记录.png" class="function-icon" />
     <text>浏览记录</text>
   </view>
   <view class="function-item">
-    <image src="/images/设置.png" class="function-icon" />
+    <image src="/images/me/设置.png" class="function-icon" />
     <text>设置</text>
   </view>
+  </view> 
 </view>
 
 <!-- 非遗商品推荐 -->
 <view class="recommend-section">
   <view class="section-header">
-    <text>非遗商品推荐</text>
-    <navigator url="/pages/me_good_more/index" class="view-more">查看更多 ></navigator>
+    <text>我的收藏</text>
+    <navigator url="/pages/star/star" class="view-more">查看更多 ></navigator>
   </view>
-  <scroll-view scroll-x class="goods-scroll">
-    <view class="goods-item" wx:for="{{goodsList}}" wx:key="id">
-      <image src="{{item.image}}" class="goods-image" />
-      <text class="goods-name">{{item.name}}</text>
+  <scroll-view scroll-x class="star-scroll">
+    <view class="star-item" wx:for="{{goodsList}}" wx:key="id">
+      <image src="{{item.image}}" class="star-image" mode="aspectFill" />
+      <text class="star-name">{{item.name}}</text>
+      <text class="star-price">¥{{item.price}}</text>
     </view>
   </scroll-view>
 </view>
 
 <!-- 优惠券区 -->
 <view class="coupon-section">
+  <view class="coupon-header">
+    <text>我的优惠券</text>
+  </view>
   <view class="coupon-item" wx:for="{{couponList}}" wx:key="id">
-    <view class="coupon-space"></view>
+    <view class="coupon-space">
+    <text>¥{{item.price}}</text>
+    </view>
     <view class="coupon-left">
+      <text class="coupon-name">{{item.name}}</text>
       <text class="coupon-desc">{{item.desc}}</text>
       <text class="coupon-type">{{item.type}}</text>
     </view>
@@ -97,31 +119,3 @@
   </view>
 </view>
 
-<!-- 更多推荐 -->
-<view class="more-section">
-  <view class="section-header">
-    <text></text>
-    <navigator url="/pages/me_good_more/index" class="view-more">更多 ></navigator>
-  </view>
-  <view class="goods-grid">
-    <view class="goods-item" wx:for="{{moreGoodsList}}" wx:key="id">
-      <image src="{{item.image}}" class="goods-image" />
-      <text class="goods-name">{{item.name}}</text>
-    </view>
-  </view>
-</view>
-
-<!-- 更多资源 -->
-<view class="more-section-bottom">
-  <view class="section-header">
-    <text></text>
-    <navigator url="/pages/study_more/index" class="view-more">更多 -></navigator>
-  </view>
-  <view class="study-grid">
-  <view class="study-grid-left">
-    <image src="{{studyInfo.image}}"/>
-    <text>{{studyInfo.memo}}</text>
-  </view>
-  <text class="study-btn">立即查看</text>
-  </view>
-</view>

@@ -1,4 +1,4 @@
-// pages/me_good_more/index.js
+// pages/star/star.js
 Page({
 
   /**

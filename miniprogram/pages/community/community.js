@@ -4,10 +4,10 @@ Page({
     currentTab: 0,  // 记录当前选中的 Tab 索引（默认选中第1项）
     topicList:[
       {avatar:"/images/me/userimg.jpg",
-       author:"刘师傅 · 景德镇陶艺",
+       author:"刘师傅",
        tag:"非遗传承人",
        time:"2小时前",
-       title:"青花瓷的釉下彩技法探讨",
+       title:"夏布探讨",
        desc:"大家好，我想跟各位交流一下青花瓷的釉下彩绘技法。我最近在尝试不同的笔触方法，发现毛笔\
         蘸料后在纸上轻轻吸去多余的水分再作画，能获取更细腻的线条...",
        images:[
@@ -17,14 +17,14 @@ Page({
        search:42,
        cart2:24},
        {avatar:"/images/me/userimg.jpg",
-       author:"刘师傅 · 景德镇陶艺",
-       tag:"非遗传承人",
+       author:"王女士",
+       tag:"",
        time:"2小时前",
-       title:"青花瓷的釉下彩技法探讨",
+       title:"新作品分享",
        desc:"大家好，我想跟各位交流一下青花瓷的釉下彩绘技法。我最近在尝试不同的笔触方法，发现毛笔\
-       蘸料后在纸上轻轻吸去多余的水分再作画，能获取更细腻的线条... ",
+       蘸料后在纸上轻轻吸... ",
        images:[
-        "/images/community/tuanshang.png"
+        "/images/community/布包.png"
      ],
        cart:128,
        search:42,
@@ -32,37 +32,37 @@ Page({
     ],
     craftsmanList:[
       {
-        avatar:"/images/me/userimg.jpg",
+        avatar:"/images/community/avatar1.png",
         name:"刘师傅",
-        tag:"景德镇陶艺",
+        tag:"石柱县夏布",
         num:1
       },
       {
-        avatar:"/images/me/userimg.jpg",
+        avatar:"/images/community/avatar2.png",
         name:"刘师傅",
-        tag:"景德镇陶艺",
+        tag:"布包艺人",
         num:2
       },
       {
-        avatar:"/images/me/userimg.jpg",
+        avatar:"/images/community/avatar3.png",
         name:"刘师傅",
-        tag:"景德镇陶艺",
+        tag:"蓝印夏布",
         num:3
       },
       {
-        avatar:"/images/me/userimg.jpg",
+        avatar:"/images/community/avatar4.png",
         name:"刘师傅",
-        tag:"景德镇陶艺",
+        tag:"夏布制作",
         num:4
       },
       {
-        avatar:"/images/me/userimg.jpg",
+        avatar:"/images/community/avatar4.png",
         name:"刘师傅",
         tag:"景德镇陶艺",
         num:5
       },
       {
-        avatar:"/images/me/userimg.jpg",
+        avatar:"/images/community/avatar4.png",
         name:"刘师傅",
         tag:"景德镇陶艺",
         num:6
@@ -70,17 +70,20 @@ Page({
     ],
     topicCardList:[
       {
-        name:"#端午非遗季",
+        image:"/images/community/购物车空(1).png",
+        name:"#石柱县非遗季",
         meta:"128人讨论 | 32个作品",
         action:"参与"
       },
       {
-        name:"#端午非遗季",
+        image:"/images/community/摄影.png",
+        name:"#传统工艺现代化",
         meta:"128人讨论 | 32个作品",
         action:"参与"
       },
       {
-        name:"#端午非遗季",
+        image:"/images/community/挑战.png",
+        name:"#非遗手作挑战",
         meta:"128人讨论 | 32个作品",
         action:"参与"
       }
