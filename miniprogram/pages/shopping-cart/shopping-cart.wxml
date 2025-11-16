@@ -12,7 +12,7 @@
             </view>
             <view class="good-right">
                 <view class="good-image">
-                    <image src="{{item.image}}" />
+                    <image src="{{item.image}}" class="img" mode="aspectFill"/>
                 </view>
                 <view class="good-details">
                     <view class="good-name">{{item.name}}</view>

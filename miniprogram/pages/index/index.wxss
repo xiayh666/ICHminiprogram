@@ -4,12 +4,30 @@ page {
     background-color: #F8F4E9;
     width: 100%;
     height: 100%;
+    font-size: 20rpx;
+}
+
+.map {
+    width: 100%;
+    height: 600rpx;
+    text-align: center;
+    font-size: 30rpx;
+    padding-top: 30rpx;
+    font-weight: 600;
+    color: #505050;
+
+}
+
+.map>.img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 
 .swiper {
     border-radius: 15rpx;
     border: 1rpx solid rgb(255, 255, 255);
-    height:30vh;
+    height: 30vh;
     margin: 3vw;
     overflow: hidden;
     /* box-shadow: 5rpx 3rpx 10rpx 5rpx rgba(150, 150, 150, .5); */
@@ -18,7 +36,7 @@ page {
 .swiper-wrapper {
     width: 100%;
     height: 100%;
-    
+
 }
 
 
@@ -29,7 +47,8 @@ page {
 }
 
 .search {
-    height: 5vh;
+    display: flex;
+    height: 50rpx;
     background-color: rgba(250, 250, 250, .8);
     margin-top: 10rpx;
     margin-left: 5vw;
@@ -37,44 +56,74 @@ page {
     /* box-shadow: 5rpx 3rpx 10rpx 2rpx rgba(150, 150, 150, .3); */
     border: 1rpx solid rgb(255, 255, 255);
     border-radius: 5vh;
+    align-items: center;
 }
 
 .search-left {
-    display: inline-block;
-    height: 4vh;
-    width: 4vh;
+    display: flex;
+    width: 30rpx;
+    height: 30rpx;
+    /* height: 4vh;
+    width: 30rpx; */
 
 }
+
+.search-left>.img {
+    height: 100%;
+
+}
+
+
 .search-right {
-    display: inline-block;
-    line-height: 5vh;
-    font-size: 2vh;
+    /* display: inline-block; */
+    /* line-height: 5vh; */
+    font-size: 20rpx;
     color: rgba(0, 0, 0, .4);
+    height: 100%;
 }
 
 
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+    margin-top: 30rpx;
+}
+
+.section-header text {
+    font-size: 40rpx;
+    margin-left: 10rpx;
+    /* font-weight: bold; */
+}
+
+.section-header .more {
+    margin-right: 10rpx;
+    margin-left: auto;
+    width: 90rpx;
+    /* height: 60rpx; */
+}
 
 .more-bar {
     display: flex;
     justify-content: space-between;
     margin-top: 50rpx;
     margin-right: 50rpx;
-    margin-left: 20rpx;
+    /* margin-left: 20rpx; */
 }
 
 
-.more-bar > .left {
+.more-bar>.left {
     display: inline-block;
-    font-weight: bold;
     font-size: larger;
 }
 
-.more-bar > .right {
+.more-bar>.right {
     display: inline-block;
     font-size: 2vh;
     text-align: right;
     color: rgba(0, 0, 0, .6);
 }
+
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -82,6 +131,7 @@ page {
     /* justify-content:  center; */
     justify-content: space-evenly;
 }
+
 .icon {
     /* display: block; */
     /* margin: 0 auto; */
@@ -90,6 +140,7 @@ page {
     width: 17vw;
     height: 17vw;
 }
+
 .menu-item {
     text-align: center;
     width: 25vw;
@@ -98,53 +149,136 @@ page {
 
 }
 
-.suggestion-goods {
+.suggestion-goods{
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+}
+
+.goods {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
 }
 
 .card-image {
     width: 100%;
+    height: 180rpx;
+}
+
+.suggestion-card > .details {
+    height: 120rpx;
+    background-color: white;
 }
 
 .suggestion-card {
     /* border: 5rpx solid black; */
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin: 10rpx;
     width: 45vw;
-    height: 60vw;
+    height: 300rpx;
     overflow: hidden;
     border-radius: 20rpx;
 }
 
+.card-name {
+    font-weight: 550;
+    color: #505050;
+    font-size: 25rpx;
+    margin-left: 10rpx;
+    margin-top: 10rpx;
+}
 
-.suggestion-courses {
+.card-desc {
+    margin-left: 12rpx;
+    margin-bottom: 12rpx;
+    color: rgb(117, 117, 117);
+}
+
+.card-price {
+    color: #a02c2c;
+    font-size: 25rpx;
+    margin-left: 10rpx;
+
+}
+
+/* .suggestion-courses {
     display: flex;
     overflow-x: scroll;
     margin-left: 20rpx;
 }
+
 .suggestion-courses .suggestion-card {
     flex-shrink: 0;
     width: 35vw;
     height: 50vw;
+} */
+
+.reservation {
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    
 }
 
-.suggestion-craftman {
+
+.suggestion-course {
+    display: flex;
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
     background-color: white;
-    margin: 20rpx;
     padding: 5rpx;
     border-radius: 15rpx;
+
 }
-.suggestion-craftman > .avatar {
+
+.suggestion-course>.avatar {
     width: 20vw;
     height: 20vw;
-    border: 2px solid red;
-    border-radius: 15rpx;
+    /* border: 2px solid red; */
+    /* border-radius: 15rpx; */
     margin: 10px;
 }
-.suggestion-craftman > .avatar > image {
+
+.suggestion-course>.avatar>image {
     width: 100%;
     height: 100%;
-    border-radius: 15rpx;
+    /* border-radius: 15rpx; */
+}
+
+.suggestion-course > .details {
+    margin-left: 10rpx;
+    position: relative;
+}
+
+.suggestion-course > .details > .course-name {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #505050;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+.suggestion-course > .details > .course-desc {
+    color: #b2b2b2;
+}
+
+.suggestion-course > .details > .learn-more {
+    color: #a02c2c;
+    font-size: 25rpx;
+}
+
+.suggestion-course > .details > .course-tag {
+    color: #a02c2c;
+    background-color: #F8F4E9;
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    padding: 10rpx;
+    border-radius: 10rpx;
+}
+
+
+.bottom {
+    height: 60rpx;
 }
