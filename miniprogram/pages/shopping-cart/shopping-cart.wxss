@@ -7,46 +7,70 @@ page {
     height: 100%;
     font-size: 30rpx;
 }
+
 .text {
     display: inline;
 }
-.shopping-cart-list {
 
-}
+.shopping-cart-list {}
 
 .functional-bar {
-    display: flex;    
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 
-.functional-bar > .right {
+.functional-bar>.right {
     margin-right: 36rpx;
 }
 
 .good {
     display: flex;
-    background-color: white;    
+    background-color: white;
     border-radius: 30rpx;
     padding: 20rpx;
     margin: 25rpx;
 }
 
 
-.good-left{
+.good-left {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .toggle {
-    width: 30rpx;
-    height: 30rpx;
-    border: 1px solid #a02c2c;
-    border-radius: 30px;
+    width: 36rpx;
+    height: 36rpx;
+    border: 2rpx solid #a02c2c;
+    border-radius: 50%;
     margin: 15rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
 }
+
+.toggle.selected {
+    background-color: #a02c2c;
+    border-color: #a02c2c;
+}
+
+/* 对勾 */
+.toggle.selected::after {
+    top: 4rpx;
+    content: "";
+    position: absolute;
+    width: 12rpx;
+    height: 22rpx;
+    border: 2rpx solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+}
+
 .good-right {
     display: flex;
     width: 100%;
@@ -57,8 +81,9 @@ page {
     margin-left: 15rpx;
     height: 100%;
 }
+
 .good-image {
-    display:flex; 
+    display: flex;
     width: 120rpx;
     height: 120rpx;
     border: 1px solid red;
@@ -68,7 +93,8 @@ page {
     /* 先用border 标明位置，以后改成图标 */
 
 }
-.good-image > .img {
+
+.good-image>.img {
     height: auto;
     max-width: 100%;
     border-radius: inherit;
@@ -81,6 +107,7 @@ page {
     height: 100%;
     width: 100%;
 }
+
 .good-name {
     font-size: 4vw;
 }
@@ -105,15 +132,18 @@ page {
     height: 60rpx;
     line-height: 60rpx;
     text-align: center;
-    
+
     right: 30rpx;
 }
-.inc-btn, .dec-btn{
-    
+
+.inc-btn,
+.dec-btn {
+
     border: 1rpx solid rgb(193, 193, 193);
     height: 100%;
     flex: 10;
 }
+
 .dec-btn {
 
     border-top-left-radius: 10rpx;
@@ -125,12 +155,13 @@ page {
     border-bottom-right-radius: 10rpx;
 
 }
-.good-num > .val {
+
+.good-num>.val {
     flex: 9;
     border-top: 1rpx solid rgb(193, 193, 193);
     border-bottom: 1rpx solid rgb(193, 193, 193);
     height: 100%;
-    
+
 
 }
 
@@ -139,6 +170,7 @@ page {
     height: 80rpx;
 
 }
+
 .left {
     display: flex;
     flex-direction: row;
@@ -162,17 +194,19 @@ page {
     border-top: 1px solid rgba(0, 0, 0, .2);
     background-color: white;
 }
-.bottom-bar > .left {
+
+.bottom-bar>.left {
     margin: 10rpx;
     margin-left: 20rpx;
 }
-.bottom-bar > .right {
+
+.bottom-bar>.right {
     align-items: center;
     margin: 10rpx;
     margin-right: 20rpx;
 }
 
-.total > .text{
+.total>.text {
     color: #a02c2c;
     font-size: 40rpx;
     font-weight: bold;
@@ -181,14 +215,10 @@ page {
 
 .checkout {
     background-color: #a02c2c;
-    border-radius: 60rpx ;
+    border-radius: 60rpx;
     width: 150rpx;
     color: white;
     height: 80rpx;
     text-align: center;
     font-size: 26rpx;
 }
-
-
-
-
