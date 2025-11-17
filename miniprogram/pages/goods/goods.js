@@ -32,6 +32,18 @@ Page({
     ]
   },
 
+  gotoGoodsDetial: function () {
+
+
+
+  },
+  toGoodsDetail(e) {
+    const goodsId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/goods/goods-detail/goods-detail?id=${goodsId}`
+    });
+  },
+
   onLoad: function () {
   }
 })

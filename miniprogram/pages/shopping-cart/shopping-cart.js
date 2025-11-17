@@ -1,5 +1,10 @@
 // pages/shopping-cart/shopping-cart.js
+
 // cloud://xiayh-6gep3q1aa40cc550.7869-xiayh-6gep3q1aa40cc550-1386130600/358 180 swiper.png 
+
+let app =  getApp();
+
+  
 Page({
   data: {
     shopping_cart: {
@@ -56,7 +61,7 @@ Page({
     this.calcTotal();
     this.checkAllSelected();
     let items = this.data.shopping_cart.items
-    items[0].image = "cloud://xiayh-6gep3q1aa40cc550.7869-xiayh-6gep3q1aa40cc550-1386130600/358 180 swiper.png"
+    items[0].image = app.getAsset("/images/老虎.png")
     this.setData({"shopping_cart.items": items})
   },
 

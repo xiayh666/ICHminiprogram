@@ -94,7 +94,7 @@ Page({
         title: "线上线下预约通道",
         destination: ""
       }
-      
+
     },
     search_icon: app.getAsset("/icons/搜索.png"),
     map: {
@@ -123,14 +123,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.cloud) {
-      app.DataBase.db.collection("goods").limit(4).get().then((res)=> {
-        console.log(res)
-        this.setData({
-          "suggestions.goods.items": res.data
-        })
+    app.DataBase.collection("goods").limit(4).get().then((res) => {
+      this.setData({
+        "suggestions.goods.items": res.data
       })
-    }
+    })
 
     // this.setData({
     //   "swiper_images": this.getSwiperImages(),
