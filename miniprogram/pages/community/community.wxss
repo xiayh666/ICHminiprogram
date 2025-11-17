@@ -121,7 +121,7 @@ page {
 .topic-desc {
   font-size: 28rpx;
   color: #666;
-  /* margin-bottom: 8rpx; */
+  margin-bottom: 25rpx;
   line-height: 1.5;
 }
 .topic-images {
@@ -130,48 +130,84 @@ page {
   gap: 8rpx;
   overflow: hidden;
   border-bottom: solid 1rpx #999;
+  height: 340rpx;
+  padding-bottom: 10rpx;
+  /* background-color: aqua; */
 }
-/* 1张图样式 */
-.one-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400rpx;
+
+/* 1张图：全屏宽度，自适应高度 */
+.img-single {
+  width: 100%;
+  height: 98%;
 }
-.one-img image {
-  width: 98%;
-  height: 80%;
-}
-/* 3张图样式 */
-.three-imgs {
-  display: grid !important; /* 强制覆盖任何冲突样式 */
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  height: 400rpx;
-}
-.img-1 {
-  grid-area: 1 / 1 / 3 / 2;
+.img-single image {
   width: 100%;
   height: 100%;
+  border-radius: 20rpx;
 }
-.img-2, .img-3 {
+
+/* 网格布局基础样式 */
+.img-grid {
+  display: flex;
+  flex-wrap: wrap; /* 自动换行 */
+  gap: 8rpx; /* 图片间距 */
+}
+.img-grid image {
+  border-radius: 20rpx;
+  object-fit: cover; /* 裁剪填充，避免变形 */
+}
+
+/* 2列布局（2张/4张） */
+.img-grid-2 image {
+  width: calc(50% - 4rpx); /* 减去一半的间距 */
+  height: 240rpx; /* 固定高度，或用aspect-ratio */
+}
+
+/* 3列布局（3张/≥5张） */
+/* 3张图容器：左右分栏 */
+.img-3-container {
+  display: flex;
   width: 100%;
+  gap: 8rpx; /* 左右两栏间距 */
+  box-sizing: border-box;
   height: 100%;
 }
-/* 2/4张图样式 */
-.few-imgs {
-  display: flex;
-  flex-wrap: wrap;
-  height: 400rpx;
+
+/* 左侧容器：占2/3宽度，内部上下排列 */
+.img-3-left {
+  width: 54%; /* 左侧宽度略大于右侧，视觉更平衡 */
 }
-.few-imgs image {
-  flex: 1;
-  min-width: calc((100% - 8rpx) / 2);
-  height: calc((100% - 8rpx) / 2);
+
+/* 右侧容器：占1/3宽度，高度与左侧总高度一致 */
+.img-3-right {
+  width: 46%;
+  display: flex;
+  flex-direction: column; /* 上下排列 */
+  gap: 8rpx; /* 左侧两张图间距 */
+  height: 100%;
+}
+
+/* 左侧两张图：各占左侧容器高度的50%（总高度=右侧单张高度） */
+.img-3-left .img-3-item {
+  width: 100%;
+  height: 100%; /* 占满右侧容器高度 */
   object-fit: cover;
+  border-top-left-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
 }
-.flex-img {
-  border-radius: 8rpx;
+
+/* 右侧单张图：高度=左侧容器总高度（即与左侧两张图总高度相等） */
+.img-3-right .img-3-item-1 {
+  width: 100%;
+  height: 50%; /* 此时父元素（.img-3-left）高度已明确（=父容器高度），50%生效 */
+  object-fit: cover;
+  border-top-right-radius: 20rpx;
+}
+.img-3-right .img-3-item-2 {
+  width: 100%;
+  height: 50%; /* 此时父元素（.img-3-left）高度已明确（=父容器高度），50%生效 */
+  object-fit: cover;
+  border-bottom-right-radius: 20rpx;
 }
 
 .topic-meta {

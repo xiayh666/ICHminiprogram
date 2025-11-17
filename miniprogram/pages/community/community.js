@@ -11,7 +11,9 @@ Page({
        desc:"大家好，我想跟各位交流一下青花瓷的釉下彩绘技法。我最近在尝试不同的笔触方法，发现毛笔\
         蘸料后在纸上轻轻吸去多余的水分再作画，能获取更细腻的线条...",
        images:[
-         "/images/community/picture.png"
+         "/images/community/花2.png",
+         "/images/community/花1.png",
+         "/images/community/花2.png"
       ],
        cart:128,
        search:42,

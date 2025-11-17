@@ -42,15 +42,38 @@
     <view class="topic-title">{{item.title}}</view>
     <view class="topic-desc">{{item.desc}} </view>
     <!-- 待修改 -->
-    <view class="topic-images {{item.images.length === 1 ? 'one-img' : (item.images.length === 3 ? 'three-imgs' : (item.images.length <= 4 ? 'few-imgs' : 'many-imgs'))}}">
-    <image 
-      wx:for="{{item.images}}" 
-      wx:key="*this" 
-      src="{{item}}" 
-      class="flex-img {{item.images.length === 3 ? 'img-' + (index + 1) : ''}}"
-    ></image>
+    <view class="topic-images">
+    <!-- 1张图 -->
+    <view wx:if="{{ item.images.length === 1 }}" class="img-single">
+      <image src="{{ item.images[0] }}" ></image>
     </view>
-    <!-- 待修改 -->
+  
+    <!-- 2张或4张图（2列） -->
+    <view wx:elif="{{ item.images.length === 2 || item.images.length === 4 }}"   class="img-grid img-grid-2">
+      <image 
+        wx:for="{{ item.images }}" 
+        wx:key="index" 
+        src="{{ item }}" 
+        mode="aspectFill"
+      ></image>
+    </view>
+
+      <!-- 3张图 -->
+      <!-- 3张图：左2右1布局 -->
+    <view wx:elif="{{ item.images.length === 3 }}" class="img-3-container">
+      <!-- 左侧：2张图（上下排列） -->
+      <view class="img-3-left">
+        <image src="{{ item.images[0] }}" mode="aspectFill" class="img-3-item"></image>
+       
+      </view>
+      <!-- 右侧：1张图（占满高度） -->
+      <view class="img-3-right">
+        <image src="{{ item.images[1] }}" mode="aspectFill"     class="img-3-item-1"></image>
+        <image src="{{ item.images[2] }}" mode="aspectFill"     class="img-3-item-2"></image>
+      </view>
+    </view>
+    </view>
+        <!-- 待修改 -->
     <view class="topic-meta">
       <view class="meta-item">
         <image src="/images/community/购物车.png"></image>
