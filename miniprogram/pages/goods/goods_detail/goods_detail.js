@@ -6,6 +6,77 @@
 // ]
 
 let app = getApp();
+let data = {
+  search_icon: app.getAsset("/icons/搜索.png"),
+  map: {
+    image: app.getAsset("/images/地图.png")
+  },
+  swiper_images: [],
+  menu: {
+    entries: [
+      {
+        id: "shop",
+        name: "非遗商城",
+        icon: "/images/index/56 56非遗商城.png"
+      },
+      {
+        id: "course",
+        name: "名师课堂",
+        icon: "/images/index/56 56名师课堂.png"
+      },
+      {
+        id: "livestream",
+        name: "直播教学",
+        icon: "/images/index/56 56直播教学.png"
+      },
+      // {
+      //   id: "explore",
+      //   name: "文化探索",
+      //   icon: "/images/index/56 56文化探索.png"
+      // }
+    ]
+  },
+  suggestions: {
+    goods: {
+      more: {
+      },
+      items: []
+    },
+
+    courses: {
+      more: {
+        title: "传承学院",
+        destination: ""
+      },
+      items: [
+        {
+          name: "苏州手工丝绸团扇",
+          image: "/images/index/173 200团扇.png"
+        },
+        {
+          name: "景德镇青花瓷茶具",
+          image: "/images/index/173 200茶具.png"
+        },
+        {
+          name: "云南扎染丝巾",
+          image: "/images/index/173 200扎染丝巾.png"
+        },
+        {
+          name: "宜兴紫砂壶",
+          image: "/images/index/173 200紫砂壶.png"
+        }
+      ]
+    },
+
+    craftman: {
+      more: {
+        title: "线上线下预约通道",
+        destination: ""
+      },
+      avatar: app.getAsset("/images/头像.png")
+    }
+  }
+}
 
 
 Page({
@@ -14,8 +85,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    app: app,
-    animation: "anim-disable",
     more: {
       goods: {
         title: "匠心之选 非遗好物",
@@ -25,7 +94,7 @@ Page({
         title: "线上线下预约通道",
         destination: ""
       }
-
+      
     },
     search_icon: app.getAsset("/icons/搜索.png"),
     map: {
@@ -54,24 +123,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.DataBase.collection("goods").limit(4).get().then((res) => {
-      this.setData({
-        "suggestions.goods.items": res.data
-      }, () => {
+    if (app.globalData.cloud) {
+      app.DataBase.db.collection("goods").limit(4).get().then((res)=> {
+        console.log(res)
+        this.setData({
+          "suggestions.goods.items": res.data
+        })
       })
-    })
+    }
 
     // this.setData({
     //   "swiper_images": this.getSwiperImages(),
     //   "search_icon": "/images/index/20 20 search.png"
     // })
 
-  },
-  onImageLoad(e) {
-    console.log(e)
-    this.setData({
-      animation: "anim-active"
-    })
   },
 
   /**

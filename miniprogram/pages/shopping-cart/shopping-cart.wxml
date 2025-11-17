@@ -2,17 +2,17 @@
 <view class="shopping-cart-list-container">
     <view class="functional-bar">
         <view class="left">
-            <image class="toggle" src="" bind:tap="toggleAllSelect"/>全选</view>
+            <image class="toggle {{allSelected ? 'selected' : ''}}" src="" bind:tap="toggleAllSelect"/>全选</view>
         <view class="right">管理</view>
     </view>
     <view class="shopping-cart-list">
         <view wx:for="{{shopping_cart.items}}" class="good" data-id="{{item.id}}">
             <view class="good-left">
-                <image class="toggle" src="" bind:tap="toggleSelect" data-id="{{item.id}}"/>
+                <image class="toggle {{item.selected ? 'selected' : ''}}" src="" bind:tap="toggleSelect" data-id="{{item.id}}"/>
             </view>
             <view class="good-right">
                 <view class="good-image">
-                    <image src="{{item.image}}" />
+                    <image src="{{item.image}}" class="img" mode="aspectFill"/>
                 </view>
                 <view class="good-details">
                     <view class="good-name">{{item.name}}</view>
@@ -31,7 +31,7 @@
 <view class="suggestions"></view>
 <view class="bottem-of-page"></view>
 <view class="bottom-bar">
-    <view class="left"><image class="toggle" src="" bind:tap="toggleAllSelect" />全选</view>
+    <view class="left"><image class="toggle {{allSelected ? 'selected' : ''}}" src="" bind:tap="toggleAllSelect" />全选</view>
     <view class="right">
         <view class="total">
             合计：

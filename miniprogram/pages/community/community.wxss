@@ -3,6 +3,7 @@
 page {
   background-color: #F8F4E9;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30rpx;
 }
 /* 搜索栏 */
 .search-bar {

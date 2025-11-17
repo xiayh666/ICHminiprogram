@@ -41,7 +41,6 @@
     </view>
     <view class="topic-title">{{item.title}}</view>
     <view class="topic-desc">{{item.desc}} </view>
-    <!-- 待修改 -->
     <view class="topic-images">
     <!-- 1张图 -->
     <view wx:if="{{ item.images.length === 1 }}" class="img-single">
@@ -57,9 +56,8 @@
         mode="aspectFill"
       ></image>
     </view>
-
-      <!-- 3张图 -->
-      <!-- 3张图：左2右1布局 -->
+    <!-- 3张图 -->
+    <!-- 3张图：左2右1布局 -->
     <view wx:elif="{{ item.images.length === 3 }}" class="img-3-container">
       <!-- 左侧：2张图（上下排列） -->
       <view class="img-3-left">
@@ -73,10 +71,9 @@
       </view>
     </view>
     </view>
-        <!-- 待修改 -->
     <view class="topic-meta">
       <view class="meta-item">
-        <image src="/images/community/购物车.png"></image>
+        <image src="{{shoppingCart}}"></image>
         <text class="cart">{{item.cart}}</text>
       </view>
       <view class="meta-item">
@@ -84,7 +81,7 @@
         <text class="cart">{{item.search}}</text>
       </view>
       <view class="meta-item">
-        <image src="/images/community/购物车.png"></image>
+        <image src="{{shoppingCart}}"></image>
         <text class="cart">{{item.cart2}}</text>
       </view>
     </view>
@@ -96,7 +93,7 @@
 <view class="craftsman-section">
   <view class="section-header">
     <text>活跃匠人</text>
-    <image src="/images/community/more.png" class="more" mode="widthFix"/>
+    <image src="{{more}}" class="more" mode="widthFix"/>
   </view>
   <scroll-view scroll-x class="craftsman-list-scroll">
     <view class="craftsman-item" wx:for="{{craftsmanList}}" wx:key="id">
@@ -130,5 +127,5 @@
 <!-- 悬浮按钮 -->
 <view class="float-btn" bindtap="handleFloatBtnClick">
   <!-- 可替换为图标或文字 -->
-  <image src="/images/community/加号.png" />
+  <image src="{{plus}}" />
 </view>
