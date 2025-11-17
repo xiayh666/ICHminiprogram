@@ -24,19 +24,19 @@
     </view>
 </view> -->
 <!-- 首页地图 -->
-<view class="map">
+<view class="map fade-in-item">
     重庆非遗工坊地图
     <image class="img" src="{{map.image}}" />
 </view>
 <!-- 推荐内容(商品) -->
 <view class="suggestion-goods">
-    <view class="section-header">
+    <view class="section-header fade-in-item">
         <text>{{more.goods.title}}</text>
         <image src="/images/community/more.png" class="more" mode="widthFix" />
     </view>
     <view class="goods">
-        <view class="suggestion-card" wx:for="{{suggestions.goods.items}}">
-            <image class="card-image" src="{{item.image}}" />
+        <view class="suggestion-card fade-in-item {{animation}}" wx:for="{{suggestions.goods.items}}">
+            <image class="card-image" src="{{item.image}}" bindload="onImageLoad"/>
             <view class="details">
                 <view class="card-name">{{item.name}}</view>
                 <view class="card-desc">{{item.desc}}</view>

@@ -18,6 +18,7 @@ App({
       if(this.globalData.cloud) {
         return this.globalData.cloud_path + "/assets" + url
       } else { 
+        console.log(url)
         return storage.get(url)
       }
     }

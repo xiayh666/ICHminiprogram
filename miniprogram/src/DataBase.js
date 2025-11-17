@@ -1,31 +1,32 @@
 /**
  * DataBase.js 替换微信云开发的云数据库功能
  */
-
+import { storage } from "Storage";
+var asset = (url) => storage.get(url) 
 
 let goodsList = [
     {
         name: "夏布老虎玩偶",
-        image: "cloud://xiayh-6gep3q1aa40cc550.7869-xiayh-6gep3q1aa40cc550-1386130600/assets/images/老虎.png",
+        image: asset("/images/老虎.png"),
         price: 80.0,
         desc: "大师手作 传世收藏"
     },
     {
         name: "夏布围巾",
         desc: "传统工艺 手绘青花",
-        image: "cloud://xiayh-6gep3q1aa40cc550.7869-xiayh-6gep3q1aa40cc550-1386130600/assets/images/围巾.png",
+        image: asset("/images/围巾.png"),
         price: 158.0
     },
     {
         name: "夏布手提包",
         desc: "百年工艺 夏日清凉",
-        image: "cloud://xiayh-6gep3q1aa40cc550.7869-xiayh-6gep3q1aa40cc550-1386130600/assets/images/手提包.png",
+        image: asset("/images/手提包.png"),
         price: 67.0
     },
     {
         name: "夏布胸花",
         desc: "天然植物染色 手工制作",
-        image: "cloud://xiayh-6gep3q1aa40cc550.7869-xiayh-6gep3q1aa40cc550-1386130600/assets/images/胸花.png",
+        image: asset("/images/胸花.png"),
         price: 59.0
 
     }
