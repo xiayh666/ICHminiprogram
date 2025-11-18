@@ -63,4 +63,8 @@
 </view>
 
 <!-- 发布按钮 -->
-<view class="publish-btn" bindtap="goPublish">+</view>
+<!-- 悬浮按钮 -->
+<view class="float-btn" bindtap="handleFloatBtnClick">
+  <!-- 可替换为图标或文字 -->
+  <image src="{{plus}}" />
+</view>

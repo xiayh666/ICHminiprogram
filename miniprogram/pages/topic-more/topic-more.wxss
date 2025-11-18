@@ -187,3 +187,29 @@ page {
 .meta-item icon{
   margin-right: 4rpx;
 }
+
+.float-btn {
+  position: fixed;
+  right: 30rpx;
+  bottom: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 0.9;
+}
+
+.float-btn:active {
+  opacity: 1;
+  transform: scale(0.95);
+}
+.float-btn image{
+  position: absolute;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  right: 10rpx;
+}
+

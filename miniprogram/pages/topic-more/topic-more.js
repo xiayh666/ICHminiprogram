@@ -2,6 +2,7 @@
 import { storage } from '../../src/Storage.js';
 Page({
   data: {
+    plus:storage.get('/images/加号.png'),
     shoppingCart:storage.get('/images/购物车.png'),
     topicList:[
       {avatar:storage.get('/images/avatar1.png'),
