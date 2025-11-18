@@ -1,43 +1,11 @@
+let app =  getApp();
+
+  
 Page({
   data: {
-    goodsList: [
-      {
-        id: 1,
-        img: "/images/goods/手提包.png",
-        name: "夏布手提包",
-        desc: "百年工艺 夏日清凉",
-        price: 68
-      },
-      {
-        id: 2,
-        img: "/images/goods/围巾.png",
-        name: "夏布围巾",
-        desc: "传统工艺手绘青花",
-        price: 158
-      },
-      {
-        id: 3,
-        img: "/images/goods/胸花.png",
-        name: "夏布胸花",
-        desc: "天然植物染色 手工制作",
-        price: 259
-      },
-      {
-        id: 4,
-        img: "/images/goods/玩偶.png",
-        name: "夏布老虎玩偶",
-        desc: "大师手作 传世收藏",
-        price: 280
-      }
-    ]
   },
 
-  gotoGoodsDetial: function () {
-
-
-
-  },
-  toGoodsDetail(e) {
+  gotoGoodsDetail(e) {
     const goodsId = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: `/pages/goods/goods-detail/goods-detail?id=${goodsId}`
@@ -45,5 +13,8 @@ Page({
   },
 
   onLoad: function () {
+    app.DataBase.collection("goods").get().then(res=>{
+      this.setData({goodsList: res.data})
+    })
   }
 })

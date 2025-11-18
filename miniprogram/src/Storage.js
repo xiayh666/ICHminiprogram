@@ -1,28 +1,51 @@
 /**
  * Storage.js 替换微信云开发的云存储功能
+ * 其实这是个模仿文件系统的类，但是这样确实有点多余了，暂时用不到
+ * 使用方法：
+ * 对象 -> 文件夹
+ * 数据 -> 文件 
+ * data 相当于根目录
+ * data 的属性如果是一个对象，则代表是一个文件夹 举例:
+ *   data = {
+ *      icons: {},
+ *      images: {
+ *          "file1.txt": "123",
+ *          "file2.txt": "hello world"
+ *      }
+ *   }
+ * 上述结构代表根目录下有两个文件夹：icons 和 images, 其中 icons 为空文件夹，images 里有file1 和 file2两个文件
+ * file1 的内容是 "123"
+ * file2 的内容是 "hello world"
+ * 然后就可以通过 storage.get 通过路径获取到“文件”, 比如:
+ * storage.get("/images/file1.txt") 
+ * 
+ * 当然，这样的实质性作用并不大，只是文件系统更方便理解罢了
+ * 
  */
+
+
 const data = {
     icons: {
 
     },
     images: {
-        "围巾.png": "https://i.postimg.cc/k4L8L1sr/wei-jin.png",
-        "地图.png": "https://i.postimg.cc/Y9vYnK1x/de-tu.png",
-        "头像.png":"https://i.postimg.cc/V62M2GRh/tou-xiang.png",
-        "头像 (2).png": "https://i.postimg.cc/KzCLCqN0/tou-xiang-(2).png",
-        "头像 (3).png": "https://i.postimg.cc/vBC9Cqzq/tou-xiang-(3).png",
-        "头像 (4).png": "https://i.postimg.cc/26gvgcwX/tou-xiang-(4).png",
-        "头像 (5).png": "https://i.postimg.cc/1tb6bCHj/tou-xiang-(5).png",
-        "手提包.png": "https://i.postimg.cc/gJ1R1SDt/shou-ti-bao.png",
-        "老虎.png": "https://i.postimg.cc/MTgRgPDs/lao-hu.png",
-        "胸花.png": "https://i.postimg.cc/3RzpzS1x/xiong-hua.png",
-        "胸花 (2).png": "https://i.postimg.cc/G26Y67Kw/xiong-hua-(2).png",
-        "胸花 (3).png": "https://i.postimg.cc/76j7js9k/xiong-hua-(3).png",
-        "胸花 (4).png": "https://i.postimg.cc/FRwcwWph/xiong-hua-(4).png",
-        "购物车围巾.png": "https://i.postimg.cc/nzXBRbv6/gou-wu-che-wei-jin.png",
-        "购物车手提包.png": "https://i.postimg.cc/hjXTyWLF/gou-wu-che-shou-ti-bao.png",
-        "购物车老虎.png": "https://i.postimg.cc/k42K13xH/gou-wu-che-lao-hu.png",
-        "购物车胸花.png": "https://i.postimg.cc/j5DPg0z9/gou-wu-che-xiong-hua.png",
+        "围巾.png": "https://youke1.picui.cn/s1/2025/11/18/691bf4a8578b1.png",
+        "地图.png": "https://youke1.picui.cn/s1/2025/11/18/691bf433ec4ac.png",
+        "头像.png":"https://youke1.picui.cn/s1/2025/11/18/691bf4a69f3ab.png",
+        "头像 (2).png": "https://youke1.picui.cn/s1/2025/11/18/691bf4673d306.png",
+        "头像 (3).png": "https://youke1.picui.cn/s1/2025/11/18/691bf4670dcb1.png",
+        "头像 (4).png": "https://youke1.picui.cn/s1/2025/11/18/691bf4a5dc71b.png",
+        "头像 (5).png": "https://youke1.picui.cn/s1/2025/11/18/691bf4a68ab93.png",
+        "手提包.png": "https://youke1.picui.cn/s1/2025/11/18/691bf46861b96.png",
+        "老虎.png": "https://youke1.picui.cn/s1/2025/11/18/691bf467b80b5.png",
+        "胸花.png": "https://youke1.picui.cn/s1/2025/11/18/691bf4d2371ab.png",
+        "胸花 (2).png": "https://youke1.picui.cn/s1/2025/11/18/691bf4a966870.png",
+        "胸花 (3).png": "https://youke1.picui.cn/s1/2025/11/18/691bf4d23c228.png",
+        "胸花 (4).png": "https://youke1.picui.cn/s1/2025/11/18/691bf4d0ce002.png",
+        "购物车围巾.png": "https://youke1.picui.cn/s1/2025/11/18/691bf432d9fe2.png",
+        "购物车手提包.png": "https://youke1.picui.cn/s1/2025/11/18/691bf432d7698.png",
+        "购物车老虎.png": "https://youke1.picui.cn/s1/2025/11/18/691bf432c37bb.png",
+        "购物车胸花.png": "https://youke1.picui.cn/s1/2025/11/18/691bf467404dc.png",
         "更多.png":"https://youke1.picui.cn/s1/2025/11/17/691b3c6e1bfc3.png",
         "加号.png":"https://youke1.picui.cn/s1/2025/11/17/691b3c6f5178c.png",
         "花1.png":"https://youke1.picui.cn/s1/2025/11/17/691b3c6fb5bcb.png",
