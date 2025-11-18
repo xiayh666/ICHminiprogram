@@ -27,7 +27,7 @@
 <view class="topic-section">
   <view class="section-header">
    <text>热门话题</text>
-   <image src="/images/community/more.png" class="more" mode="widthFix"/>
+   <navigator url="/pages/topic-more/topic-more" class="more"><image src="/images/community/more.png" class="more" mode="widthFix"/></navigator>
   </view>
   <view class="topic-list" wx:for="{{topicList}}" wx:key="id">
   <view class="topic-item">

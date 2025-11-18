@@ -1,0 +1,66 @@
+<!--pages/topic-more/topic-more.wxml-->
+
+<!-- 话题标签 -->
+<view class="tag">#石柱非遗季</view>
+
+<!-- 帖子列表 -->
+<!-- 热门话题列表 -->
+<view class="topic-section">
+  <view class="topic-list" wx:for="{{topicList}}" wx:key="id">
+  <view class="topic-item">
+    <view class="topic-header">
+      <image src="{{item.avatar}}" class="topic-avatar" />
+      <view class="topic-info">
+        <view class="topic-author">{{item.author}}</view>
+        <view class="topic-time">{{item.time}}</view> 
+      </view>
+      <view class="{{item.tag !=null ?'topic-tag' : 'topic-tag-null'}}">{{item.tag}}</view>
+    </view>
+    <view class="topic-title">{{item.title}}</view>
+    <view class="topic-desc">{{item.desc}} </view>
+    <view class="topic-images">
+    <!-- 1张图 -->
+    <view wx:if="{{ item.images.length === 1 }}" class="img-single">
+      <image src="{{ item.images[0] }}" ></image>
+    </view>
+  
+    <!-- 2张或4张图（2列） -->
+    <view wx:elif="{{ item.images.length === 2 || item.images.length === 4 }}"   class="img-grid img-grid-2">
+      <image 
+        wx:for="{{ item.images }}" 
+        wx:key="index" 
+        src="{{ item }}" 
+        mode="aspectFill"
+      ></image>
+    </view>
+    <!-- 3张图 -->
+    <!-- 3张图：左2右1布局 -->
+    <view wx:elif="{{ item.images.length === 3 }}" class="img-3-container">
+      <!-- 左侧：2张图（上下排列） -->
+      <view class="img-3-left">
+        <image src="{{ item.images[0] }}" mode="aspectFill" class="img-3-item"></image>
+       
+      </view>
+      <!-- 右侧：1张图（占满高度） -->
+      <view class="img-3-right">
+        <image src="{{ item.images[1] }}" mode="aspectFill"     class="img-3-item-1"></image>
+        <image src="{{ item.images[2] }}" mode="aspectFill"     class="img-3-item-2"></image>
+      </view>
+    </view>
+    </view>
+    <view class="topic-meta">
+      <view class="meta-item">
+        <image src="{{shoppingCart}}"></image>
+        <text class="cart">{{item.cart}}</text>
+      </view>
+      <view class="meta-item">
+        <icon type="search" size="14" color="#999"  /> 
+        <text class="cart">{{item.search}}</text>
+      </view>
+    </view>
+  </view>
+  </view>
+</view>
+
+<!-- 发布按钮 -->
+<view class="publish-btn" bindtap="goPublish">+</view>

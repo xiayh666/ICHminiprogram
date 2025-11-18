@@ -1,7 +1,20 @@
+import { storage } from '../../src/Storage.js';
+
+
 Page({
   data: {
+    evaluateWait:storage.get('/images/待评价.png'),
+    receiptWait:storage.get('/images/待收货.png'),
+    unpaid:storage.get('/images/待付款.png'),
+    unshipped:storage.get('/images/待发货.png'),
+    afterSale:storage.get('/images/售后.png'),
+    star:storage.get('/images/收藏夹.png'),
+    coupon:storage.get('/images/优惠券.png'),
+    shipAddress:storage.get('/images/收货地址.png'),
+    browsing:storage.get('/images/浏览记录.png'),
+    setting:storage.get('/images/设置.png'),
     userInfo: {
-      avatar: '/images/me/userimg.jpg', // 替换为实际头像路径
+      avatar: storage.get('/images/userimg.png'), // 替换为实际头像路径
       tag: '非遗爱好者',
       name:'张文艺'
     },
@@ -11,10 +24,10 @@ Page({
       lessonNum:3
     },
     goodsList: [
-      { id: 1, image: '/images/me/布包.png', name: '夏布手提包',price:'68' },
-      { id: 2, image: '/images/me/玩偶.png', name: '夏布老虎玩偶',price:'80' },
-      { id: 3, image: '/images/me/围巾.png', name: '夏布围巾',price:'158' },
-      { id: 4, image: '/images/me/围巾.png', name: '宜兴紫砂壶' ,price:'60'}
+      { id: 1, image:storage.get('/images/布包.png'), name: '夏布手提包',price:'68' },
+      { id: 2, image: storage.get('/images/玩偶.png'), name: '夏布老虎玩偶',price:'80' },
+      { id: 3, image: storage.get('/images/围巾1.png'), name: '夏布围巾',price:'158' },
+      { id: 4, image:storage.get('/images/围巾1.png'), name: '宜兴紫砂壶' ,price:'60'}
     ],
     couponList: [
       { id: 1, price:'50',name:'满300元可用',desc: '有效期至2023-12-31', type: '通用券' },

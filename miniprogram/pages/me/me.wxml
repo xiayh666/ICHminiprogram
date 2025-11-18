@@ -29,23 +29,23 @@
   </view>
   <view class="good_information">
   <view class="status-item">
-    <image src="/images/me/待付款.png" class="status-icon" />
+    <image src="{{unpaid}}" class="status-icon" />
     <text>待付款</text>
   </view>
   <view class="status-item">
-    <image src="/images/me/待发货.png" class="status-icon" />
+    <image src="{{unshipped}}" class="status-icon" />
     <text>待发货</text>
   </view>
   <view class="status-item">
-    <image src="/images/me/待收货.png" class="status-icon" />
+    <image src="{{receiptWait}}" class="status-icon" />
     <text>待收货</text>
   </view>
   <view class="status-item">
-    <image src="/images/me/待评价.png" class="status-icon" />
+    <image src="{{evaluateWait}}" class="status-icon" />
     <text>待评价</text>
   </view>
   <view class="status-item">
-    <image src="/images/me/售后.png" class="status-icon" />
+    <image src="{{afterSale}}" class="status-icon" />
     <text>售后</text>
   </view>
   </view>
@@ -58,27 +58,27 @@
   </view>
   <view class="item-list">
   <view class="function-item">
-    <image src="/images/me/收藏夹.png" class="function-icon" />
+    <image src="{{star}}" class="function-icon" />
     <text>收藏夹</text>
   </view>
   <view class="function-item">
-    <image src="/images/me/优惠券.png" class="function-icon" />
+    <image src="{{coupon}}" class="function-icon" />
     <text>优惠券</text>
   </view>
   <view class="function-item">
-    <image src="/images/me/收货地址.png" class="function-icon" />
+    <image src="{{shipAddress}}" class="function-icon" />
     <text>收货地址</text>
   </view>
   <view class="function-item">
-    <image src="/images/me/售后.png" class="function-icon" />
+    <image src="{{afterSale}}" class="function-icon" />
     <text>客服</text>
   </view>
   <view class="function-item">
-    <image src="/images/me/浏览记录.png" class="function-icon" />
+    <image src="{{browsing}}" class="function-icon" />
     <text>浏览记录</text>
   </view>
   <view class="function-item">
-    <image src="/images/me/设置.png" class="function-icon" />
+    <image src="{{setting}}" class="function-icon" />
     <text>设置</text>
   </view>
   </view> 

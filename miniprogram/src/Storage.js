@@ -35,7 +35,20 @@ const data = {
         "摄影.png":"https://youke1.picui.cn/s1/2025/11/17/691b40f2ddc37.png",
         "购物车.png":"https://youke1.picui.cn/s1/2025/11/17/691b40f325637.png",
         "购物车空(1).png":"https://youke1.picui.cn/s1/2025/11/17/691b40f329ed2.png",
-        "挑战.png":"https://youke1.picui.cn/s1/2025/11/17/691b40f308db9.png"
+        "挑战.png":"https://youke1.picui.cn/s1/2025/11/17/691b40f308db9.png",
+        "待评价.png":"https://youke1.picui.cn/s1/2025/11/18/691b48b2951c2.png",
+        "待收货.png":"https://youke1.picui.cn/s1/2025/11/18/691b48b332e44.png",
+        "待付款.png":"https://youke1.picui.cn/s1/2025/11/18/691b48b32454d.png",
+        "待发货.png":"https://youke1.picui.cn/s1/2025/11/18/691b48b33cb6a.png",
+        "userimg.png":"https://youke1.picui.cn/s1/2025/11/18/691b48b33a373.png",
+        "浏览记录.png":"https://youke1.picui.cn/s1/2025/11/18/691b48bdb4982.png",
+        "设置.png":"https://youke1.picui.cn/s1/2025/11/18/691b48be22195.png",
+        "收藏夹.png":"https://youke1.picui.cn/s1/2025/11/18/691b48beb3a55.png",
+        "收货地址.png":"https://youke1.picui.cn/s1/2025/11/18/691b48beb4a37.png",
+        "售后.png":"https://youke1.picui.cn/s1/2025/11/18/691b48bfdbe2a.png",
+        "优惠券.png":"https://youke1.picui.cn/s1/2025/11/18/691b48c5c2ff1.png",
+        "玩偶.png":"https://youke1.picui.cn/s1/2025/11/18/691b48c5c059a.png",
+        "围巾1.png":"https://youke1.picui.cn/s1/2025/11/18/691b48c613a46.png"
     }
 
 }

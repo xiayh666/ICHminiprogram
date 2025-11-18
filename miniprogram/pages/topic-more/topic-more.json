@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "backgroundColor": "#C52E2A",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#C52E2A",
+  "navigationBarTitleText": "非遗论坛",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false
+}
