@@ -36,5 +36,20 @@ Page({
   },
   onLoad() {
     // 页面加载时的初始化逻辑
+  },
+  ToAddress() {
+    console.log('触发跳转收货地址页');
+    wx.navigateTo({
+      url: '/pages/address/address', 
+      success: () => {
+        console.log('跳转成功，已打开地址页');
+      },
+      fail: (err) => {
+        console.error('跳转失败：', err);
+        // 根据错误提示处理：
+        // 1. 若提示 "page not found" → 路径错误或页面未注册
+        // 2. 若提示语法错误 → 地址页代码有问题
+      }
+    });
   }
 })

@@ -1,0 +1,28 @@
+<!--pages/address/adrress.wxml-->
+<!--pages/index1/index1.wxml-->
+
+<!-- 地址列表 -->
+<view class="address-list">
+  <block wx:for="{{addressList}}" wx:key="id">
+    <view class="address-item" bindtap="selectAddress" data-index="{{index}}">
+      <view class="address-info">
+        <view class="address-name-phone">
+          <text class="name">{{item.recipient}}</text>
+          <text class="phone">{{item.phone}}</text>
+          <text class="default-tag" wx:if="{{item.isDefault}}">默认</text>
+        </view>
+        <view class="address-detail">{{item.address}}</view>
+      </view>
+      <view class="address-edit" bindtap="selectAddress" data-index="{{index}}">
+       <image src="{{iconFront}}" class="iconfont" ></image>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 新建地址按钮 -->
+<view class="add-address">
+<button class="add-address-btn" bindtap="createAddress">
+  新建收货地址
+</button>
+</view>

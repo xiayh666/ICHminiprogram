@@ -48,7 +48,8 @@ const data = {
         "售后.png":"https://youke1.picui.cn/s1/2025/11/18/691b48bfdbe2a.png",
         "优惠券.png":"https://youke1.picui.cn/s1/2025/11/18/691b48c5c2ff1.png",
         "玩偶.png":"https://youke1.picui.cn/s1/2025/11/18/691b48c5c059a.png",
-        "围巾1.png":"https://youke1.picui.cn/s1/2025/11/18/691b48c613a46.png"
+        "围巾1.png":"https://youke1.picui.cn/s1/2025/11/18/691b48c613a46.png",
+        "铅笔icon.png":"https://youke1.picui.cn/s1/2025/11/19/691d34967ad5d.png"
     }
 
 }
