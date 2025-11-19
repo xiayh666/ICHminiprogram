@@ -1,4 +1,4 @@
-/**
+/***************************************************************************************************************************
  * DataBase.js 替换微信云开发的云数据库功能
  * 使用方式：
  * 1. DB 类
@@ -254,7 +254,18 @@ let goodsList = [
 /*************************************************************************************************************************
  * 用户数据开始 
  * 由于 DB 会自动添加 id 所以不需要单独添加 id
- * 字段: 
+ * 字段:
+ *   - username: 用户名
+ *   - password: 密码
+ *   - phone_number: 电话号码
+ *   - address: 地址对象
+ *     - pos: 地址的值
+ *     - default: 是否为默认地址
+ *   - cart: 购物车清单
+ *     - id: 商品的 id
+ *     - selectedAttr: 一个数组，包含已选的规格
+ *     - num: 已选的数量
+ *     - selected: 是否被选中(购物车页面需要计算被选中的所有商品的总价格)
  * 
  */
 let userData = [
@@ -262,7 +273,20 @@ let userData = [
         username: "User1",
         password: "123456",
         phone_number: "12345678910",
-        address: "中国重庆市北碚区天生路",
+        address: [
+            { pos: "中国重庆市北碚区天生路101", default: true }
+        ],
+        cart: [
+        ]
+    },
+    {
+        username: "User2",
+        password: "666666",
+        phone_number: "12345678911",
+        address: [
+            { pos: "中国重庆市北碚区天生路102", default: false },
+            { pos: "中国重庆市北碚区天生路103", default: true }
+        ],
         cart: [
         ]
     }
@@ -273,6 +297,8 @@ let userData = [
  * 用户数据结束
  * 
  */
+
+
 
 
 class DB {
@@ -302,7 +328,7 @@ class DB {
                 id: await getGoodsId("夏布老虎玩偶"),
                 selectedAttr: ["红色", "大"],
                 num: 1,
-                selected: true 
+                selected: true
 
             })
             cartList.push({
@@ -314,9 +340,9 @@ class DB {
             })
             cartList.push({
                 id: await getGoodsId("夏布围巾"),
-                SelectedAttr: ["蓝色", "小"],
+                selectedAttr: ["蓝色", "小"],
                 num: 3,
-                selected: true 
+                selected: true
             })
 
 

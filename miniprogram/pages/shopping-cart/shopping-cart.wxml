@@ -18,7 +18,7 @@
                 </navigator>
                 <navigator class="good-details" url="/pages/goods-detail/goods-detail?id={{item.id}}">
                     <view class="good-name">{{item.name}}</view>
-                    <view class="good-attr">{{item.attr}}</view>
+                    <view class="good-attr">{{item.selectedAttr}}</view>
                     <view class="good-price">￥{{item.price}}</view>
                 </navigator>
                 <view class="good-num">

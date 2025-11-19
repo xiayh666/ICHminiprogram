@@ -73,11 +73,50 @@ Page({
     this.calcTotal();
   },
 
+  getSelectedAttr() {
+    let selectedAttr = []
+    this.data.attrs.forEach(attrs => {
+      attrs.options.forEach(attr => {
+        if (attr.selected === true) {
+          selectedAttr.push(attr.name)
+        }
+      })
+    });
+    if (selectedAttr.length < this.data.attrs.length)
+      return null
+    return selectedAttr
+  },
+
   addToCart() {
-    wx.showToast({
-      title: '已加入购物车',
-      icon: 'success'
-    })
+    (async () => {
+      let userCart = (await db.collection("users").where({ username: "User1" }).get()).data[0].cart
+      let selectedAttr = this.getSelectedAttr()
+      if (!selectedAttr) {
+        // 没有选好所有规格
+        wx.showToast({
+          title: '请选择规格',
+          icon: 'none'
+        })
+        return
+      }
+      userCart.push({
+        id: this.data.goodsInfo._id,
+        num: this.data.count,
+        selected: false,
+        selectedAttr
+      })
+      db.collection("users").update({
+        username: "User1"
+      }, {
+        cart: userCart
+      }).then(e => {
+        wx.showToast({
+          title: '已加入购物车',
+          icon: 'success'
+        })
+
+      })
+    })()
   },
 
   buyNow() {

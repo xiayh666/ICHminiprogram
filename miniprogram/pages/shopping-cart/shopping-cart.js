@@ -1,8 +1,4 @@
 // pages/shopping-cart/shopping-cart.js
-
-// cloud://xiayh-6gep3q1aa40cc550.7869-xiayh-6gep3q1aa40cc550-1386130600/358 180 swiper.png 
-
-
 import { db } from "../../src/DataBase";
 import { storage } from "../../src/Storage";
 
@@ -196,6 +192,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    this.onLoad()
     this.calcTotal();
   }
 
