@@ -32,11 +32,11 @@
 <view class="suggestion-goods">
     <view class="section-header fade-in-item">
         <text>{{more.goods.title}}</text>
-        <image src="{{more.image}}" class="more" mode="widthFix" />
+        <image src="{{more.image}}" class="more" mode="widthFix" bind:tap="gotoGoodsPage" />
     </view>
     <view class="goods">
         <navigator class="suggestion-card fade-in-item {{animation}}" wx:for="{{suggestions.goods.items}}" url="/pages/goods-detail/goods-detail?id={{item._id}}">
-            <image class="card-image" src="{{item.image}}" bindload="onImageLoad"/>
+            <image class="card-image" src="{{item.image}}" bindload="onImageLoad" />
             <view class="details">
                 <view class="card-name">{{item.name}}</view>
                 <view class="card-desc">{{item.desc}}</view>
@@ -76,14 +76,7 @@
             <view class="course-desc">{{item.desc}}</view>
             <view class="course-tag">{{item.tag}}</view>
             <view class="learn-more">了解更多></view>
-              
-              
         </view>
-          
     </view>
 </view>
-
-<view class="bottom">
-    
-</view>
-  
+<view class="bottom"></view>

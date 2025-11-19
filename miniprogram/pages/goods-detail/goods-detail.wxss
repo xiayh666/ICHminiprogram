@@ -77,7 +77,7 @@ page {
   color: #666;
   margin-bottom: 10rpx;
 }
-.stock {
+.inventory {
   font-size: 26rpx;
   color: #999;
 }

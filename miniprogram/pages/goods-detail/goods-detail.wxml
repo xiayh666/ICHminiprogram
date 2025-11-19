@@ -16,7 +16,7 @@
         <view class="goods-name">{{goodsInfo.name}}</view>
         <view class="goods-price">￥{{goodsInfo.price}}</view>
         <view class="goods-desc">{{goodsInfo.desc}}</view>
-        <view class="stock">库存: {{goodsInfo.stock}}件</view>
+        <view class="inventory">库存: {{goodsInfo.inventory}}件</view>
     </view>
     <!-- 已选区域 -->
     <view class="selected-section" bindtap="openPopWindow">
@@ -40,7 +40,7 @@
             <view class="num">
                 <view class="dec-btn" bind:tap="reduceCount" disabled="{{count <= 1}}">-</view>
                 <input type="number" bind:change="changeCount" value="{{count}}" class="count-num"></input>
-                <view class="inc-btn" bind:tap="addCount" disabled="{{count >= goodsInfo.stock}}">
+                <view class="inc-btn" bind:tap="addCount" disabled="{{count >= goodsInfo.inventory}}">
                     +
                 </view>
             </view>

@@ -6,7 +6,6 @@ Page({
   data: {
     isPopWindowShow: false,
     goodsInfo: {},
-    inventory: 112,
     countOfreviews: 112,
     currentSwiperPage: 0,
     count: 1, // 已经选择的商品数量
@@ -23,36 +22,6 @@ Page({
       console.log(data)
       const goodsInfo = {
         ...data,
-        stock: 112,
-        attrs: [
-          {
-            name: "颜色",
-            options: [
-              { name: '蓝色', color: '#1E88E5', selected: true },
-              { name: '灰色', color: '#9E9E9E', selected: false },
-              { name: '棕色', color: '#8D6E63', selected: false }
-            ]
-          },
-          {
-            name: "测试",
-            options: [
-              { name: "1", selected: true },
-              { name: "2", selected: false }
-            ]
-          }
-        ],
-        // 轮播图
-        swiperImages: [
-          data.image,
-          data.image,
-          data.image
-        ],
-        // 详情图
-        detailImages: [
-          data.image,
-          data.image,
-          data.image
-        ]
       }
       this.setData({
         goodsInfo,
@@ -82,7 +51,7 @@ Page({
   },
 
   addCount() {
-    if (this.data.count < this.data.goodsInfo.stock) {
+    if (this.data.count < this.data.goodsInfo.inventory) {
       this.setData({ count: this.data.count + 1 })
     }
     this.calcTotal();
