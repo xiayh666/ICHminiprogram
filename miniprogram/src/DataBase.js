@@ -34,6 +34,10 @@ var asset = (url) => storage.get(url)
  *      - avatar: 头像
  *      - star: 评分(n星好评)
  *      - content: 评论内容
+ *    - attrs: 一个数组，存放所有规格（属性）
+ *      - name: 规格的一个分类的名称(e.g. 颜色)
+ *      - options: 该分类下所有的规格
+ *        - name: 单个规格的名称(e.g. 红色)
  * 
  */
 let goodsList = [
@@ -44,21 +48,21 @@ let goodsList = [
         inventory: 112,
         desc: "大师手作 传世收藏",
         attrs: [
-          {
-            name: "颜色",
-            options: [
-              { name: '蓝色', selected: true },
-              { name: '灰色', selected: false },
-              { name: '棕色', selected: false }
-            ]
-          },
-          {
-            name: "测试",
-            options: [
-              { name: "1", selected: true },
-              { name: "2", selected: false }
-            ]
-          }
+            {
+                name: "颜色",
+                options: [
+                    { name: '蓝色' },
+                    { name: '灰色' },
+                    { name: '棕色' }
+                ]
+            },
+            {
+                name: "测试",
+                options: [
+                    { name: "1" },
+                    { name: "2" }
+                ]
+            }
         ],
         // 轮播图
         swiperImages: [
@@ -87,21 +91,21 @@ let goodsList = [
         price: 158.0,
         inventory: 112,
         attrs: [
-          {
-            name: "颜色",
-            options: [
-              { name: '蓝色', selected: true },
-              { name: '灰色', selected: false },
-              { name: '棕色', selected: false }
-            ]
-          },
-          {
-            name: "测试",
-            options: [
-              { name: "1", selected: true },
-              { name: "2", selected: false }
-            ]
-          }
+            {
+                name: "颜色",
+                options: [
+                    { name: '蓝色' },
+                    { name: '灰色' },
+                    { name: '棕色' }
+                ]
+            },
+            {
+                name: "测试",
+                options: [
+                    { name: "1" },
+                    { name: "2" }
+                ]
+            }
         ],
         // 轮播图
         swiperImages: [
@@ -127,21 +131,21 @@ let goodsList = [
         price: 67.0,
         inventory: 112,
         attrs: [
-          {
-            name: "颜色",
-            options: [
-              { name: '蓝色', selected: true },
-              { name: '灰色', selected: false },
-              { name: '棕色', selected: false }
-            ]
-          },
-          {
-            name: "测试",
-            options: [
-              { name: "1", selected: true },
-              { name: "2", selected: false }
-            ]
-          }
+            {
+                name: "颜色",
+                options: [
+                    { name: '蓝色' },
+                    { name: '灰色' },
+                    { name: '棕色' }
+                ]
+            },
+            {
+                name: "测试",
+                options: [
+                    { name: "1" },
+                    { name: "2" }
+                ]
+            }
         ],
         // 轮播图
         swiperImages: [
@@ -167,21 +171,21 @@ let goodsList = [
         price: 59.0,
         inventory: 112,
         attrs: [
-          {
-            name: "颜色",
-            options: [
-              { name: '蓝色', selected: true },
-              { name: '灰色', selected: false },
-              { name: '棕色', selected: false }
-            ]
-          },
-          {
-            name: "测试",
-            options: [
-              { name: "1", selected: true },
-              { name: "2", selected: false }
-            ]
-          }
+            {
+                name: "颜色",
+                options: [
+                    { name: '蓝色' },
+                    { name: '灰色' },
+                    { name: '棕色' }
+                ]
+            },
+            {
+                name: "测试",
+                options: [
+                    { name: "1" },
+                    { name: "2" }
+                ]
+            }
         ],
         // 轮播图
         swiperImages: [
@@ -208,21 +212,21 @@ let goodsList = [
         price: 999.99,
         inventory: 999999999,
         attrs: [
-          {
-            name: "颜色",
-            options: [
-              { name: '蓝色', selected: true },
-              { name: '灰色', selected: false },
-              { name: '棕色', selected: false }
-            ]
-          },
-          {
-            name: "测试",
-            options: [
-              { name: "test1", selected: true },
-              { name: "test2", selected: false }
-            ]
-          }
+            {
+                name: "颜色",
+                options: [
+                    { name: '蓝色' },
+                    { name: '灰色' },
+                    { name: '棕色' }
+                ]
+            },
+            {
+                name: "测试",
+                options: [
+                    { name: "test1" },
+                    { name: "test2" }
+                ]
+            }
         ],
         // 轮播图
         swiperImages: [
@@ -250,9 +254,18 @@ let goodsList = [
 /*************************************************************************************************************************
  * 用户数据开始 
  * 由于 DB 会自动添加 id 所以不需要单独添加 id
+ * 字段: 
  * 
  */
 let userData = [
+    {
+        username: "User1",
+        password: "123456",
+        phone_number: "12345678910",
+        address: "中国重庆市北碚区天生路",
+        cart: [
+        ]
+    }
 
 ]
 
@@ -268,8 +281,59 @@ class DB {
     }
     initDataBase() {
         goodsList.forEach(i => {
-            this.collection("goods").add(i)
+            this.collection("goods")
+                .add(i)
         })
+        userData.forEach(i => {
+            this.collection("users")
+                .add(i)
+        })
+
+
+
+        // 添加测试用购物车商品
+        let cartList = [];
+        (async () => {
+            let getGoodsId = name => this.collection("goods")
+                .where({ name })
+                .get()
+                .then(res => res.data[0]._id)
+            cartList.push({
+                id: await getGoodsId("夏布老虎玩偶"),
+                selectedAttr: ["红色", "大"],
+                num: 1,
+                selected: true 
+
+            })
+            cartList.push({
+                id: await getGoodsId("夏布胸花"),
+                selectedAttr: ["白色", "中"],
+                num: 2,
+                selected: false
+
+            })
+            cartList.push({
+                id: await getGoodsId("夏布围巾"),
+                SelectedAttr: ["蓝色", "小"],
+                num: 3,
+                selected: true 
+            })
+
+
+            this.collection("users")
+                .update({
+                    username: "User1",
+                }, {
+                    cart: cartList
+                }).then(e => {
+                    this.collection("users").get().then(e => {
+                        console.log(e)
+                        console.log(this.collections)
+                    })
+                })
+        })()
+
+
         /**
          * 在这里添加数据库数据，可以参考上面的 goodsList 的添加方式
          */

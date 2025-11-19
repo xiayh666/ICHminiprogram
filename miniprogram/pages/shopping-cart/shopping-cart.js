@@ -2,50 +2,15 @@
 
 // cloud://xiayh-6gep3q1aa40cc550.7869-xiayh-6gep3q1aa40cc550-1386130600/358 180 swiper.png 
 
-let app =  getApp();
 
-  
+import { db } from "../../src/DataBase";
+import { storage } from "../../src/Storage";
+
+
 Page({
   data: {
     shopping_cart: {
-      items: [
-        {
-          id: "a",
-          name: "大足石刻树脂冰箱贴",
-          price: 68,
-          attr: ["红色", "23cm"],
-          num: 1,
-          image: "",
-          selected: true
-        },
-        {
-          id: "b",
-          name: "荣昌夏布围巾",
-          price: 158,
-          attr: ["蓝色"],
-          num: 2,
-          image: "",
-          selected: true
-        },
-        {
-          id: "c",
-          name: "重启垫江手工绒花",
-          price: 259,
-          attr: ["蓝色配粉色"],
-          num: 1,
-          image: "",
-          selected: false
-        },
-        {
-          id: "d",
-          name: "荣昌陶茶具",
-          price: 280,
-          attr: ["原厂紫泥", "250ml"],
-          num: 1,
-          image: "",
-          selected: false
-        }
-      ]
+      items: []
     },
     total: {
       price: 0,
@@ -58,11 +23,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.calcTotal();
-    this.checkAllSelected();
-    let items = this.data.shopping_cart.items
-    items[0].image = app.getAsset("/images/老虎.png")
-    this.setData({"shopping_cart.items": items})
+    (async () => {
+      let cartList_ = (await db.collection("users").where({ username: "User1" }).get()).data[0].cart
+      let cartList = []
+      for (let item of cartList_) {
+        cartList.push({
+          ...item,
+          ...((await db.collection("goods")
+            .where({ _id: item.id })
+            .get()).data[0])
+
+        })
+      }
+      console.log(cartList)
+
+      this.setData({
+        "shopping_cart.items": cartList
+      })
+      this.calcTotal();
+      this.checkAllSelected();
+    })()
   },
 
   /**
@@ -104,7 +84,7 @@ Page({
   toggleSelect(e) {
     const id = e.currentTarget.dataset.id;
     const items = this.data.shopping_cart.items;
-    
+
     items.forEach(item => {
       if (item.id === id) {
         item.selected = !item.selected;
@@ -126,7 +106,7 @@ Page({
     // allSelected: bool
     const allSelected = !this.data.allSelected;
     const items = this.data.shopping_cart.items;
-    
+
     items.forEach(item => {
       item.selected = allSelected;
     });
@@ -145,7 +125,7 @@ Page({
   increaseNum(e) {
     const id = e.currentTarget.dataset.id;
     const items = this.data.shopping_cart.items;
-    
+
     items.forEach(item => {
       if (item.id === id) {
         item.num++;
@@ -165,7 +145,7 @@ Page({
   decreaseNum(e) {
     const id = e.currentTarget.dataset.id;
     const items = this.data.shopping_cart.items;
-    
+
     items.forEach(item => {
       if (item.id === id && item.num > 1) {
         item.num--;
@@ -185,13 +165,13 @@ Page({
   changeNum(e) {
     const id = e.currentTarget.dataset.id;
     let num = parseInt(e.detail.value);
-    
+
     if (isNaN(num) || num < 1) {
       num = 1;
     }
 
     const items = this.data.shopping_cart.items;
-    
+
     items.forEach(item => {
       if (item.id === id) {
         item.num = num;

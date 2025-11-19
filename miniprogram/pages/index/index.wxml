@@ -32,7 +32,7 @@
 <view class="suggestion-goods">
     <view class="section-header fade-in-item">
         <text>{{more.goods.title}}</text>
-        <image src="{{more.image}}" class="more" mode="widthFix" bind:tap="gotoGoodsPage" />
+        <image src="{{more.image}}" class="more" mode="widthFix" bind:tap="gotoGoodsPage" data-destination="{{more.goods.destination}}" />
     </view>
     <view class="goods">
         <navigator class="suggestion-card fade-in-item {{animation}}" wx:for="{{suggestions.goods.items}}" url="/pages/goods-detail/goods-detail?id={{item._id}}">
