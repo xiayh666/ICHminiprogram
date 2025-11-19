@@ -121,9 +121,34 @@ Page({
   },
 
   buyNow() {
-    wx.showToast({
-      title: 'buy',
-      icon: 'none'
+    let selectedAttr = this.getSelectedAttr()
+    if (!selectedAttr) {
+      // 没有选好所有规格
+      wx.showToast({
+        title: '请选择规格',
+        icon: 'none'
+      })
+      return
+    }
+    // 规格正常
+    getApp().orderParams = [{
+      id: this.data.goodsInfo._id,
+      num: this.data.count,
+      selected: false,
+      selectedAttr
+    }]
+
+    wx.navigateTo({
+      url: '/pages/order-confirm/order-confirm',
+      success: function (res) {
+        // success
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
+      }
     })
   },
   onSwiperChange(e) {

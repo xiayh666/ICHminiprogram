@@ -10,7 +10,7 @@
     <view class="shopping-cart-list">
         <view wx:for="{{shopping_cart.items}}" class="good" data-id="{{item.id}}">
             <view class="good-left">
-                <image class="toggle {{item.selected ? 'selected' : ''}}" src="" bind:tap="toggleSelect" data-id="{{item.id}}" />
+                <image class="toggle {{item.selected ? 'selected' : ''}}" src="" bind:tap="toggleSelect" data-id="{{item.id}}" data-selected-attr="{{item.selectedAttr}}"/>
             </view>
             <view class="good-right">
                 <navigator url="/pages/goods-detail/goods-detail?id={{item.id}}" class="good-image">

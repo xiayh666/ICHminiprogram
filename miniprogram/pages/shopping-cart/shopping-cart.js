@@ -80,9 +80,9 @@ Page({
   toggleSelect(e) {
     const id = e.currentTarget.dataset.id;
     const items = this.data.shopping_cart.items;
-
+    const data_selectedAttr = e.currentTarget.dataset.selectedAttr
     items.forEach(item => {
-      if (item.id === id) {
+      if (item.id === id && data_selectedAttr.length == item.selectedAttr.length && data_selectedAttr.every((v, i) => v === item.selectedAttr[i])) {
         item.selected = !item.selected;
       }
     });
