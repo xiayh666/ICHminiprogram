@@ -65,8 +65,8 @@
     <image src="{{coupon}}" class="function-icon" />
     <text>优惠券</text>
   </view>
-  <view class="function-item">
-    <image src="{{shipAddress}}" class="function-icon" />
+  <view class="function-item" bindtap="ToAddress">
+    <image src="{{shipAddress}}" class="function-icon"  />
     <text>收货地址</text>
   </view>
   <view class="function-item">
