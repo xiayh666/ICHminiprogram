@@ -1,5 +1,20 @@
 /**
  * DataBase.js 替换微信云开发的云数据库功能
+ * 使用方式：
+ * 1. DB 类
+ *   直接 new 就好，初始时 DB 内部有一个 collections 对象，这就是数据库的所有数据存放的位置。
+ * 2. collections 对象
+ *   collections 对象的每一个属性都是一个列表(数组)，这个概念类似于数据库里的*表*
+ *   属性名表示表的名称（唯一），属性值就是一个列表，列表内存放若干个对象，对象内有各个字段。
+ * 3. 如何使用 
+ *   可以参考下面的 goodsList, 该变量预先定义，在这里写好需要存放的数据，然后再 DB 类的 initDataBase 里将其添加到数据库中
+ *      goodsList.forEach(i => {
+ *          this.collection("goods").add(i)
+ *      })
+ *   比如，这里我将 goodsList 中的每一条数据依次添加到名为 goods 的 collection 中
+ *   collection 需要传入一个名称， 若该名称对应的 collection 不存在，则新建并添加数据，否则直接添加数据
+ * 
+ *   除此之外，DB 拥有完备的增删改查的功能，支持limit限制和条件搜索，使用方法和微信小程序的云数据库相对一致（好啊）
  */
 import { storage } from "Storage";
 var asset = (url) => storage.get(url) 
@@ -40,7 +55,9 @@ class DB {
         goodsList.forEach(i => {
             this.collection("goods").add(i)
         })
-
+        /**
+         * 在这里添加数据库数据，可以参考上面的 goodsList 的添加方式
+         */
 
 
     }
