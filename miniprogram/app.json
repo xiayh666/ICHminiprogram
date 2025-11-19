@@ -1,12 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/classification/index",
-    "pages/live-stream/index",
-    "pages/shopping-cart/index",
     "pages/star/star",
     "pages/orderList/index",
     "pages/goods/goods",
+    "pages/goods-detail/goods-detail",
     "pages/community/community",
     "pages/shopping-cart/shopping-cart",
     "pages/me/me",

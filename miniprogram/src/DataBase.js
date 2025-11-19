@@ -17,32 +17,51 @@
  *   除此之外，DB 拥有完备的增删改查的功能，支持limit限制和条件搜索，使用方法和微信小程序的云数据库相对一致（好啊）
  */
 import { storage } from "Storage";
-var asset = (url) => storage.get(url) 
+var asset = (url) => storage.get(url)
 
 let goodsList = [
     {
         name: "夏布老虎玩偶",
         image: asset("/images/老虎.png"),
         price: 80.0,
-        desc: "大师手作 传世收藏"
+        desc: "大师手作 传世收藏",
+        reviews: [
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 3, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 2, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+        ],
     },
     {
         name: "夏布围巾",
         desc: "传统工艺 手绘青花",
         image: asset("/images/围巾.png"),
-        price: 158.0
+        price: 158.0,
+        reviews: [
+            { user: '围巾', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '围巾', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+        ],
     },
     {
         name: "夏布手提包",
         desc: "百年工艺 夏日清凉",
         image: asset("/images/手提包.png"),
-        price: 67.0
+        price: 67.0,
+        reviews: [
+            { user: '手提包', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '手提包', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+        ],
     },
     {
         name: "夏布胸花",
         desc: "天然植物染色 手工制作",
         image: asset("/images/胸花.png"),
-        price: 59.0
+        price: 59.0,
+        reviews: [
+            { user: '胸花', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '胸花', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+        ],
 
     }
 ]

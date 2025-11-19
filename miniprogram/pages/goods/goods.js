@@ -8,7 +8,7 @@ Page({
   gotoGoodsDetail(e) {
     const goodsId = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: `/pages/goods/goods-detail/goods-detail?id=${goodsId}`
+      // url: `/pages/goods/goods-detail/goods-detail`
     });
   },
 
