@@ -1,6 +1,4 @@
-import { storage } from "../../src/Storage";
 import { db } from "../../src/DataBase";
-let asset = (url) => storage.get(url)
 
 Page({
   data: {

@@ -68,10 +68,10 @@
     <view class="review-section">
         <view class="review-header">
             <view class="review-title">商品评价 ({{goodsInfo.reviews.length}})</view>
-            <view class="review-more">查看全部</view>
+            <navigator class="review-more" url="/pages/goods-all-reviews/goods-all-reviews?id={{goodsInfo._id}}">查看全部</navigator>
         </view>
         <view class="review-list">
-            <view class="review-item" wx:for="{{goodsInfo.reviews}}" wx:key="index">
+            <view class="review-item" wx:for="{{goodsInfo.reviews}}" wx:key="index" wx:if="{{index < reviewDisplayLimit}}">
                 <view class="user-info">
                     <image class="user-avatar" src="{{item.avatar}}"></image>
                     <view style="display: flex;flex-direction: column;">
