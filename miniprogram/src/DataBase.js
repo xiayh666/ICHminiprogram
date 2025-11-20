@@ -287,8 +287,8 @@ let userData = [
         password: "666666",
         phone: "12345678911",
         addressList: [
-            { recipient: "曹操5",phone: "12345678910", address: "中国重庆市北碚区天生路201", isDefault: false },
-            { recipient: "曹操6",phone: "12345678910", address: "中国重庆市北碚区天生路202", isDefault: true }
+            { recipient: "曹操5", phone: "12345678910", address: "中国重庆市北碚区天生路201", isDefault: false },
+            { recipient: "曹操6", phone: "12345678910", address: "中国重庆市北碚区天生路202", isDefault: true }
         ],
         cart: [
         ]
@@ -302,6 +302,39 @@ let userData = [
  */
 
 
+let craftmanList = [
+    {
+        avatar: asset("/images/头像.png"),
+        name: "刘师傅",
+        tag: "石柱县夏布",
+    },
+    {
+        avatar: asset("/images/头像.png"),
+        name: "张师傅",
+        tag: "布包艺人",
+    },
+    {
+        avatar: asset("/images/头像.png"),
+        name: "王师傅",
+        tag: "景德镇陶艺",
+    },
+    {
+        avatar: asset("/images/头像.png"),
+        name: "李师傅",
+        tag: "景德镇陶艺",
+    },
+    {
+        avatar: asset("/images/头像.png"),
+        name: "杨师傅",
+        tag: "景德镇陶艺",
+    },
+    {
+        avatar: asset("/images/头像.png"),
+        name: "赵师傅",
+        tag: "景德镇陶艺",
+    },
+
+]
 
 
 class DB {
@@ -315,6 +348,10 @@ class DB {
         })
         userData.forEach(i => {
             this.collection("users")
+                .add(i)
+        })
+        craftmanList.forEach(i => {
+            this.collection("craftmen")
                 .add(i)
         })
 
@@ -348,7 +385,6 @@ class DB {
                 selected: true
             })
 
-
             this.collection("users")
                 .update({
                     username: "曹操",
@@ -360,6 +396,54 @@ class DB {
                         console.log(this.collections)
                     })
                 })
+            let craftman_liu = (await this.collection("craftmen").where({ name: "刘师傅" }).get()).data[0]
+            let craftman_zhang = (await this.collection("craftmen").where({ name: "刘师傅" }).get()).data[0]
+            // const craftman_liu_id = craftman_liu._id
+            // const craftman_zhang_id = craftman_zhang._id
+
+            this.collection("posts").add({
+                blogger: craftman_liu,
+                date: "2025-11-20",
+                tag: "技艺讨论",
+                topic: "石柱县非遗季",
+                title: "这是测试标题1",
+                content: "这是测试内容1",
+                images: [
+                    storage.get('/images/花2.png'),
+                    storage.get('/images/花1.png'),
+                    storage.get('/images/花2.png')
+                ],
+            })
+            this.collection("posts").add({
+                blogger: craftman_liu,
+                date: "2025-11-21",
+                tag: "作品展示",
+                topic: "传统工艺现代化",
+                title: "非遗草木染花艺胸花：老手艺里的新浪漫",
+                content: `这些胸花藏着非遗 “草木染” 与传统花艺的双重巧思 —— 主花的素色花瓣，是用栀子、艾草等天然植物染料手工浸染而成，晕染的肌理里裹着老手艺的温厚；配材选了非遗花艺常用的干枝、满天星，再以传统 “盘扣结” 的绑带手法固定，既延续了民俗装饰里 “以花寄情” 的意趣，又适配婚礼、雅集等现代场合。
+非遗手艺从不是博物馆里的标本，像这样把草木染的柔和色调、传统花艺的错落构图，揉进日常可用的胸花里，让老技法以轻巧的姿态重新走进生活，正是非遗 “活态传承” 的温柔实践。
+`,
+                images: [
+                    storage.get('/images/花2.png'),
+                    storage.get('/images/花1.png'),
+                ],
+            })
+            this.collection("posts").add({
+                blogger: craftman_liu,
+                date: "2025-11-22",
+                tag: "匠人问答",
+                topic: "非遗手作挑战",
+                title: "这是测试标题3",
+                content: `这些胸花藏着非遗 “草木染” 与传统花艺的双重巧思 —— 主花的素色花瓣，是用栀子、艾草等天然植物染料手工浸染而成，晕染的肌理里裹着老手艺的温厚；配材选了非遗花艺常用的干枝、满天星，再以传统 “盘扣结” 的绑带手法固定，既延续了民俗装饰里 “以花寄情” 的意趣，又适配婚礼、雅集等现代场合。
+非遗手艺从不是博物馆里的标本，像这样把草木染的柔和色调、传统花艺的错落构图，揉进日常可用的胸花里，让老技法以轻巧的姿态重新走进生活，正是非遗 “活态传承” 的温柔实践。
+`,
+                images: [
+                    storage.get('/images/花2.png'),
+                ],
+            })
+
+
+
         })()
 
 

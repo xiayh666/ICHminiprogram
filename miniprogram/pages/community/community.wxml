@@ -1,99 +1,84 @@
-<!--pages/community/community.wxml-->
+<!-- pages/community/community.wxml -->
 <!-- 顶部搜索栏 -->
 <view class="search-bar">
   <icon type="search" size="14" color="#999" />
   <input placeholder="搜索话题、技艺交流、匠人" class="search-input" />
 </view>
-
 <!-- 导航标签栏 -->
-
 <view class="tab-bar">
   <!-- 可横向滚动的容器 -->
   <scroll-view scroll-x class="tab-scroll" enable-flex scroll-left="{{scrollLeft}}">
     <!-- 循环渲染 Tab 项，通过 data-index 绑定索引 -->
-    <view 
-      class="tab-item {{currentTab === index ? 'active' : ''}}"
-      wx:for="{{tabList}}" 
-      wx:key="index"
-      data-index="{{index}}" 
-      bindtap="switchTab"
-    >
+    <view class="tab-item {{currentTab === index ? 'active' : ''}}" wx:for="{{tabList}}" wx:key="index" data-index="{{index}}" bindtap="switchTab">
       {{item}}
     </view>
   </scroll-view>
 </view>
-
 <!-- 热门话题列表 -->
 <view class="topic-section">
   <view class="section-header">
-   <text>热门话题</text>
-   <navigator url="/pages/topic-more/topic-more" class="more"><image src="{{more}}" class="more" mode="widthFix"/></navigator>
+    <text>热门话题</text>
+    <navigator url="/pages/topic-more/topic-more" class="more">
+      <image src="{{more}}" class="more" mode="widthFix" />
+    </navigator>
   </view>
-  <view class="topic-list" wx:for="{{topicList}}" wx:key="id">
-  <view class="topic-item">
-    <view class="topic-header">
-      <image src="{{item.avatar}}" class="topic-avatar" />
-      <view class="topic-info">
-        <view class="topic-author">{{item.author}}</view>
-        <view class="topic-time">{{item.time}}</view> 
+  <view class="topic-list" wx:for="{{tagData[currentTab]}}" wx:key="id">
+    <view class="topic-item">
+      <view class="topic-header">
+        <image src="{{item.blogger.avatar}}" class="topic-avatar" />
+        <view class="topic-info">
+          <view class="topic-author">{{item.blogger.name}}</view>
+          <view class="topic-time">{{item.date}}</view>
+        </view>
+        <view class="{{item.tag !=null ?'topic-tag' : 'topic-tag-null'}}">{{item.tag}}</view>
       </view>
-      <view class="{{item.tag !=null ?'topic-tag' : 'topic-tag-null'}}">{{item.tag}}</view>
-    </view>
-    <view class="topic-title">{{item.title}}</view>
-    <view class="topic-desc">{{item.desc}} </view>
-    <view class="topic-images">
-    <!-- 1张图 -->
-    <view wx:if="{{ item.images.length === 1 }}" class="img-single">
-      <image src="{{ item.images[0] }}" ></image>
-    </view>
-  
-    <!-- 2张或4张图（2列） -->
-    <view wx:elif="{{ item.images.length === 2 || item.images.length === 4 }}"   class="img-grid img-grid-2">
-      <image 
-        wx:for="{{ item.images }}" 
-        wx:key="index" 
-        src="{{ item }}" 
-        mode="aspectFill"
-      ></image>
-    </view>
-    <!-- 3张图 -->
-    <!-- 3张图：左2右1布局 -->
-    <view wx:elif="{{ item.images.length === 3 }}" class="img-3-container">
-      <!-- 左侧：2张图（上下排列） -->
-      <view class="img-3-left">
-        <image src="{{ item.images[0] }}" mode="aspectFill" class="img-3-item"></image>
-       
+      <view class="topic-title">{{item.title}}</view>
+      <view class="topic-desc">{{item.content}}</view>
+      <view class="topic-images">
+        <!-- 1张图 -->
+        <view wx:if="{{ item.images.length === 1 }}" class="img-single">
+          <image src="{{ item.images[0] }}"></image>
+        </view>
+        <!-- 2张或4张图（2列） -->
+        <view wx:elif="{{ item.images.length === 2 || item.images.length === 4 }}" class="img-grid img-grid-2">
+          <image wx:for="{{ item.images }}" wx:key="index" src="{{ item }}" mode="aspectFill"></image>
+        </view>
+        <!-- 3张图 -->
+        <!-- 3张图：左2右1布局 -->
+        <view wx:elif="{{ item.images.length === 3 }}" class="img-3-container">
+          <!-- 左侧：2张图（上下排列） -->
+          <view class="img-3-left">
+            <image src="{{ item.images[0] }}" mode="aspectFill" class="img-3-item"></image>
+          </view>
+          <!-- 右侧：1张图（占满高度） -->
+          <view class="img-3-right">
+            <image src="{{ item.images[1] }}" mode="aspectFill" class="img-3-item-1"></image>
+            <image src="{{ item.images[2] }}" mode="aspectFill" class="img-3-item-2"></image>
+          </view>
+        </view>
       </view>
-      <!-- 右侧：1张图（占满高度） -->
-      <view class="img-3-right">
-        <image src="{{ item.images[1] }}" mode="aspectFill"     class="img-3-item-1"></image>
-        <image src="{{ item.images[2] }}" mode="aspectFill"     class="img-3-item-2"></image>
-      </view>
-    </view>
-    </view>
-    <view class="topic-meta">
-      <view class="meta-item">
-        <image src="{{shoppingCart}}"></image>
-        <text class="cart">{{item.cart}}</text>
-      </view>
-      <view class="meta-item">
-        <icon type="search" size="14" color="#999"  /> 
-        <text class="cart">{{item.search}}</text>
-      </view>
-      <view class="meta-item">
-        <image src="{{shoppingCart}}"></image>
-        <text class="cart">{{item.cart2}}</text>
+      <view class="topic-meta">
+        <view class="meta-item">
+          <image src="{{shoppingCart}}"></image>
+          <text class="cart">{{item.cart}}</text>
+        </view>
+        <view class="meta-item">
+          <icon type="search" size="14" color="#999" />
+          <text class="cart">{{item.search}}</text>
+        </view>
+        <view class="meta-item">
+          <image src="{{shoppingCart}}"></image>
+          <text class="cart">{{item.cart2}}</text>
+        </view>
       </view>
     </view>
-  </view>
   </view>
 </view>
-
 <!-- 活跃匠人栏 -->
 <view class="craftsman-section">
   <view class="section-header">
     <text>活跃匠人</text>
-    <image src="{{more}}" class="more" mode="widthFix"/>
+    <image src="{{more}}" class="more" mode="widthFix" />
   </view>
   <scroll-view scroll-x class="craftsman-list-scroll">
     <view class="craftsman-item" wx:for="{{craftsmanList}}" wx:key="id">
@@ -104,7 +89,6 @@
     </view>
   </scroll-view>
 </view>
-
 <!-- 推荐话题栏 -->
 <view class="topic-section">
   <view class="section-header">
@@ -113,7 +97,7 @@
   <scroll-view scroll-y class="topic-card-list">
     <view class="topic-card" wx:for="{{topicCardList}}" wx:key="id">
       <view class="topic-icon">
-        <image src="{{item.image}}" class="topic-image"/>
+        <image src="{{item.image}}" class="topic-image" />
       </view>
       <view class="topic-content">
         <view class="topic-name">{{item.name}}</view>
@@ -123,7 +107,6 @@
     </view>
   </scroll-view>
 </view>
-
 <!-- 悬浮按钮 -->
 <view class="float-btn" bindtap="handleFloatBtnClick">
   <!-- 可替换为图标或文字 -->
