@@ -1,7 +1,7 @@
 import { storage } from '../../src/Storage.js';
 Page({
   data: {
-    iconFront:storage.get('/images/铅笔icon.png'),
+    iconFront:storage.get('/images/编辑icon.png'),
     addressList: [
       { id: 1, recipient: '曹操', phone: '18286888628', address: '北京市朝阳区望京渠通东大街方恒国际中心a座', isDefault: true },
       { id: 2, recipient: '曹操', phone: '18286888628', address: '北京市朝阳区望京渠通东大街方恒国际中心a座', isDefault: false }

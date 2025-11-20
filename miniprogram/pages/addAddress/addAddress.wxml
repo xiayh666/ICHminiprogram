@@ -17,7 +17,8 @@
     class="wrap-textarea"
     value="{{address}}"
     bindinput="bindAddress"
-    placeholder="请输入"/>
+    placeholder="请输入"
+    auto-height="true"/>
   </view>
 
   <!-- 开关选项 -->
