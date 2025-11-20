@@ -17,6 +17,10 @@ page {
     padding: 24rpx;
     margin-bottom: 20rpx;
 }
+.right-arrow {
+    position: absolute;
+    right: 10rpx;
+}
 
 .user-info {
     display: flex;
@@ -122,12 +126,13 @@ page {
 .goods-item {
     display: flex;
     align-items: center;
+    margin-bottom: 10rpx;
 }
 
 .goods-img {
     width: 120rpx;
     height: 120rpx;
-    border-radius: 8rpx;
+    border-radius: 15rpx;
     margin-right: 20rpx;
 }
 

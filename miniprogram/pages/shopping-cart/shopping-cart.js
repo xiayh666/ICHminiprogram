@@ -2,6 +2,9 @@
 import { db } from "../../src/DataBase";
 import { storage } from "../../src/Storage";
 
+let app = getApp();
+
+
 
 Page({
   data: {
@@ -20,7 +23,7 @@ Page({
    */
   onLoad(options) {
     (async () => {
-      let cartList_ = (await db.collection("users").where({ username: "曹操" }).get()).data[0].cart
+      let cartList_ = (await db.collection("users").where({ username: app.globalData.username }).get()).data[0].cart
       let cartList = []
       for (let item of cartList_) {
         cartList.push({
@@ -73,6 +76,21 @@ Page({
     const allSelected = items.every(item => item.selected);
     this.setData({ allSelected });
   },
+  updateCartDataBase(items) {
+    let cartList = []
+    for (let i of items) {
+      cartList.push({
+        id: i.id,
+        selectedAttr: i.selectedAttr,
+        num: i.num,
+        selected: i.selected
+      })
+    }
+    db.collection("users").update({ username: app.globalData.username }, {
+      cart: cartList
+    })
+
+  },
 
   /**
    * 切换单个商品选中状态
@@ -86,6 +104,8 @@ Page({
         item.selected = !item.selected;
       }
     });
+    this.updateCartDataBase(items)
+
 
     this.setData({
       'shopping_cart.items': items
@@ -106,6 +126,7 @@ Page({
     items.forEach(item => {
       item.selected = allSelected;
     });
+    this.updateCartDataBase(items)
 
     this.setData({
       allSelected,
@@ -190,11 +211,11 @@ Page({
     if (selectedGoodsList.length > 0) {
       getApp().orderParams = selectedGoodsList
     } else {
-        wx.showToast({
-          title: '请选择商品',
-          icon: 'none'
-        })
-        return
+      wx.showToast({
+        title: '请选择商品',
+        icon: 'none'
+      })
+      return
     }
 
 

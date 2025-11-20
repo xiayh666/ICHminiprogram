@@ -1,6 +1,9 @@
 import { storage } from "../../src/Storage";
 import { db } from "../../src/DataBase";
 let asset = (url) => storage.get(url)
+let app =  getApp();
+
+  
 
 Page({
   data: {
@@ -90,7 +93,7 @@ Page({
 
   addToCart() {
     (async () => {
-      let userCart = (await db.collection("users").where({ username: "曹操" }).get()).data[0].cart
+      let userCart = (await db.collection("users").where({ username: app.globalData.username }).get()).data[0].cart
       let selectedAttr = this.getSelectedAttr()
       if (!selectedAttr) {
         // 没有选好所有规格
@@ -107,7 +110,7 @@ Page({
         selectedAttr
       })
       db.collection("users").update({
-        username: "曹操"
+        username: app.globalData.username
       }, {
         cart: userCart
       }).then(e => {

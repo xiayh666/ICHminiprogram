@@ -4,6 +4,7 @@
         <view class="user-info">
             <text class="user-name">{{recipient}}</text>
             <text class="user-phone">{{phone}}</text>
+            <view class="right-arrow">></view>
         </view>
         <view class="address-detail">
             <text class="address-text">收货地址: {{address}}</text>
