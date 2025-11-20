@@ -1,10 +1,10 @@
 <!-- index.wxml -->
-<!-- 搜索框 -->
-<view class="search">
-    <view class="search-left">
-        <image src="{{search_icon}}" class="img"></image>
-    </view>
-    <input class="search-right" type="text" placeholder="搜索非遗好物、手艺课程"></input>
+<view class="search-input-area">
+    <navigator class="search fade-in-item" url="/pages/search/search">
+        <!-- <image class="search-icon" src="{{searchIcon}}"></image> -->
+        <icon class="nav-left" type="search" size="30rpx" color=""></icon>
+        <view class="search-input">搜索非遗好物</view>
+    </navigator>
 </view>
 <!-- 轮播图 -->
 <!-- <view class="swiper">
@@ -62,7 +62,7 @@
     <view class="right">更多</view>
 </view> -->
 <!-- 线上线下预约通道 -->
-<view class="reservation">
+<view class="reservation fade-in-item">
     <view class="section-header">
         <text>{{more.courses.title}}</text>
         <image src="{{more.image}}" class="more" mode="widthFix" />

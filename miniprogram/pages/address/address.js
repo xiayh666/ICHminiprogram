@@ -6,13 +6,13 @@ let app = getApp();
 
 Page({
   data: {
+    selectAddress: false,
     iconFront: storage.get('/images/铅笔icon.png'),
     addressList: [
     ]
   },
 
   onLoad() {
-
     // 从 DataBase 读取用户数据和地址数据
     (async () => {
       let { addressList } = (await db.collection("users").where({ username: app.globalData.username }).get()).data[0]
@@ -21,8 +21,17 @@ Page({
       })
     })()
 
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('selectAddress', data => {
+      this.data.selectAddress = true 
+    });
+
   },
   selectAddress(e) {
+    if (this.data.selectAddress !== true) {
+      this.editAddress(e) 
+      return
+    }
     const index = e.currentTarget.dataset.index
     const eventChannel = this.getOpenerEventChannel()
     eventChannel.emit('addressSelected',this.data.addressList[index]);

@@ -8,7 +8,6 @@ page {
 .order-confirm-page {
     background-color: #f5f5f5;
     min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
 /* 收货信息 */

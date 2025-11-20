@@ -65,7 +65,7 @@ Page({
       url: '/pages/address/address',
       success: (res) => {
         // 传递编辑所需的地址和索引
-        res.eventChannel.emit('selectAddress');
+        res.eventChannel.emit('selectAddress', {selectAddress: true});
         res.eventChannel.on('addressSelected', (addressData) => {
           this.setData(addressData)
         });
