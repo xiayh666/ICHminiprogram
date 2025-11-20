@@ -1,13 +1,13 @@
 <view class="order-confirm-page">
     <!-- 收货信息 -->
-    <view class="address-section">
+    <view class="address-section" bindtap="selectAddress">
         <view class="user-info">
-            <text class="user-name">{{user.name}}</text>
-            <text class="user-phone">{{user.phoneNumber}}</text>
+            <text class="user-name">{{recipient}}</text>
+            <text class="user-phone">{{phone}}</text>
         </view>
-        <view class="address-detail" bindtap="editAddress">
-            <text class="address-text">收货地址: {{address.detail}}</text>
-            <text class="default-tag" wx:if="{{address.isDefault}}">默认</text>
+        <view class="address-detail">
+            <text class="address-text">收货地址: {{address}}</text>
+            <text class="default-tag" wx:if="{{isDefault}}">默认</text>
         </view>
     </view>
     <!-- 分割线 -->
@@ -24,7 +24,7 @@
                 <view class="goods-attr">{{item.selectedAttr}}</view>
                 <view class="goods-price-count">
                     <text class="price">¥{{item.price}}</text>
-                    <text class="count">×1</text>
+                    <text class="count">×{{item.num}}</text>
                 </view>
             </view>
         </view>

@@ -1,31 +1,48 @@
 import { storage } from '../../src/Storage.js';
 import { db } from "../../src/DataBase";
-let app =  getApp();
+let app = getApp();
 
-  
+
 
 Page({
   data: {
-    iconFront:storage.get('/images/铅笔icon.png'),
+    iconFront: storage.get('/images/铅笔icon.png'),
     addressList: [
     ]
   },
 
   onLoad() {
+
     // 从 DataBase 读取用户数据和地址数据
     (async () => {
-      let {username, phone, addressList} = (await db.collection("users").where({username: app.globalData.username}).get()).data[0]
+      let { addressList } = (await db.collection("users").where({ username: app.globalData.username }).get()).data[0]
       this.setData({
-        username,
-        phone,
         addressList
       })
     })()
 
   },
+  selectAddress(e) {
+    const index = e.currentTarget.dataset.index
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.emit('addressSelected',this.data.addressList[index]);
+
+    wx.navigateBack({
+      delta: 1, // 回退前 delta(默认为1) 页面
+      success: function (res) {
+        // success
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
+      }
+    })
+  },
 
   // 选择地址加编辑地址
-  selectAddress(e) {
+  editAddress(e) {
     const index = e.currentTarget.dataset.index;
     const currentAddress = this.data.addressList[index];
     wx.navigateTo({
@@ -46,8 +63,8 @@ Page({
       }
     });
   },
-   // 创建地址页面
-   createAddress() {
+  // 创建地址页面
+  createAddress() {
     wx.navigateTo({
       url: '/pages/addAddress/addAddress',
       success: (res) => {

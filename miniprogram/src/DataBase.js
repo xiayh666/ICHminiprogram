@@ -274,10 +274,10 @@ let userData = [
         password: "123456",
         phone: "12345678910",
         addressList: [
-            { recipient: "曹操1", address: "中国重庆市北碚区天生路101", isDefault: true },
-            { recipient: "曹操2", address: "中国重庆市北碚区天生路102", isDefault: false },
-            { recipient: "曹操3", address: "中国重庆市北碚区天生路103", isDefault: false },
-            { recipient: "曹操4", address: "中国重庆市北碚区天生路104", isDefault: false }
+            { recipient: "曹操1", phone: "12345678910", address: "中国重庆市北碚区天生路101", isDefault: false },
+            { recipient: "曹操2", phone: "12345678911", address: "中国重庆市北碚区天生路102", isDefault: false },
+            { recipient: "曹操3", phone: "12345678912", address: "中国重庆市北碚区天生路103", isDefault: true },
+            { recipient: "曹操4", phone: "12345678913", address: "中国重庆市北碚区天生路104", isDefault: false }
         ],
         cart: [
         ]
@@ -287,8 +287,8 @@ let userData = [
         password: "666666",
         phone: "12345678911",
         addressList: [
-            { recipient: "曹操5", address: "中国重庆市北碚区天生路201", isDefault: false },
-            { recipient: "曹操6", address: "中国重庆市北碚区天生路202", isDefault: true }
+            { recipient: "曹操5",phone: "12345678910", address: "中国重庆市北碚区天生路201", isDefault: false },
+            { recipient: "曹操6",phone: "12345678910", address: "中国重庆市北碚区天生路202", isDefault: true }
         ],
         cart: [
         ]

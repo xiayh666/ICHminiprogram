@@ -1,18 +1,15 @@
 import { db } from "../../src/DataBase";
 const ZERO = 0
+
+let app = getApp()
+
 Page({
   data: {
     goods: [],
     shippingCost: ZERO.toFixed(2),
-    discount: 0,
+    discount: ZERO.toFixed(2),
 
-    user: {
-      name: "曹操",
-      phoneNumber: "1828****628"
-    },
     address: {
-      detail: "北京市朝阳区望京阜通东大街方恒国际中心a座",
-      isDefault: true
     },
   },
   onLoad() {
@@ -28,11 +25,27 @@ Page({
         })
       }
       console.log(goods)
-
       this.setData({ goods })
-      this.calcTotal();
-    })()
 
+      let { addressList } = (await db.collection("users").where({ username: app.globalData.username }).get()).data[0]
+      let defaultAddress = null // 是否存在默认地址
+      for (let address of addressList) {
+        if (address.isDefault) {
+          defaultAddress = address
+        }
+      }
+
+      console.log("default:", defaultAddress)
+      if (defaultAddress) {
+        this.setData(defaultAddress)
+      } else {
+
+      }
+
+
+      this.calcTotal();
+
+    })()
   },
   calcTotal() {
     let totalPrice = 0;
@@ -45,6 +58,20 @@ Page({
     this.setData({
       totalPrice
     });
+  },
+
+  selectAddress() {
+    wx.navigateTo({
+      url: '/pages/address/address',
+      success: (res) => {
+        // 传递编辑所需的地址和索引
+        res.eventChannel.emit('selectAddress');
+        res.eventChannel.on('addressSelected', (addressData) => {
+          this.setData(addressData)
+        });
+      }
+    });
+
   },
 
 

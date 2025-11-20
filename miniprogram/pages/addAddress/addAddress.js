@@ -1,3 +1,9 @@
+import { db } from "../../src/DataBase";
+
+
+let app = getApp();
+
+
 Page({
   data: {
     recipient: '',
@@ -46,13 +52,46 @@ Page({
         address: { id: Date.now(), recipient, phone, address, isDefault },
         index: currentIndex
       });
+      (async () => {
+        let { username, addressList } = (await db.collection("users").where({ username: app.globalData.username }).get()).data[0]
+        if (isDefault) {
+          addressList = addressList.map(i => {
+            return {
+              ...i,
+              isDefault: false
+            }
+          })
+        }
+        addressList[currentIndex] = { recipient, phone, address, isDefault }
+        db.collection("users").update({ username }, {
+          addressList
+        })
+        console.log(db.collections)
+      })()
+
     } else {
       // 新建场景：回传新地址数据
       eventChannel.emit('addNewAddress', {
         id: Date.now(), recipient, phone, address, isDefault
       });
+      (async () => {
+        let { username, addressList } = (await db.collection("users").where({ username: app.globalData.username }).get()).data[0]
+        if (isDefault) {
+          addressList = addressList.map(i => {
+            return {
+              ...i,
+              isDefault: false
+            }
+          })
+        }
+        addressList.push({ recipient, phone, address, isDefault })
+        db.collection("users").update({ username }, {
+          addressList
+        })
+        console.log(db.collections)
+      })()
     }
-    
+
     // 提交成功后返回
     wx.showToast({ title: isEdit ? '修改成功' : '添加成功' });
     setTimeout(() => wx.navigateBack(), 1000);
