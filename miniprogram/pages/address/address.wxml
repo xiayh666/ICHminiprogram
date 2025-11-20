@@ -6,7 +6,7 @@
     <view class="address-item" bindtap="selectAddress" data-index="{{index}}">
       <view class="address-info">
         <view class="address-name-phone">
-          <text class="name">{{username}}</text>
+          <text class="name">{{item.recipient}}</text>
           <text class="phone">{{phone}}</text>
           <text class="default-tag" wx:if="{{item.isDefault}}">默认</text>
         </view>
