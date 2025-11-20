@@ -184,8 +184,32 @@ Page({
   /**
    * 结算（未完善，可能要跳转到结算页面？）
    */
-  checkout(e) {
-    console.log(e)
+  checkout() {
+    // 规格正常
+    const selectedGoodsList = this.data.shopping_cart.items.filter(item => item.selected)
+    if (selectedGoodsList.length > 0) {
+      getApp().orderParams = selectedGoodsList
+    } else {
+        wx.showToast({
+          title: '请选择商品',
+          icon: 'none'
+        })
+        return
+    }
+
+
+    wx.navigateTo({
+      url: '/pages/order-confirm/order-confirm',
+      success: function (res) {
+        // success
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
+      }
+    })
   },
 
   /**
