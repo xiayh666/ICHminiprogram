@@ -1,0 +1,42 @@
+<!-- 列表项区域 -->
+<view class="setting-list">
+  <view class="setting-item" bindtap="goToCommonQues">
+    <view class="item-text">常见问题</view>
+    <view class="item-arrow">
+      <image src="{{jumpTo}}" />
+    </view>
+  </view>
+  
+  <view class="setting-item" bindtap="goToFeedback">
+    <view class="item-text">意见反馈</view>
+    <view class="item-arrow">
+      <image src="{{jumpTo}}" />
+    </view>
+  </view>
+  
+  <view class="setting-item" bindtap="goToAbout">
+    <view class="item-text">了解平台</view>
+    <view class="item-arrow">
+      <image src="{{jumpTo}}" />
+    </view>
+  </view>
+  
+  <view class="setting-item" bindtap="goToInvite">
+    <view class="item-text">邀请有礼</view>
+    <view class="item-arrow">
+      <image src="{{jumpTo}}" />
+    </view>
+  </view>
+  
+  <view class="setting-item" bindtap="goToService">
+    <view class="item-text">联系客服</view>
+    <view class="item-arrow">
+      <image src="{{jumpTo}}" />
+    </view>
+  </view>
+  
+  <view class="setting-item" bindtap="clearCache">
+    <view class="item-text">清除缓存</view>
+    <view class="item-cache">178kb</view>
+  </view>
+</view>

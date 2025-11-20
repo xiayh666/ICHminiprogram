@@ -73,7 +73,8 @@ const data = {
         "玩偶.png":"https://youke1.picui.cn/s1/2025/11/18/691b48c5c059a.png",
         "围巾1.png":"https://youke1.picui.cn/s1/2025/11/18/691b48c613a46.png",
         "编辑icon.png":"https://youke1.picui.cn/s1/2025/11/19/691d34967ad5d.png",
-        "客服.png":"https://youke1.picui.cn/s1/2025/11/20/691f06e7624bf.png"
+        "客服.png":"https://youke1.picui.cn/s1/2025/11/20/691f06e7624bf.png",
+        "跳转.png":"https://youke1.picui.cn/s1/2025/11/20/691f33663c19b.png"
     }
 
 }

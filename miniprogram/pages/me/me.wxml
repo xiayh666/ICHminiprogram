@@ -77,7 +77,7 @@
     <image src="{{browsing}}" class="function-icon" />
     <text>浏览记录</text>
   </view>
-  <view class="function-item">
+  <view class="function-item" bindtap="ToSetting">
     <image src="{{setting}}" class="function-icon" />
     <text>设置</text>
   </view>

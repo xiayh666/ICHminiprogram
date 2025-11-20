@@ -53,9 +53,24 @@ Page({
     });
   },
   ToGoodList(){
-    console.log('触发跳转收货地址页');
+    console.log('触发跳转订单状态页');
     wx.navigateTo({
       url: '/pages/orderListState/orderListState', 
+      success: () => {
+        console.log('跳转成功，已打开地址页');
+      },
+      fail: (err) => {
+        console.error('跳转失败：', err);
+        // 根据错误提示处理：
+        // 1. 若提示 "page not found" → 路径错误或页面未注册
+        // 2. 若提示语法错误 → 地址页代码有问题
+      }
+    });
+  },
+  ToSetting(){
+    console.log('触发跳转设置页');
+    wx.navigateTo({
+      url: '/pages/setting/setting', 
       success: () => {
         console.log('跳转成功，已打开地址页');
       },

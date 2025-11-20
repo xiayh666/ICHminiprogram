@@ -1,0 +1,35 @@
+/* 引入 iconfont 图标（若使用自定义图标，需先配置） */
+/* @import "/styles/iconfont.wxss"; */
+
+/* 列表项通用样式 */
+.setting-list {
+  background: #fff;
+}
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.item-text {
+  font-size: 36rpx;
+  color: black;
+}
+.item-arrow{
+  width: 40rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: blanchedalmond; */
+}
+.item-arrow image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.item-cache {
+  font-size: 32rpx;
+  color: #999;
+}
