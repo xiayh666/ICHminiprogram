@@ -2,26 +2,30 @@
 <view class="shopping-cart-list-container">
     <view class="functional-bar">
         <view class="left">
-            <image class="toggle {{allSelected ? 'selected' : ''}}" src="" bind:tap="toggleAllSelect"/>全选</view>
+            <image class="toggle {{allSelected ? 'selected' : ''}}" src="" bind:tap="toggleAllSelect" />
+            全选
+        </view>
         <view class="right">管理</view>
     </view>
     <view class="shopping-cart-list">
         <view wx:for="{{shopping_cart.items}}" class="good" data-id="{{item.id}}">
-            <view class="good-left">
-                <image class="toggle {{item.selected ? 'selected' : ''}}" src="" bind:tap="toggleSelect" data-id="{{item.id}}"/>
+            <view class="good-left" bind:tap="toggleSelect" data-id="{{item.id}}" data-selected-attr="{{item.selectedAttr}}">
+                <image class="toggle {{item.selected ? 'selected' : ''}}" src="" />
             </view>
             <view class="good-right">
-                <view class="good-image">
-                    <image src="{{item.image}}" class="img" mode="aspectFill"/>
-                </view>
-                <view class="good-details">
+                <navigator url="/pages/goods-detail/goods-detail?id={{item.id}}" class="good-image">
+                    <image src="{{item.image}}" class="img" mode="aspectFill" />
+                </navigator>
+                <navigator class="good-details" url="/pages/goods-detail/goods-detail?id={{item.id}}">
                     <view class="good-name">{{item.name}}</view>
-                    <view class="good-attr">{{item.attr}}</view>
+                    <view class="good-attr">{{item.selectedAttr}}</view>
                     <view class="good-price">￥{{item.price}}</view>
-                    <view class="good-num">
-                        <view class="dec-btn" bind:tap="decreaseNum" data-id="{{item.id}}">-</view>
-                        <input class="val" type="number" value="{{item.num}}" bind:change="changeNum" data-id="{{item.id}}"></input>
-                        <view class="inc-btn" type="warn" bind:tap="increaseNum" data-id="{{item.id}}">+</view>
+                </navigator>
+                <view class="good-num">
+                    <view class="dec-btn" bind:tap="decreaseNum" data-id="{{item.id}}">-</view>
+                    <input class="val" type="number" value="{{item.num}}" bind:change="changeNum" data-id="{{item.id}}"></input>
+                    <view class="inc-btn" type="warn" bind:tap="increaseNum" data-id="{{item.id}}">
+                        +
                     </view>
                 </view>
             </view>
@@ -31,7 +35,10 @@
 <view class="suggestions"></view>
 <view class="bottem-of-page"></view>
 <view class="bottom-bar">
-    <view class="left"><image class="toggle {{allSelected ? 'selected' : ''}}" src="" bind:tap="toggleAllSelect" />全选</view>
+    <view class="left">
+        <image class="toggle {{allSelected ? 'selected' : ''}}" src="" bind:tap="toggleAllSelect" />
+        全选
+    </view>
     <view class="right">
         <view class="total">
             合计：

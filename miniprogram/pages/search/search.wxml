@@ -1,0 +1,19 @@
+<view class="search-page">
+    <!-- 搜索输入框 -->
+    <view class="search-input-area">
+        <view class="search-input-wrap">
+            <!-- <image class="search-icon" src="{{searchIcon}}"></image> -->
+            <icon class="nav-left" type="search" size="30rpx" color=""></icon>
+            <input class="search-input" placeholder="请输入相关信息" placeholder-class="placeholder-style" value="{{searchValue}}" bindinput="onInputChange" bindconfirm="handleSearch"></input>
+        </view>
+    </view>
+    <!-- 搜索记录 -->
+    <view class="history-section" wx:if="{{historyList.length > 0}}">
+        <view class="section-title">搜索记录</view>
+        <view class="history-tags">
+            <view class="history-tag" wx:for="{{historyList}}" wx:key="index" bindtap="selectHistory" data-content="{{item}}">
+                {{item}}
+            </view>
+        </view>
+    </view>
+</view>

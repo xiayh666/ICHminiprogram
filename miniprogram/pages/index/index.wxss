@@ -6,6 +6,33 @@ page {
     height: 100%;
     font-size: 20rpx;
 }
+
+/* 搜索输入框区域 */
+.search {
+  padding: 20rpx 24rpx;
+}
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 60rpx;
+  padding: 16rpx 24rpx;
+}
+.search-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 16rpx;
+}
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.placeholder-style {
+  color: #999;
+}
 .fade-in-item{
   opacity: 0;
   transform: translateY(-20rpx);

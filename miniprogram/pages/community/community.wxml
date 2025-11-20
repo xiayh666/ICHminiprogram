@@ -12,11 +12,11 @@
   <scroll-view scroll-x class="tab-scroll" enable-flex scroll-left="{{scrollLeft}}">
     <!-- 循环渲染 Tab 项，通过 data-index 绑定索引 -->
     <view 
-      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      class="tab-item {{currentTab === index ? 'active' : ''}}"
       wx:for="{{tabList}}" 
       wx:key="index"
       data-index="{{index}}" 
-      bindtap="switchTab"     
+      bindtap="switchTab"
     >
       {{item}}
     </view>
@@ -27,7 +27,7 @@
 <view class="topic-section">
   <view class="section-header">
    <text>热门话题</text>
-   <navigator url="/pages/topic-more/topic-more" class="more"><image src="/images/community/more.png" class="more" mode="widthFix"/></navigator>
+   <navigator url="/pages/topic-more/topic-more" class="more"><image src="{{more}}" class="more" mode="widthFix"/></navigator>
   </view>
   <view class="topic-list" wx:for="{{topicList}}" wx:key="id">
   <view class="topic-item">

@@ -1,10 +1,10 @@
 <!-- index.wxml -->
-<!-- 搜索框 -->
-<view class="search">
-    <view class="search-left">
-        <image src="{{search_icon}}" class="img"></image>
-    </view>
-    <input class="search-right" type="text" placeholder="搜索非遗好物、手艺课程"></input>
+<view class="search-input-area">
+    <navigator class="search fade-in-item" url="/pages/search/search">
+        <!-- <image class="search-icon" src="{{searchIcon}}"></image> -->
+        <icon class="nav-left" type="search" size="30rpx" color=""></icon>
+        <view class="search-input">搜索非遗好物</view>
+    </navigator>
 </view>
 <!-- 轮播图 -->
 <!-- <view class="swiper">
@@ -32,17 +32,17 @@
 <view class="suggestion-goods">
     <view class="section-header fade-in-item">
         <text>{{more.goods.title}}</text>
-        <image src="/images/community/more.png" class="more" mode="widthFix" />
+        <image src="{{more.image}}" class="more" mode="widthFix" bind:tap="gotoGoodsPage" data-destination="{{more.goods.destination}}" />
     </view>
     <view class="goods">
-        <view class="suggestion-card fade-in-item {{animation}}" wx:for="{{suggestions.goods.items}}">
-            <image class="card-image" src="{{item.image}}" bindload="onImageLoad"/>
+        <navigator class="suggestion-card fade-in-item {{animation}}" wx:for="{{suggestions.goods.items}}" url="/pages/goods-detail/goods-detail?id={{item._id}}">
+            <image class="card-image" src="{{item.image}}" bindload="onImageLoad" />
             <view class="details">
                 <view class="card-name">{{item.name}}</view>
                 <view class="card-desc">{{item.desc}}</view>
                 <view class="card-price">￥{{item.price}}</view>
             </view>
-        </view>
+        </navigator>
         <view class="card-desc"></view>
     </view>
 </view>
@@ -62,10 +62,10 @@
     <view class="right">更多</view>
 </view> -->
 <!-- 线上线下预约通道 -->
-<view class="reservation">
+<view class="reservation fade-in-item">
     <view class="section-header">
         <text>{{more.courses.title}}</text>
-        <image src="/images/community/more.png" class="more" mode="widthFix" />
+        <image src="{{more.image}}" class="more" mode="widthFix" />
     </view>
     <view class="suggestion-course" wx:for="{{suggestions.courses}}">
         <view class="avatar">
@@ -76,14 +76,7 @@
             <view class="course-desc">{{item.desc}}</view>
             <view class="course-tag">{{item.tag}}</view>
             <view class="learn-more">了解更多></view>
-              
-              
         </view>
-          
     </view>
 </view>
-
-<view class="bottom">
-    
-</view>
-  
+<view class="bottom"></view>

@@ -1,0 +1,67 @@
+page {
+    margin: 0;
+    padding: 0;
+    font-size: 30rpx;
+}
+
+.search-page {
+    background-color: #F8F4E9;
+    min-height: 100vh;
+}
+
+/* 搜索输入框区域 */
+.search-input-area {
+    padding: 20rpx 24rpx;
+}
+
+.search-input-wrap {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 60rpx;
+    padding: 16rpx 24rpx;
+}
+
+.search-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 16rpx;
+}
+
+.search-input {
+    flex: 1;
+    font-size: 28rpx;
+    color: #333;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.placeholder-style {
+    color: #999;
+}
+
+/* 搜索记录区域 */
+.history-section {
+    padding: 0 24rpx;
+}
+
+.section-title {
+    font-size: 28rpx;
+    color: #333;
+    margin-bottom: 20rpx;
+}
+
+.history-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.history-tag {
+    background-color: #e9e1d8;
+    color: #333;
+    font-size: 26rpx;
+    padding: 12rpx 24rpx;
+    border-radius: 30rpx;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+}

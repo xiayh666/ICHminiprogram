@@ -1,11 +1,10 @@
 <!--pages/address/adrress.wxml-->
-<!--pages/index1/index1.wxml-->
 
 <!-- 地址列表 -->
 <view class="address-list">
   <block wx:for="{{addressList}}" wx:key="id">
-    <view class="address-item" bindtap="selectAddress" data-index="{{index}}">
-      <view class="address-info">
+    <view class="address-item" >
+      <view class="address-info" bindtap="selectAddress" data-index="{{index}}">
         <view class="address-name-phone">
           <text class="name">{{item.recipient}}</text>
           <text class="phone">{{item.phone}}</text>
@@ -13,7 +12,7 @@
         </view>
         <view class="address-detail">{{item.address}}</view>
       </view>
-      <view class="address-edit" bindtap="selectAddress" data-index="{{index}}">
+      <view class="address-edit" bindtap="editAddress" data-index="{{index}}">
        <image src="{{iconFront}}" class="iconfont" ></image>
       </view>
     </view>

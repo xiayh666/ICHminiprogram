@@ -1,0 +1,104 @@
+<view class="container">
+    <!-- 商品轮播图 -->
+    <view class="swiper-container">
+        <swiper class="swiper" indicator-dots="{{false}}" autoplay="{{false}}" current="{{currentSwiperPage}}" bind:change="onSwiperChange">
+            <swiper-item class="swiper-item" wx:for="{{goodsInfo.swiperImages}}" wx:key="index">
+                <image src="{{item}}" class="swiper-img"></image>
+            </swiper-item>
+        </swiper>
+        <view class="swiper-page">
+            <text class="current-page">{{currentSwiperPage + 1}}</text>
+            / {{goodsInfo.swiperImages.length}}
+        </view>
+    </view>
+    <!-- 商品基本信息 -->
+    <view class="goods-info">
+        <view class="goods-name">{{goodsInfo.name}}</view>
+        <view class="goods-price">￥{{goodsInfo.price}}</view>
+        <view class="goods-desc">{{goodsInfo.desc}}</view>
+        <view class="inventory">库存: {{goodsInfo.inventory}}件</view>
+    </view>
+    <!-- 已选区域 -->
+    <view class="selected-section" bindtap="openPopWindow">
+        <view class="selected-label">已选</view>
+        <view class="selected-content">{{selectedAttrs}}</view>
+        <view class="arrow-right">></view>
+    </view>
+    <!-- 规格选择弹窗（默认隐藏） -->
+    <view class="popWindow {{isPopWindowShow ? 'show' : ''}}">
+        <view class="window-header">
+            <view class="window-title">选择商品</view>
+            <view class="window-close" bindtap="closePopWindow">×</view>
+        </view>
+        <!-- 商品信息 -->
+        <view class="goods">
+            <image src="{{goodsInfo.image}}" class="goods-img"></image>
+            <view class="goods-info">
+                <view class="goods-name">{{goodsInfo.name}}</view>
+                <view class="goods-price">￥{{totalPrice}}</view>
+            </view>
+            <view class="num">
+                <view class="dec-btn" bind:tap="reduceCount" disabled="{{count <= 1}}">-</view>
+                <input type="number" bind:change="changeCount" value="{{count}}" class="count-num"></input>
+                <view class="inc-btn" bind:tap="addCount" disabled="{{count >= goodsInfo.inventory}}">
+                    +
+                </view>
+            </view>
+        </view>
+        <!-- 颜色选择 -->
+        <view class="attrs" wx:for="{{attrs}}" wx:for-item="itemi" wx:for-index="indexi" wx:key="index">
+            <view class="attr-title">{{itemi.name}}</view>
+            <view class="attr-options">
+                <view class="attr-option {{itemj.selected ? 'attr-selected' : ''}}" wx:for="{{itemi.options}}" wx:for-item="itemj" bind:tap="selectAttr" data-index="{{index}}" data-classification_index="{{indexi}}">
+                    {{itemj.name}}
+                </view>
+            </view>
+        </view>
+        <!-- 数量选择 -->
+        <!-- 底部按钮 -->
+        <view class="window-footer">
+            <view class="confirm-cart" bindtap="addToCart">加入购物车</view>
+            <view class="confirm-buy" bindtap="buyNow">立即购买</view>
+        </view>
+    </view>
+    <!-- 遮罩层 -->
+    <view class="page-mask {{isPopWindowShow ? 'show' : ''}}" bindtap="closePopWindow"></view>
+    <!-- 优惠券(未做) -->
+    <!-- 商品评价 -->
+    <view class="review-section">
+        <view class="review-header">
+            <view class="review-title">商品评价 ({{goodsInfo.reviews.length}})</view>
+            <navigator class="review-more" url="/pages/goods-all-reviews/goods-all-reviews?id={{goodsInfo._id}}">查看全部</navigator>
+        </view>
+        <view class="review-list">
+            <view class="review-item" wx:for="{{goodsInfo.reviews}}" wx:key="index" wx:if="{{index < reviewDisplayLimit}}">
+                <view class="user-info">
+                    <image class="user-avatar" src="{{item.avatar}}"></image>
+                    <view style="display: flex;flex-direction: column;">
+                        <view class="user-name">{{item.user}}</view>
+                        <view class="user-rating">
+                            <view class="stars" style="width: {{item.star * 20}}%;"></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="review-content">{{item.content}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 商品详情图 -->
+    <view class="detail-section">
+        <view class="detail-title">商品详情</view>
+        <view class="detail-images">
+            <image src="{{item}}" class="detail-img" wx:for="{{goodsInfo.detailImages}}" wx:key="index"></image>
+        </view>
+    </view>
+    <!-- 底部操作栏 -->
+    <view class="bottom-bar">
+        <view class="bar-btn-service">
+            客服</view>
+        <view class="bar-btn-shop">进店</view>
+        <view class="bar-btn-follow">关注</view>
+        <view class="bar-btn-cart" bindtap="openPopWindow">加入购物车</view>
+        <view class="bar-btn-buy" bindtap="openPopWindow">立即购买</view>
+    </view>
+</view>

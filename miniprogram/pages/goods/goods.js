@@ -1,19 +1,16 @@
-let app =  getApp();
+import { storage } from "../../src/Storage";
+import { db } from "../../src/DataBase";
 
+let asset = url => storage.get(url)
   
 Page({
   data: {
+    cartImage: asset("/images/购物车.png")
   },
 
-  gotoGoodsDetail(e) {
-    const goodsId = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: `/pages/goods/goods-detail/goods-detail?id=${goodsId}`
-    });
-  },
 
   onLoad: function () {
-    app.DataBase.collection("goods").get().then(res=>{
+    db.collection("goods").get().then(res=>{
       this.setData({goodsList: res.data})
     })
   }

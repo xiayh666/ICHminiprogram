@@ -6,6 +6,13 @@
 // ]
 
 let app = getApp();
+import { storage } from "../../src/Storage";
+let asset = (url) => {
+
+  let res = storage.get(url)
+  console.log(res)
+  return res
+}
 
 
 Page({
@@ -17,6 +24,7 @@ Page({
     app: app,
     animation: "anim-disable",
     more: {
+      image: asset("/images/更多.png"),
       goods: {
         title: "匠心之选 非遗好物",
         destination: ""
@@ -73,6 +81,23 @@ Page({
       animation: "anim-active"
     })
   },
+
+  gotoGoodsPage(e) {
+    wx.switchTab({
+      url: '/pages/goods/goods',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

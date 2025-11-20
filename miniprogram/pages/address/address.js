@@ -1,16 +1,57 @@
 import { storage } from '../../src/Storage.js';
+import { db } from "../../src/DataBase";
+let app = getApp();
+
+
+
 Page({
   data: {
     iconFront:storage.get('/images/编辑icon.png'),
+    selectAddress: false,
     addressList: [
-      { id: 1, recipient: '曹操', phone: '18286888628', address: '北京市朝阳区望京渠通东大街方恒国际中心a座', isDefault: true },
-      { id: 2, recipient: '曹操', phone: '18286888628', address: '北京市朝阳区望京渠通东大街方恒国际中心a座', isDefault: false }
     ]
   },
 
+  onLoad() {
+    // 从 DataBase 读取用户数据和地址数据
+    (async () => {
+      let { addressList } = (await db.collection("users").where({ username: app.globalData.username }).get()).data[0]
+      this.setData({
+        addressList
+      })
+    })()
+
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('selectAddress', data => {
+      this.data.selectAddress = true 
+    });
+
+  },
+  selectAddress(e) {
+    if (this.data.selectAddress !== true) {
+      this.editAddress(e) 
+      return
+    }
+    const index = e.currentTarget.dataset.index
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.emit('addressSelected',this.data.addressList[index]);
+
+    wx.navigateBack({
+      delta: 1, // 回退前 delta(默认为1) 页面
+      success: function (res) {
+        // success
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
+      }
+    })
+  },
 
   // 选择地址加编辑地址
-  selectAddress(e) {
+  editAddress(e) {
     const index = e.currentTarget.dataset.index;
     const currentAddress = this.data.addressList[index];
     wx.navigateTo({
@@ -31,8 +72,8 @@ Page({
       }
     });
   },
-   // 创建地址页面
-   createAddress() {
+  // 创建地址页面
+  createAddress() {
     wx.navigateTo({
       url: '/pages/addAddress/addAddress',
       success: (res) => {

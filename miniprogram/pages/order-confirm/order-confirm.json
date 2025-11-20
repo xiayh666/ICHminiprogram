@@ -3,7 +3,7 @@
   "backgroundColor": "#a02c2c",
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#a02c2c",
-  "navigationBarTitleText": "社区交流",
+  "navigationBarTitleText": "订单确认",
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": false
 }
