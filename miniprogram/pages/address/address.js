@@ -6,8 +6,8 @@ let app = getApp();
 
 Page({
   data: {
+    iconFront:storage.get('/images/编辑icon.png'),
     selectAddress: false,
-    iconFront: storage.get('/images/铅笔icon.png'),
     addressList: [
     ]
   },

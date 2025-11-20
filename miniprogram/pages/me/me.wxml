@@ -28,23 +28,23 @@
   <navigator url="/pages/orderList/index" class="view-more">全部订单 ></navigator>
   </view>
   <view class="good_information">
-  <view class="status-item">
+  <view class="status-item" bindtap="ToGoodList" >
     <image src="{{unpaid}}" class="status-icon" />
     <text>待付款</text>
   </view>
-  <view class="status-item">
-    <image src="{{unshipped}}" class="status-icon" />
+  <view class="status-item"  bindtap="ToGoodList" >
+    <image src="{{unshipped}}" class="status-icon"/>
     <text>待发货</text>
   </view>
-  <view class="status-item">
+  <view class="status-item" bindtap="ToGoodList">
     <image src="{{receiptWait}}" class="status-icon" />
     <text>待收货</text>
   </view>
-  <view class="status-item">
+  <view class="status-item" bindtap="ToGoodList" >
     <image src="{{evaluateWait}}" class="status-icon" />
     <text>待评价</text>
   </view>
-  <view class="status-item">
+  <view class="status-item" >
     <image src="{{afterSale}}" class="status-icon" />
     <text>售后</text>
   </view>

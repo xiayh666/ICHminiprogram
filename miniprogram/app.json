@@ -11,6 +11,7 @@
     "pages/topic-more/topic-more",
     "pages/address/address",
     "pages/addAddress/addAddress",
+    "pages/orderListState/orderListState",
     "pages/goods-all-reviews/goods-all-reviews",
     "pages/order-confirm/order-confirm",
     "pages/search/search",
