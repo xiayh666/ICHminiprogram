@@ -20,7 +20,7 @@ Page({
    */
   onLoad(options) {
     (async () => {
-      let cartList_ = (await db.collection("users").where({ username: "User1" }).get()).data[0].cart
+      let cartList_ = (await db.collection("users").where({ username: "曹操" }).get()).data[0].cart
       let cartList = []
       for (let item of cartList_) {
         cartList.push({

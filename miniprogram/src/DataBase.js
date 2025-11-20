@@ -241,7 +241,7 @@ let goodsList = [
             asset("/images/头像.png")
         ],
         reviews: [
-            { user: 'User1', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '曹操', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
             { user: 'User2', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
         ],
     },
@@ -270,11 +270,14 @@ let goodsList = [
  */
 let userData = [
     {
-        username: "User1",
+        username: "曹操",
         password: "123456",
-        phone_number: "12345678910",
-        address: [
-            { pos: "中国重庆市北碚区天生路101", default: true }
+        phone: "12345678910",
+        addressList: [
+            { address: "中国重庆市北碚区天生路101", isDefault: true },
+            { address: "中国重庆市北碚区天生路102", isDefault: false },
+            { address: "中国重庆市北碚区天生路103", isDefault: false },
+            { address: "中国重庆市北碚区天生路104", isDefault: false }
         ],
         cart: [
         ]
@@ -282,10 +285,10 @@ let userData = [
     {
         username: "User2",
         password: "666666",
-        phone_number: "12345678911",
-        address: [
-            { pos: "中国重庆市北碚区天生路102", default: false },
-            { pos: "中国重庆市北碚区天生路103", default: true }
+        phone: "12345678911",
+        addressList: [
+            { address: "中国重庆市北碚区天生路201", isDefault: false },
+            { address: "中国重庆市北碚区天生路202", isDefault: true }
         ],
         cart: [
         ]
@@ -348,7 +351,7 @@ class DB {
 
             this.collection("users")
                 .update({
-                    username: "User1",
+                    username: "曹操",
                 }, {
                     cart: cartList
                 }).then(e => {

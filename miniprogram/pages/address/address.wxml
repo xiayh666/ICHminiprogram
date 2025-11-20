@@ -1,5 +1,4 @@
 <!--pages/address/adrress.wxml-->
-<!--pages/index1/index1.wxml-->
 
 <!-- 地址列表 -->
 <view class="address-list">
@@ -7,8 +6,8 @@
     <view class="address-item" bindtap="selectAddress" data-index="{{index}}">
       <view class="address-info">
         <view class="address-name-phone">
-          <text class="name">{{item.recipient}}</text>
-          <text class="phone">{{item.phone}}</text>
+          <text class="name">{{username}}</text>
+          <text class="phone">{{phone}}</text>
           <text class="default-tag" wx:if="{{item.isDefault}}">默认</text>
         </view>
         <view class="address-detail">{{item.address}}</view>

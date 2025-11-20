@@ -1,13 +1,28 @@
 import { storage } from '../../src/Storage.js';
+import { db } from "../../src/DataBase";
+let app =  getApp();
+
+  
+
 Page({
   data: {
     iconFront:storage.get('/images/铅笔icon.png'),
     addressList: [
-      { id: 1, recipient: '曹操', phone: '18286888628', address: '北京市朝阳区望京渠通东大街方恒国际中心a座', isDefault: true },
-      { id: 2, recipient: '曹操', phone: '18286888628', address: '北京市朝阳区望京渠通东大街方恒国际中心a座', isDefault: false }
     ]
   },
 
+  onLoad() {
+    // 从 DataBase 读取用户数据和地址数据
+    (async () => {
+      let {username, phone, addressList} = (await db.collection("users").where({username: app.globalData.username}).get()).data[0]
+      this.setData({
+        username,
+        phone,
+        addressList
+      })
+    })()
+
+  },
 
   // 选择地址加编辑地址
   selectAddress(e) {

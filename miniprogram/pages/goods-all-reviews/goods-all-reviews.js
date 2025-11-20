@@ -88,7 +88,7 @@ Page({
 
   addToCart() {
     (async () => {
-      let userCart = (await db.collection("users").where({ username: "User1" }).get()).data[0].cart
+      let userCart = (await db.collection("users").where({ username: "曹操" }).get()).data[0].cart
       let selectedAttr = this.getSelectedAttr()
       if (!selectedAttr) {
         // 没有选好所有规格
@@ -105,7 +105,7 @@ Page({
         selectedAttr
       })
       db.collection("users").update({
-        username: "User1"
+        username: "曹操"
       }, {
         cart: userCart
       }).then(e => {
