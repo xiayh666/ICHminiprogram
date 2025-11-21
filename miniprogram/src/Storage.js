@@ -113,7 +113,7 @@ class Storage {
     }
 
     // 返回最终值（若为undefined则返回默认值）
-    return current !== undefined ? current : undefined;
+    return current !== undefined ? current : "";
   }
 
   /**

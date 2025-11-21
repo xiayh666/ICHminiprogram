@@ -120,10 +120,15 @@ page {
   margin-bottom: 20rpx;
 }
 .topic-desc {
+  display: -webkit-box;
   font-size: 28rpx;
   color: #666;
   margin-bottom: 25rpx;
   line-height: 1.5;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .topic-images {
   width: 98%;
