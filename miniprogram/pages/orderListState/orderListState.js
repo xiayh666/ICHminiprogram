@@ -32,8 +32,8 @@ Page({
       },
       {
         orderId: '20251120002',
-        status: 1, // 待收货
-        statusText: '待收货',
+        status: 1, // 待发货
+        statusText: '待发货',
         createTime: '2025-11-19 14:20',
         merchantName: '茶香小铺',
         totalPrice: '299.00',
@@ -47,8 +47,8 @@ Page({
       },
       {
         orderId: '20251120003',
-        status: 2, // 待评价
-        statusText: '待评价',
+        status: 2, // 待收货
+        statusText: '待收货',
         createTime: '2025-11-18 09:15',
         merchantName: '文创书店',
         totalPrice: '158.00',
@@ -62,7 +62,22 @@ Page({
       },
       {
         orderId: '20251120004',
-        status: 3, // 已完成
+        status: 3, // 待评价
+        statusText: '待评价',
+        createTime: '2025-11-17 16:40',
+        merchantName: '绿植花店',
+        totalPrice: '368.00',
+        goodsCount: 1,
+        stock: 45,
+        merchantId: 'merchant004',
+        goodsList: [
+          { goodsId: 'g001', goodsImg: storage.get('/images/围巾1.png') },
+          { goodsId: 'g002', goodsImg: storage.get('/images/围巾1.png') }
+        ]
+      },
+      {
+        orderId: '20251120004',
+        status: 4, // 已完成
         statusText: '已完成',
         createTime: '2025-11-17 16:40',
         merchantName: '绿植花店',
@@ -96,9 +111,30 @@ Page({
     this.setData({ activeTab: tabIndex });
 
     // 4. 根据标签索引筛选对应状态的订单（核心：状态映射 tabIndex=0→待付款，1→待收货...）
-    const filteredOrders = this.data.allOrderList.filter(order => {
-      return order.status === tabIndex; // 订单status与标签索引一一对应
+    // const filteredOrders = this.data.allOrderList.filter(order => {
+    //   return order.status === tabIndex; // 订单status与标签索引一一对应
+    // });
+
+    // 4. 根据标签索引筛选对应状态的订单
+  let filteredOrders;
+  if (tabIndex === 1) {
+    // 如果是索引为 1 的标签页（待收货）
+    // 筛选出 status 为 1 (待收货) 或 2 (待评价) 的订单
+    filteredOrders = this.data.allOrderList.filter(order => {
+      return order.status === 1 || order.status === 2;
     });
+  } else {
+    // 其他标签页，保持原有的一对一映射逻辑
+    const statusMap = {
+      0: 0,   // 待付款
+      2: 3,    // 已完成
+      3: 4
+    };
+    const targetStatus = statusMap[tabIndex];
+    filteredOrders = this.data.allOrderList.filter(order => {
+      return order.status === targetStatus;
+    });
+  }
 
     // 5. 更新当前显示的订单列表
     this.setData({ currentOrderList: filteredOrders });
@@ -138,5 +174,71 @@ Page({
     const orderId = e.currentTarget.dataset.orderId;
     console.log('去评价：', orderId);
     // 跳转到评价页面：wx.navigateTo({ url: `/pages/comment/comment?orderId=${orderId}` });
+  },
+  handleOrderTap(e) {
+    // 从事件对象中获取订单状态
+    const status = e.currentTarget.dataset.status;
+
+    // 根据状态执行不同的操作
+    switch (status) {
+      case 0:
+        this.ToWaitPay(); // 跳转到待付款页面
+        break;
+      case 1:
+        this.ToWaitReceive(); // 跳转到待收货页面
+        break;
+      case 2:
+        this.ToWaitComment(); // 跳转到待评价页面
+        break;
+      case 3:
+        this.ToGoodFinish(); // 跳转到已完成页面
+        break;
+      default:
+        console.log("未知的订单状态:", status);
+    }
+  },
+
+  // 定义各个具体的跳转或处理函数
+  ToWaitPay(){
+    console.log('触发跳转等待支付页');
+    wx.navigateTo({
+      url: '/pages/waitpay/waitpay', 
+      success: () => {
+        console.log('跳转成功，已打开等待支付页');
+      },
+      fail: (err) => {
+        console.error('跳转失败：', err);
+        // 根据错误提示处理：
+        // 1. 若提示 "page not found" → 路径错误或页面未注册
+        // 2. 若提示语法错误 → 地址页代码有问题
+      }
+    });
+  },
+
+  ToWaitReceive() {
+    console.log('触发跳转等待收货页');
+    wx.navigateTo({
+      url: '/pages/waitreceive/waitreceive', 
+      success: () => {
+        console.log('跳转成功，已打开等待收货页');
+      },
+      fail: (err) => {
+        console.error('跳转失败：', err);
+        // 根据错误提示处理：
+        // 1. 若提示 "page not found" → 路径错误或页面未注册
+        // 2. 若提示语法错误 → 地址页代码有问题
+      }
+    });
+  },
+
+  ToWaitComment() {
+    console.log("执行待评价逻辑");
+    // wx.navigateTo({ url: '/pages/waitComment/waitComment' });
+  },
+
+  ToGoodFinish() {
+    console.log("执行已完成逻辑");
+    // wx.navigateTo({ url: '/pages/goodFinish/goodFinish' });
   }
+  
 });

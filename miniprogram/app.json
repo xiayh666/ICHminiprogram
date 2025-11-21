@@ -19,7 +19,10 @@
     "pages/setting/setting",
     "pages/normal-question/normal-question",
     "pages/account/account",
-    "pages/mystar/mystar"
+    "pages/mystar/mystar",
+    "pages/waitpay/waitpay",
+    "pages/waitreceive/waitreceive"
+  
   
   ],
   "window": {

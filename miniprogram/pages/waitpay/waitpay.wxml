@@ -1,0 +1,62 @@
+<!-- 等待付款页面 -->
+<view class="nav-container">
+<view class="nav-bar">
+  <view class="nav-title">
+    <image src="{{clock}}" />
+    <text>等待付款</text>
+  </view>
+  <image src="{{share}}" class="share-btn" />
+  <view class="order-header">
+    <view class="price-time">
+      <view class="price">需付款：¥{{orderData.price}}</view>
+      <view class="time">剩余：{{orderData.remainTime}}</view>
+    </view>
+</view>
+</view>
+</view>
+
+<view class="address-card">
+  <image src="{{addeIcon}}" />
+  <view class="address-info">
+    <view class="address-user">{{orderData.receiver}}  {{orderData.phone}}</view>
+    <view class="address-detail">收货地址：{{orderData.address}}</view>
+  </view>
+</view>
+
+<view class="goods-card">
+  <view class="shop-name">{{orderData.shopName}}</view>
+  <view class="goods-item">
+    <image src="{{orderData.goods.image}}"  class="goods-img" />
+    <view class="goods-info">
+      <view class="goods-name">{{orderData.goods.name}}</view>
+      <view class="goods-price-count">
+        <view class="goods-price">¥{{orderData.goods.price}}</view>
+        <view class="goods-count">x{{orderData.goods.count}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="order-info-card">
+  <view class="info-item">
+    <view class="info-label">订单编号</view>
+    <view class="info-value">{{orderData.orderNo}}</view>
+  </view>
+  <view class="info-item">
+    <view class="info-label">下单时间</view>
+    <view class="info-value">{{orderData.orderTime}}</view>
+  </view>
+  <view class="info-item">
+    <view class="info-label">支付方式</view>
+    <view class="info-value">{{orderData.payMethod}}</view>
+  </view>
+  <view class="info-item">
+    <view class="info-label">支付状态</view>
+    <view class="info-value">{{orderData.payStatus}}</view>
+  </view>
+</view>
+
+<view class="action-bar">
+  <button class="cancel-btn" bindtap="cancelOrder">取消订单</button>
+  <button class="pay-btn" bindtap="goPay">去支付</button>
+</view>

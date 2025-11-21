@@ -1,5 +1,5 @@
 <!-- 我的订单页面 -->
-
+<!-- 搜索栏并没有实现相应的功能，同时这里的订单也只是一个静态画面 -->
 <!-- 搜索栏 -->
 <view class="search">
 <view class="search-bar">
@@ -30,8 +30,8 @@
 </view>
 
 <!-- 订单列表 -->
-<block wx:for="{{currentOrderList}}" wx:key="orderId">
-  <view class="order-item">
+<block wx:for="{{currentOrderList}}" wx:key="orderId" >
+  <view class="order-item"  bind:tap="handleOrderTap" data-status="{{item.status}}">
     <view class="order-header">
       <text class="order-time">下单时间：{{item.createTime}}</text>
       <view class="order-status">{{item.statusText}}</view>
@@ -48,12 +48,12 @@
         <text class="goods-desc">共{{item.goodsCount}}件 | 库存: {{item.stock}}</text>
       </view>
     </view>
-    <view class="order-buttons" style="margin-left: {{ item.status === 1 ? '300rpx' :  item.status ===2 ?'300rpx' :  item.status === 3 ? '500rpx' : '160rpx'}}">
+    <view class="order-buttons" style="margin-left: {{ activeTab === 1 ? '300rpx' :  activeTab ===2 ?'300rpx' :  activeTab === 3 ? '500rpx' : '160rpx'}}">
       <button class="btn-merchant" bindtap="contactMerchant" data-merchantId="{{item.merchantId}}">联系商家</button>
-      <button class="btn-modify" bindtap="modifyOrder" data-orderId="{{item.orderId}}" wx:if="{{item.status===0}}">修改订单</button>
-      <button class="btn-pay" bindtap="goToPay" data-orderId="{{item.orderId}}" wx:if="{{item.status === 0}}">去支付</button>
-      <button class="btn-confirm" bindtap="confirmReceipt" data-orderId="{{item.orderId}}" wx:if="{{item.status === 1}}">确认收货</button>
-      <button class="btn-comment" bindtap="goToComment" data-orderId="{{item.orderId}}" wx:if="{{item.status === 2}}">去评价</button>
+      <button class="btn-modify" bindtap="modifyOrder" data-orderId="{{item.orderId}}" wx:if="{{activeTab===0}}">修改订单</button>
+      <button class="btn-pay" bindtap="goToPay" data-orderId="{{item.orderId}}" wx:if="{{activeTab === 0}}">去支付</button>
+      <button class="btn-confirm" bindtap="confirmReceipt" data-orderId="{{item.orderId}}" wx:if="{{activeTab === 1}}">确认收货</button>
+      <button class="btn-comment" bindtap="goToComment" data-orderId="{{item.orderId}}" wx:if="{{activeTab === 2}}">去评价</button>
     </view>
   </view>
 </block>
