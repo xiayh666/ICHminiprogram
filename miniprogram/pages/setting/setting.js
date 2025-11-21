@@ -7,7 +7,19 @@ Page({
 
    // 跳转常见问题
    goToCommonQues() {
-    wx.navigateTo({ url: '/pages/common-ques/common-ques' });
+    console.log('触发跳转常见问题页');
+    wx.navigateTo({
+      url: '/pages/normal-question/normal-question', 
+      success: () => {
+        console.log('跳转成功，已打开地址页');
+      },
+      fail: (err) => {
+        console.error('跳转失败：', err);
+        // 根据错误提示处理：
+        // 1. 若提示 "page not found" → 路径错误或页面未注册
+        // 2. 若提示语法错误 → 地址页代码有问题
+      }
+    });
   },
   // 跳转意见反馈
   goToFeedback() {

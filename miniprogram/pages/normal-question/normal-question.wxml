@@ -1,0 +1,21 @@
+<view class="faq-container">
+  <!-- 单个问题项 -->
+  <view class="faq-item" wx:for="{{faqList}}" wx:key="id">
+    <!-- 标题栏（点击触发折叠） -->
+    <view class="faq-title" bindtap="toggleFold" data-index="{{index}}">
+      <text class="faq-question">{{item.id}}. {{item.question}}</text>
+      <!-- 箭头图标（根据展开状态切换） -->
+      <image 
+        class="{{ item.isExpanded ? 'arrow' : 'arrow-trans' }}" 
+        src="{{upArrow}}"
+      ></image>
+    </view>
+    <!-- 内容区域（根据展开状态显示/隐藏，带动画） -->
+    <view 
+      class="faq-content" 
+      style="height: {{item.isExpanded ? item.contentHeight + 'px' : '0px'}}; transition: height 0.3s ease;"
+    >
+      <view class="content-inner" id="content-{{index}}">{{item.answer}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+.faq-container {
+  padding: 20rpx;
+}
+.faq-item {
+  border-bottom: 1rpx solid #eee;
+  padding: 20rpx 0;
+}
+.faq-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.faq-question {
+  font-size: 32rpx;
+  font-weight: bolder;
+}
+.arrow {
+  margin-right: 10rpx;
+  width: 26rpx;
+  height: 20rpx;
+}
+.arrow-trans{
+  margin-right: 10rpx;
+  width: 26rpx;
+  height: 20rpx;
+  transform: rotate(180deg);
+}
+.faq-content {
+  overflow: hidden;
+  margin-top: 10rpx;
+}
+.content-inner {
+  padding: 10rpx 0;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color: #666;
+}

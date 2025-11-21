@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "backgroundColor": "#ffffff",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "常见问题",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": false
+}
