@@ -77,7 +77,7 @@
                     <view style="display: flex;flex-direction: column;">
                         <view class="user-name">{{item.user}}</view>
                         <view class="user-rating">
-                            <view class="stars" style="width: {{item.star * 20}}%;"></view>
+                            <view class="stars" style="width: {{item.star * 20}}"></view>
                         </view>
                     </view>
                 </view>

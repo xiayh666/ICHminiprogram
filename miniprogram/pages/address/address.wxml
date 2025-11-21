@@ -1,5 +1,4 @@
-<!--pages/address/adrress.wxml-->
-
+<!-- 选择地址页面 -->
 <!-- 地址列表 -->
 <view class="address-list">
   <block wx:for="{{addressList}}" wx:key="id">

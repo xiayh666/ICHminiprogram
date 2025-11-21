@@ -17,7 +17,10 @@
     "pages/search/search",
     "pages/search-result/search-result",
     "pages/setting/setting",
-    "pages/normal-question/normal-question"
+    "pages/normal-question/normal-question",
+    "pages/account/account",
+    "pages/mystar/mystar"
+  
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

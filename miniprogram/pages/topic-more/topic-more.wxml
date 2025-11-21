@@ -1,5 +1,4 @@
-<!--pages/topic-more/topic-more.wxml-->
-
+<!-- 非遗小论坛 -->
 <!-- 话题标签 -->
 <view class="tag">#石柱非遗季</view>
 

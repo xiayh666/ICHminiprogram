@@ -1,0 +1,48 @@
+<!-- 账户设置页面 -->
+<!-- 基础信息区域 -->
+<view class="section">
+    <view class="section-title">基础信息</view>
+    <view class="info-item">
+      <view class="info-label">头像</view>
+      <view class="info-value">
+        <image src="{{avatar}}" mode="cover" class="avatar" />
+        <view class="arrow">></view>
+      </view>
+    </view>
+    <view class="info-item">
+      <view class="info-label">昵称</view>
+      <view class="info-value">{{nickname}}</view>
+    </view>
+    <view class="info-item">
+      <view class="info-label">ID</view>
+      <view class="info-value info-gray">{{id}}</view>
+    </view>
+    <view class="info-item">
+      <view class="info-label">联系电话</view>
+      <view class="info-value">{{phone}}</view>
+    </view>
+    <view class="info-item">
+      <view class="info-label">登录密码</view>
+      <view class="info-value">{{password}}</view>
+    </view>
+  </view>
+
+  <!-- 地址管理区域 -->
+  <view class="section">
+    <view class="section-title">地址管理</view>
+  <block wx:for="{{addressList}}" wx:key="id">
+    <view class="address-item" bindtap="selectAddress" data-index="{{index}}">
+      <view class="address-info">
+        <view class="address-name-phone">
+          <text class="name">{{item.recipient}}</text>
+          <text class="phone">{{item.phone}}</text>
+          <text class="default-tag" wx:if="{{item.isDefault}}">默认</text>
+        </view>
+        <view class="address-detail">{{item.address}}</view>
+      </view>
+      <view class="address-edit" bindtap="editAddress" data-index="{{index}}">
+       <image src="{{iconFront}}" class="iconfont" ></image>
+      </view>
+    </view>
+  </block>
+</view>

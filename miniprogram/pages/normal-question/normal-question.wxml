@@ -1,3 +1,5 @@
+<!-- 常见问题页面 -->
+
 <view class="faq-container">
   <!-- 单个问题项 -->
   <view class="faq-item" wx:for="{{faqList}}" wx:key="id">

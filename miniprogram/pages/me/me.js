@@ -13,6 +13,7 @@ Page({
     shipAddress:storage.get('/images/收货地址.png'),
     browsing:storage.get('/images/浏览记录.png'),
     setting:storage.get('/images/设置.png'),
+    whiteSetting:storage.get('images/white-setting.png'),
     userInfo: {
       avatar: storage.get('/images/userimg.png'), // 替换为实际头像路径
       tag: '非遗爱好者',
@@ -81,5 +82,20 @@ Page({
         // 2. 若提示语法错误 → 地址页代码有问题
       }
     });
-  }
+  },
+  ToAccount(){
+    console.log('触发跳转账户设置页');
+    wx.navigateTo({
+      url: '/pages/account/account', 
+      success: () => {
+        console.log('跳转成功，已打开地址页');
+      },
+      fail: (err) => {
+        console.error('跳转失败：', err);
+        // 根据错误提示处理：
+        // 1. 若提示 "page not found" → 路径错误或页面未注册
+        // 2. 若提示语法错误 → 地址页代码有问题
+      }
+    });
+  },
 })

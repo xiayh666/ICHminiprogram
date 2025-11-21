@@ -24,19 +24,19 @@
   color: black;
 }
 .name {
-  font-size: 16px;
+  font-size: 36rpx;
   font-weight: bold;
   color: black;
   margin-right: 8px;
 }
 .phone {
-  font-size: 14px;
+  font-size: 34rpx;
   font-weight: bold;
   color: black;
   margin-right: 8px;
 }
 .default-tag {
-  font-size: 10px;
+  font-size: 24rpx;
   font-weight: lighter;
   color: #fff;
   background-color: #c8102e;
@@ -52,8 +52,8 @@
 .address-edit {
   position: absolute;
   right: 10rpx;
-  width: 44px;
-  height: 44px;
+  width: 70rpx;
+  height: 70rpx;
   display: flex;
   align-items: center;
   justify-content: center;

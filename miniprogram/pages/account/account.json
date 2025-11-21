@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "backgroundColor": "#ffffff",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "账户设置",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": false
+}
