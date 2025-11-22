@@ -1,4 +1,5 @@
-<!-- pages/community/community.wxml -->
+<!-- 社区页面 -->
+
 <!-- 顶部搜索栏 -->
 <view class="search-bar">
   <icon type="search" size="14" color="#999" />

@@ -77,7 +77,14 @@ const data = {
         "跳转.png":"https://youke1.picui.cn/s1/2025/11/20/691f33663c19b.png",
         "up.png":"https://youke1.picui.cn/s1/2025/11/21/691fdfe347486.png",
         "down.png":"https://youke1.picui.cn/s1/2025/11/21/691fdfe34a96d.png",
-        "white-setting.png":"https://youke1.picui.cn/s1/2025/11/21/692011f1a8f8f.png"
+        "white-setting.png":"https://youke1.picui.cn/s1/2025/11/21/692011f1a8f8f.png",
+        "地址.png":"https://youke1.picui.cn/s1/2025/11/21/6920607701678.png",
+        "时钟.png":"https://youke1.picui.cn/s1/2025/11/21/692060771a070.png",
+        "分享.png":"https://youke1.picui.cn/s1/2025/11/21/6920607748aba.png",
+        "完成.png":"https://youke1.picui.cn/s1/2025/11/22/69212ab4a4cc4.png",
+        "发货.png":"https://youke1.picui.cn/s1/2025/11/22/69212ab47dcdb.png",
+        "待发货1.png":"https://youke1.picui.cn/s1/2025/11/22/69212ab491218.png",
+        "运输.png":"https://youke1.picui.cn/s1/2025/11/22/69212ab46e473.png"
     }
 
 }
