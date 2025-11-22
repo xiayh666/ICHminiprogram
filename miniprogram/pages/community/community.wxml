@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<!-- 社区页面 -->
-=======
 <!-- pages/community/community.wxml -->
->>>>>>> c81bffda63ab9e9a1e2a4d2dbf37e49091e237ed
 <!-- 顶部搜索栏 -->
 <view class="search-bar">
   <icon type="search" size="14" color="#999" />
