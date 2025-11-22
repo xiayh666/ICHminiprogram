@@ -6,30 +6,49 @@ Page({
     addeIcon:storage.get('/images/地址.png'),
     // 可根据实际需求从接口获取数据后赋值
     orderData: {
-      price: 15.20,
-      remainTime: "23小时59分",
-      receiver: "曹操",
-      phone: "1828****628",
-      address: "北京市朝阳区望京阜通东大街方恒国际中心a座",
-      shopName: "夏布工坊",
-      goods: {
-        name: "夏布围巾",
-        image: storage.get('/images/围巾1.png'),
-        price: 1988,
-        count: 1
-      },
-      orderNo: "wx202009024559682059",
-      orderTime: "2020-11-12 10:34:11",
-      payMethod: "微信支付",
-      payStatus: "待付款"
+      realPrice:"",
+      remainTime: "",
+      receiver: "",
+      phone: "",
+      address: "",
+      shopName: "",
+      goods:
+        {
+          name: "",
+          image: "",
+          price:'' ,
+          count: ''
+        }
+       ,
+      orderNo: "",
+      orderTime: "",
+      payMethod: "",
+      payStatus: ""
     }
   },
 
-  onLoad: function () {
-    // 页面加载时可请求订单数据并赋值
+  onLoad() {
+    const eventChannel = this.getOpenerEventChannel();
+    // 监听「编辑地址」的传递数据
+    eventChannel.on('acceptOrder', (data) => {
+      this.setData({
+        'orderData.realPrice':data.order.realPrice,
+        'orderData.remainTime': data.order.remainTime,
+        'orderData.receiver': data.order.receiver,
+        'orderData.phone': data.order.phone,
+        'orderData.address': data.order.address,
+        'orderData.shopName': data.order.merchantName ,
+        'orderData.goods.name':data.order.goods.name,
+        'orderData.goods.image':data.order.goods.goodsImg,
+        'orderData.goods.price':data.order.goods.price,
+        'orderData.goods.count':data.order.goods.count,
+        'orderData.orderNo':data.order.orderId,
+        'orderData.orderTime':data.order.createTime,
+        'orderData.payMethod':data.order.payMethod,
+        'orderData.payStatus':data.order.statusText
+      });
+    });
   },
-
-
   cancelOrder: function () {
     // 取消订单逻辑，可弹窗确认后调用接口
     wx.showModal({

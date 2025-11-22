@@ -1,11 +1,9 @@
 import {storage} from "../../src/Storage.js"
 Page({
   data: {
-    receive:storage.get('/images/发货.png'),
+    dispatch:storage.get('/images/待发货1.png'),
     share:storage.get('/images/分享.png'),
-    transIcon:storage.get('/images/运输.png'),
     addeIcon:storage.get('/images/地址.png'),
-    // 可根据实际需求从接口获取数据后赋值
     // 可根据实际需求从接口获取数据后赋值
     orderData: {
       realPrice:"",
@@ -25,13 +23,7 @@ Page({
       orderNo: "",
       orderTime: "",
       payMethod: "",
-      payStatus: "",
-      orderPosition:{
-        province:"",
-        place:"",
-        nextPlace:"",
-        currTime:""
-      },
+      payStatus: ""
     }
   },
 
@@ -53,11 +45,7 @@ Page({
         'orderData.orderNo':data.order.orderId,
         'orderData.orderTime':data.order.createTime,
         'orderData.payMethod':data.order.payMethod,
-        'orderData.payStatus':data.order.statusText,
-        'orderData.orderPosition.province':data.order.orderPosition.province,
-        'orderData.orderPosition.currTime':data.order.orderPosition.currTime,
-        'orderData.orderPosition.place':data.order.orderPosition.place,
-        'orderData.orderPosition.nextPlace':data.order.orderPosition.nextPlace,
+        'orderData.payStatus':data.order.statusText
       });
     });
   },

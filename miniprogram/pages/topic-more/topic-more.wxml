@@ -8,15 +8,15 @@
   <view class="topic-list" wx:for="{{topicList}}" wx:key="id">
   <view class="topic-item">
     <view class="topic-header">
-      <image src="{{item.avatar}}" class="topic-avatar" />
+      <image src="{{item.blogger.avatar}}" class="topic-avatar" />
       <view class="topic-info">
-        <view class="topic-author">{{item.author}}</view>
-        <view class="topic-time">{{item.time}}</view> 
+        <view class="topic-author">{{item.blogger.name}}</view>
+        <view class="topic-time">{{item.date}}</view> 
       </view>
       <view class="{{item.tag !=null ?'topic-tag' : 'topic-tag-null'}}">{{item.tag}}</view>
     </view>
     <view class="topic-title">{{item.title}}</view>
-    <view class="topic-desc">{{item.desc}} </view>
+    <view class="topic-desc">{{item.content}} </view>
     <view class="topic-images">
     <!-- 1张图 -->
     <view wx:if="{{ item.images.length === 1 }}" class="img-single">

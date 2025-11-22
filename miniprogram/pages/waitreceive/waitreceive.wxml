@@ -2,23 +2,32 @@
 <view class="nav-container">
 <view class="nav-bar">
   <view class="nav-title">
-    <image src="{{clock}}" />
-    <text>等待发货</text>
+    <image src="{{receive}}" />
+    <text>等待收货</text>
   </view>
   <image src="{{share}}" class="share-btn" />
   <view class="order-header">
     <view class="state-detail">
-      <text>已付款，等待商家发货</text>
+      <text>商家已发货</text>
     </view>
 </view>
 </view>
 </view>
 
 <view class="address-card">
+<view class="good-position">
+  <image src="{{transIcon}}" />
+  <view class="position-info">
+    <view class="position-detail">[{{orderData.orderPosition.province}}] [{{orderData.orderPosition.place}}],下一站[{{orderData.orderPosition.nextPlace}}]</view>
+    <view class="position-time">{{orderData.orderPosition.currTime}}</view>
+  </view>
+</view>
+  <view class="address">
   <image src="{{addeIcon}}" />
   <view class="address-info">
     <view class="address-user">{{orderData.receiver}}  {{orderData.phone}}</view>
     <view class="address-detail">收货地址：{{orderData.address}}</view>
+  </view>
   </view>
 </view>
 
@@ -67,6 +76,6 @@
 </view>
 
 <view class="action-bar">
-  <button class="cancel-btn" bindtap="cancelOrder">取消订单</button>
-  <button class="pay-btn" >提醒发货</button>
+  <button class="cancel-btn" bindtap="cancelOrder">我要催单</button>
+  <button class="pay-btn" >确认收货</button>
 </view>

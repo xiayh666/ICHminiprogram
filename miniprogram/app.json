@@ -21,7 +21,10 @@
     "pages/account/account",
     "pages/mystar/mystar",
     "pages/waitpay/waitpay",
-    "pages/waitreceive/waitreceive"
+    "pages/waitdispatch/waitdispatch",
+    "pages/waitreceive/waitreceive",
+    "pages/order-finish/order-finish"
+    
   
   
   ],

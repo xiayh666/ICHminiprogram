@@ -70,51 +70,34 @@ page{
 }
 
 /* 地址卡片样式 */
-.address-card{
-  width: 95%;
-  height: 340rpx;
-  background-color: #fff;
-  border-radius: 12rpx;
-  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
-  top: 155rpx;
-  left: 50%;
-  transform: translateX(-50%);
+.address-card {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-.address ,.good-position{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 100%;
-  height: 180rpx;
-
+  top: 155rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 200rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
 }
 .address-card image{
   width: 40rpx;
   height: 45rpx;
   /* background-color: aqua; */
 }
-.address-info,.position-info{
+.address-info{
   width: 88%;
-}
-.position-detail{
-  font-size: 30rpx;
-  color: #666;
-}
-.position-time{
-  margin-top: 20rpx;
-  font-size: 26rpx;
-  color: #999;
 }
 .address-user {
   font-size: 32rpx;
   font-weight: bolder;
   margin-bottom: 10rpx;
 }
+
 .address-detail {
   font-size: 28rpx;
   color: #666;
@@ -124,7 +107,7 @@ page{
 .goods-card {
   width: 95%;
   margin: auto;
-  margin-top: 220rpx;
+  margin-top: 80rpx;
   background-color: #fff;
   border-radius: 12rpx;
   box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);

@@ -31,7 +31,7 @@
 
 <!-- 订单列表 -->
 <block wx:for="{{currentOrderList}}" wx:key="orderId" >
-  <view class="order-item"  bind:tap="handleOrderTap" data-status="{{item.status}}">
+  <view class="order-item"  bind:tap="handleOrderTap" data-status="{{item.status}}" data-index="{{index}}">
     <view class="order-header">
       <text class="order-time">下单时间：{{item.createTime}}</text>
       <view class="order-status">{{item.statusText}}</view>
@@ -39,13 +39,13 @@
     <view class="order-merchant">{{item.merchantName}}</view>
     <view class="order-goods">
     <view class="goodImage">
-      <block wx:for="{{item.goodsList}}" wx:key="goodsId" wx:for-item="goods"  >
-        <image src="{{goods.goodsImg}}" mode="aspectFill" class="goods-img" />
+      <block>
+        <image src="{{item.goods.goodsImg}}" mode="aspectFill" class="goods-img" />
       </block>
     </view>
-      <view class="goods-info">
-        <text class="goods-price">¥{{item.totalPrice}}</text>
-        <text class="goods-desc">共{{item.goodsCount}}件 | 库存: {{item.stock}}</text>
+      <view class="goods-info"  >
+        <text class="goods-price">¥{{item.realPrice}}</text>
+        <text class="goods-desc">共{{item.goods.count}}件 | 库存: {{item.goods.stock}}</text>
       </view>
     </view>
     <view class="order-buttons" style="margin-left: {{ activeTab === 1 ? '300rpx' :  activeTab ===2 ?'300rpx' :  activeTab === 3 ? '500rpx' : '160rpx'}}">
