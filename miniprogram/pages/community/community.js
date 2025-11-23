@@ -47,37 +47,43 @@ Page({
         avatar: storage.get('/images/avatar1.png'),
         name: "刘师傅",
         tag: "石柱县夏布",
-        num: 1
+        num: 1,
+        identity:"工坊"
       },
       {
         avatar: storage.get('/images/avatar2.png'),
         name: "刘师傅",
         tag: "布包艺人",
-        num: 2
+        num: 2,
+        identity:""
       },
       {
         avatar: storage.get('/images/avatar3.png'),
         name: "刘师傅",
         tag: "蓝印夏布",
-        num: 3
+        num: 3,
+        identity:""
       },
       {
         avatar: storage.get('/images/avatar4.png'),
         name: "刘师傅",
         tag: "夏布制作",
-        num: 4
+        num: 4,
+        identity:""
       },
       {
         avatar: storage.get('/images/avatar4.png'),
         name: "刘师傅",
         tag: "景德镇陶艺",
-        num: 5
+        num: 5,
+        identity:""
       },
       {
         avatar: storage.get('/images/avatar4.png'),
         name: "刘师傅",
         tag: "景德镇陶艺",
-        num: 6
+        num: 6,
+        identity:""
       }
     ],
     topicCardList: [

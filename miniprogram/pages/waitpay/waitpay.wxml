@@ -1,4 +1,5 @@
 <!-- 等待付款页面 -->
+<view class="page-information">
 <view class="nav-container">
 <view class="nav-bar">
   <view class="nav-title">
@@ -54,6 +55,7 @@
     <view class="info-label">支付状态</view>
     <view class="info-value">{{orderData.payStatus}}</view>
   </view>
+</view>
 </view>
 
 <view class="action-bar">

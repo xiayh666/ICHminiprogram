@@ -85,7 +85,10 @@
     <view class="craftsman-item" wx:for="{{craftsmanList}}" wx:key="id">
       <image src="{{item.avatar}}" class="craftsman-avatar" />
       <text class="{{item.num <= 3 ? 'craftsman-num ' : 'craftsman-num-null'}}">{{item.num}}</text>
-      <view class="craftsman-name">{{item.name}}</view>
+      <view class="craftsman-name-identity">
+      <text class="craftsman-name">{{item.name}}</text>
+      <text class="craftsman-identity">{{item.identity}}</text>
+      </view>
       <view class="craftsman-tag">{{item.tag}}</view>
     </view>
   </scroll-view>

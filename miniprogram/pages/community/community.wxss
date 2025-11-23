@@ -297,9 +297,22 @@ page {
 .craftsman-num-null{
   display: none;
 }
-.craftsman-name {
+.craftsman-name-identity {
+  width: 140rpx;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-around;
+}
+.craftsman-name{
   font-size: 30rpx;
   font-weight: bold;
+}
+.craftsman-identity{
+  font-size: 21rpx;
+  text-align: center;
+  color: white;
+  background-color: #c92a2a;
 }
 .craftsman-tag {
   font-size: 22rpx;

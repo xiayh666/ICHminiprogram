@@ -1,7 +1,11 @@
 page{
   background-color: #eee;
 }
-
+.page-information {
+  padding-bottom: 120rpx; /* 比 action-bar 高度多 20rpx，留出间隙 */
+  box-sizing: border-box; /* 确保 padding 不会撑大容器 */
+  min-height: 100vh; /* 保证页面占满屏幕高度 */
+}
 /* 头部导航栏 */
 .nav-container{
   width: 100%;
@@ -220,7 +224,8 @@ page{
 /* 操作栏样式 */
 .action-bar {
   display: flex;
-  margin-top: 60rpx;
+  position: fixed;
+  bottom: 0;
   align-items: flex-start;
   width: 100%;
   height: 120rpx;

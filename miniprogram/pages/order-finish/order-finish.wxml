@@ -1,4 +1,5 @@
 <!-- 等待发货页面 -->
+<view class="page-information">
 <view class="nav-container">
 <view class="nav-bar">
   <view class="nav-title">
@@ -55,6 +56,7 @@
 <view class="pay-info-detail">
 <text class="price">实付款：</text>
 <text class="real-price">¥{{orderData.realPrice}}</text>
+</view>
 </view>
 </view>
 
