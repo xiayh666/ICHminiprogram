@@ -25,7 +25,8 @@
     "pages/waitreceive/waitreceive",
     "pages/order-finish/order-finish",
     "pages/course-detail/course-detail",
-    "pages/workshops/workshops"
+    "pages/workshops/workshops",
+    "pages/workshop-detail/workshop-detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

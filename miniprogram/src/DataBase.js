@@ -23,18 +23,22 @@ var asset = (url) => storage.get(url)
 
 
 
+/**************************************************************************************************************************
+ *  工坊列表数据开始
+ * 
+ */
 let workshopList = [
     {
         name: "中益乡 夏布工坊",
         star: 5,
-        image: asset(""),
-        desc: "",
+        image: asset("/images/scene.png"),
+        desc: "中益乡 夏布工坊 desc 1",
         reviews: [
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 3, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 2, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 3, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 2, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
         ],
         goodsList: [
 
@@ -45,21 +49,26 @@ let workshopList = [
         ]
     },
     {
-        name: "中益乡 夏布工坊",
-        star: 5,
+        name: "工坊2",
+        star: 4,
         image: asset("/images/Unsplash.png"),
-        desc: "",
+        desc: "desc 2",
         reviews: [
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 3, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 2, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
-            { user: '老虎', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 3, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 2, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
         ]
 
     }
 
 ]
+
+
+/**
+ * 工坊列表数据结束 
+ */
 
 
 /**************************************************************************************************************************
@@ -396,6 +405,12 @@ class DB {
         craftmanList.forEach(i => {
             this.collection("craftmen")
                 .add(i)
+        })
+
+        workshopList.forEach(i => {
+            this.collection("workshops")
+                .add(i)
+
         })
 
 
