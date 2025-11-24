@@ -21,6 +21,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    locate_img: asset("/icons/定位.png"),
+    slogan_img: asset("/images/slogan.png"),
+    logo_img: asset("/images/logo.png"),
+    mascot_img: asset("/images/mascot.png"),
     app: app,
     animation: "anim-disable",
     more: {
@@ -85,6 +89,22 @@ Page({
   gotoGoodsPage(e) {
     wx.switchTab({
       url: '/pages/goods/goods',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+
+  },
+
+  tapLocate() {
+    wx.navigateTo({
+      url: '/pages/workshops/workshops',
       success: function(res){
         // success
       },

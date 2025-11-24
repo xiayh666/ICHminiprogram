@@ -1,0 +1,6 @@
+<view class="workshop-list">
+    <view class="workshop-item" wx:for="{{workshopList}}" bind:tap="gotoWorkshopPage">
+        <image class="workshop-img" src="{{item.image}}" mode="widthFix"></image>
+        <text class="workshop-name">{{item.name}}</text>
+    </view>
+</view>

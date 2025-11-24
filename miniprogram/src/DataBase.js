@@ -22,6 +22,55 @@ var asset = (url) => storage.get(url)
 
 
 
+
+/**************************************************************************************************************************
+ *  工坊列表数据开始
+ * 
+ */
+let workshopList = [
+    {
+        name: "中益乡 夏布工坊",
+        star: 5,
+        image: asset("/images/scene.png"),
+        desc: "中益乡 夏布工坊 desc 1",
+        reviews: [
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 3, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 2, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User1', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+        ],
+        goodsList: [
+
+
+        ],
+        courseList: [
+
+        ]
+    },
+    {
+        name: "工坊2",
+        star: 4,
+        image: asset("/images/Unsplash.png"),
+        desc: "desc 2",
+        reviews: [
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 3, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 2, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: 'User2', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+        ]
+
+    }
+
+]
+
+
+/**
+ * 工坊列表数据结束 
+ */
+
+
 /**************************************************************************************************************************
  *  商品列表数据开始
  *  商品数据有如下字段:
@@ -273,7 +322,7 @@ let userData = [
         username: "曹操",
         password: "123456",
         phone: "12345678910",
-        avatar:asset("/images/userimg.png"),
+        avatar: asset("/images/userimg.png"),
         addressList: [
             { recipient: "曹操1", phone: "12345678910", address: "中国重庆市北碚区天生路101", isDefault: false },
             { recipient: "曹操2", phone: "12345678911", address: "中国重庆市北碚区天生路102", isDefault: false },
@@ -287,7 +336,7 @@ let userData = [
         username: "User2",
         password: "666666",
         phone: "12345678911",
-        avatar:asset("/images/userimg.png"),
+        avatar: asset("/images/userimg.png"),
         addressList: [
             { recipient: "曹操5", phone: "12345678910", address: "中国重庆市北碚区天生路201", isDefault: false },
             { recipient: "曹操6", phone: "12345678910", address: "中国重庆市北碚区天生路202", isDefault: true }
@@ -297,6 +346,7 @@ let userData = [
     }
 
 ]
+
 
 /*************************************************************************************************************************
  * 用户数据结束
@@ -357,6 +407,12 @@ class DB {
                 .add(i)
         })
 
+        workshopList.forEach(i => {
+            this.collection("workshops")
+                .add(i)
+
+        })
+
 
 
         // 添加测试用购物车商品
@@ -399,7 +455,7 @@ class DB {
                     })
                 })
             let craftman_liu = (await this.collection("craftmen").where({ name: "刘师傅" }).get()).data[0]
-            let craftman_zhang = (await this.collection("craftmen").where({ name: "刘师傅" }).get()).data[0]
+            let craftman_zhang = (await this.collection("craftmen").where({ name: "张师傅" }).get()).data[0]
             // const craftman_liu_id = craftman_liu._id
             // const craftman_zhang_id = craftman_zhang._id
 
@@ -417,7 +473,7 @@ class DB {
                 ],
             })
             this.collection("posts").add({
-                blogger: craftman_liu,
+                blogger: craftman_zhang,
                 date: "2025-11-21",
                 tag: "作品展示",
                 topic: "传统工艺现代化",
