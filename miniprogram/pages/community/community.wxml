@@ -59,17 +59,9 @@
         </view>
       </view>
       <view class="topic-meta">
+        <view class="topic-tag2"># {{item.topic}}</view>
         <view class="meta-item">
           <image src="{{shoppingCart}}"></image>
-          <text class="cart">{{item.cart}}</text>
-        </view>
-        <view class="meta-item">
-          <icon type="search" size="14" color="#999" />
-          <text class="cart">{{item.search}}</text>
-        </view>
-        <view class="meta-item">
-          <image src="{{shoppingCart}}"></image>
-          <text class="cart">{{item.cart2}}</text>
         </view>
       </view>
     </view>

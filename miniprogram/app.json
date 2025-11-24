@@ -24,6 +24,7 @@
     "pages/waitdispatch/waitdispatch",
     "pages/waitreceive/waitreceive",
     "pages/order-finish/order-finish",
+    "pages/workshop-list/workshop-list",
     "pages/course-detail/course-detail",
     "pages/workshops/workshops",
     "pages/workshop-detail/workshop-detail",

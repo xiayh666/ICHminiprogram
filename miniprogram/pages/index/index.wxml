@@ -30,6 +30,7 @@
 <!-- 首页地图 -->
 <view class="map fade-in-item">
     重庆非遗工坊地图
+    <image class="img" src="{{map.image}}" bind:tap="ToWorkshopList" />
     <view class="mascot">
         <view class="mascot-say">
             <text class="mascot-text">小承带你共赴非遗之旅</text>
@@ -38,6 +39,7 @@
     </view>
     <image class="locate" src="{{locate_img}}" mode="aspectFit" bind:tap="tapLocate" />
     <image class="img" src="{{map.image}}" />
+>>>>>>> 67a05fd27aebf9ca48eb234a8a42bcf285f2f1f8
 </view>
 <!-- 推荐内容(商品) -->
 <view class="suggestion-goods">

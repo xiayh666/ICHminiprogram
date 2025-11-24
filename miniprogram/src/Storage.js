@@ -22,14 +22,6 @@
  * 当然，这样的实质性作用并不大，只是文件系统更方便理解罢了
  * 
  */
-
-
-
-
-
-
-
-
 const data = {
   icons: {
     "定位.png": "https://youke1.picui.cn/s1/2025/11/24/692414083dfe4.png"
@@ -100,6 +92,8 @@ const data = {
     "发货.png": "https://youke1.picui.cn/s1/2025/11/22/69212ab47dcdb.png",
     "待发货1.png": "https://youke1.picui.cn/s1/2025/11/22/69212ab491218.png",
     "运输.png": "https://youke1.picui.cn/s1/2025/11/22/69212ab46e473.png",
+    "夏布工坊.png":"https://youke1.picui.cn/s1/2025/11/24/6923d2a3d9883.png",
+    "工坊2.png":"https://youke1.picui.cn/s1/2025/11/24/6923d2a42580a.png"
   }
 
 }
