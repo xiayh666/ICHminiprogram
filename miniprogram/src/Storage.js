@@ -32,6 +32,7 @@
 
 const data = {
   icons: {
+    "定位.png": "https://youke1.picui.cn/s1/2025/11/24/692414083dfe4.png"
 
   },
   images: {
@@ -98,7 +99,7 @@ const data = {
     "完成.png": "https://youke1.picui.cn/s1/2025/11/22/69212ab4a4cc4.png",
     "发货.png": "https://youke1.picui.cn/s1/2025/11/22/69212ab47dcdb.png",
     "待发货1.png": "https://youke1.picui.cn/s1/2025/11/22/69212ab491218.png",
-    "运输.png": "https://youke1.picui.cn/s1/2025/11/22/69212ab46e473.png"
+    "运输.png": "https://youke1.picui.cn/s1/2025/11/22/69212ab46e473.png",
   }
 
 }

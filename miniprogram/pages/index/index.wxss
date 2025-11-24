@@ -109,6 +109,15 @@ page {
     color: #505050;
 
 }
+.locate {
+    /* scale: 0.2; */
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+
+}
 
 .map>.img {
     width: 100%;
