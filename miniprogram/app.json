@@ -23,10 +23,8 @@
     "pages/waitpay/waitpay",
     "pages/waitdispatch/waitdispatch",
     "pages/waitreceive/waitreceive",
-    "pages/order-finish/order-finish"
-    
-  
-  
+    "pages/order-finish/order-finish",
+    "pages/course-detail/course-detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

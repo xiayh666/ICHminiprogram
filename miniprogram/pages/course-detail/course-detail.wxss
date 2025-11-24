@@ -1,0 +1,303 @@
+page {
+    margin: 0;
+    padding: 0;
+    font-size: 30rpx;
+
+}
+
+/* 页面基础样式 */
+.course-page {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+/* 顶部导航栏 */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    background-color: #c00000;
+    padding: 0 24rpx;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-left image {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.nav-title {
+    flex: 1;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* 课程视频入口 */
+.course-video {
+    position: relative;
+    width: 100%;
+    height: 400rpx;
+    background-color: #000;
+}
+
+.video-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120rpx;
+    height: 120rpx;
+    background-color: rgba(255, 0, 0, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-btn image {
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 8rpx;
+    /* 三角形图标视觉居中 */
+}
+
+/* 课程信息栏 */
+.course-info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24rpx;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.left-section .info-title {
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 500;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.info-label {
+    font-size: 26rpx;
+    color: #666;
+    margin-right: 12rpx;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+}
+
+/* .star {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 4rpx;
+} */
+.star:first-child {
+    margin-left: 0;
+}
+
+/* 课程列表 */
+.course-list {
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+
+.course-item {
+    display: flex;
+    align-items: center;
+    padding: 24rpx;
+    border-bottom: 1px solid #eee;
+}
+
+.course-item:last-child {
+    border-bottom: none;
+}
+
+.toggle {
+    width: 36rpx;
+    height: 36rpx;
+    border: 2rpx solid #a02c2c;
+    border-radius: 50%;
+    margin: 15rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.toggle.selected {
+    background-color: #a02c2c;
+    border-color: #a02c2c;
+}
+
+/* 对勾 */
+.toggle.selected::after {
+    top: 4rpx;
+    content: "";
+    position: absolute;
+    width: 12rpx;
+    height: 22rpx;
+    border: 2rpx solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+}
+
+
+/* .radio-box {
+    width: 40rpx;
+    height: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20rpx;
+} */
+
+
+.course-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-name {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.course-price {
+    font-size: 28rpx;
+    color: #f03838;
+    font-weight: 500;
+}
+
+.lock-icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-left: 16rpx;
+}
+
+/* 购买按钮区域 */
+.buy-section {
+    /* padding: 24rpx; */
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f5f5f5;
+    box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.buy {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.buy-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    width: 300rpx;
+    height: 100%;
+    line-height: 90rpx;
+    background-color: #a02c2c;
+    color: #fff;
+    /* border-radius: 12rpx; */
+    font-size: 32rpx;
+    font-weight: 500;
+}
+
+.stars {
+    height: 30rpx;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23A02C2C"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>');
+    background-repeat: repeat-x;
+    background-size: 30rpx 30rpx;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+/* 顶部导航栏 - 白色返回箭头 */
+.icon-back-white {
+    width: 36rpx;
+    height: 36rpx;
+    color: #fff;
+    /* 通过 color 属性控制 SVG 颜色 */
+}
+
+/* 播放按钮 */
+.play-btn .icon-play {
+    width: 50rpx;
+    height: 50rpx;
+    color: #fff;
+}
+
+/* 星星图标 */
+.icon-star {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 4rpx;
+}
+
+.icon-star:first-child {
+    margin-left: 0;
+}
+
+.icon-star-fill {
+    color: #ff4d4f;
+    /* 红色星星 */
+}
+
+.icon-star-empty {
+    color: #d9d9d9;
+    /* 灰色星星 */
+}
+
+/* 单选框图标 */
+.icon-radio {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.radio-box.selected .icon-radio {
+    color: #ff4d4f;
+    /* 选中时为红色 */
+}
+
+.radio-box .icon-radio {
+    color: #8c8c8c;
+    /* 未选中时为灰色 */
+}
+
+/* 锁定图标 */
+.icon-lock {
+    width: 36rpx;
+    height: 36rpx;
+    color: #8c8c8c;
+    /* 灰色锁定 */
+    margin-left: 16rpx;
+}

@@ -399,7 +399,7 @@ class DB {
                     })
                 })
             let craftman_liu = (await this.collection("craftmen").where({ name: "刘师傅" }).get()).data[0]
-            let craftman_zhang = (await this.collection("craftmen").where({ name: "刘师傅" }).get()).data[0]
+            let craftman_zhang = (await this.collection("craftmen").where({ name: "张师傅" }).get()).data[0]
             // const craftman_liu_id = craftman_liu._id
             // const craftman_zhang_id = craftman_zhang._id
 
@@ -417,7 +417,7 @@ class DB {
                 ],
             })
             this.collection("posts").add({
-                blogger: craftman_liu,
+                blogger: craftman_zhang,
                 date: "2025-11-21",
                 tag: "作品展示",
                 topic: "传统工艺现代化",

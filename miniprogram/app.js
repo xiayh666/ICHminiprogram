@@ -56,6 +56,21 @@ App({
       db.initDataBase()
       this.DataBase = db
     }
+
+
+    wx.navigateTo({
+      url: '/pages/course-detail/course-detail',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+
   }
 });
 

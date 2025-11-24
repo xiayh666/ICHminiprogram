@@ -1,0 +1,36 @@
+<view class="course-page">
+    <!-- 课程视频入口 -->
+    <view class="course-video">
+        <image src="{{play_img}}" class="video-cover"></image>
+    </view>
+    <!-- 课程信息栏 -->
+    <view class="course-info-bar">
+        <view class="left-section">
+            <text class="info-title">课程试看</text>
+        </view>
+        <view class="right-section">
+            <text class="info-label">评价</text>
+            <view class="stars" style="width: {{star * 29}}rpx"></view>
+        </view>
+    </view>
+    <!-- 课程列表 -->
+    <view class="course-list">
+        <view class="course-item" bindtap="selectCourse" data-index="{{index}}" wx:for="{{courses}}">
+            <view class="radio-box">
+                <!-- <image src="{{icon_checked}}" mode="widthFix"></image> -->
+                <image class="toggle {{selectedCourse == index ? 'selected' : ''}}" src="" />
+            </view>
+            <view class="course-content">
+                <text class="course-name">{{item.name}}</text>
+                <text class="course-price">¥{{item.price}}</text>
+            </view>
+            <image src="{{item.isLocked ? icon_lock : icon_unlock}}" mode="widthFix" class="lock-icon"></image>
+        </view>
+    </view>
+    <!-- 购买按钮 -->
+    <view class="buy-section">
+        <view class="buy">
+            <view class="buy-btn" bindtap="handleBuy">立即购买</view>
+        </view>
+    </view>
+</view>
