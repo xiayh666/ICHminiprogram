@@ -21,7 +21,31 @@ import { storage } from "Storage";
 var asset = (url) => storage.get(url)
 
 
+let courseList = [
+    {
+        owner: "刘师傅",
+        name: "夏布课程",
+        image: asset("/images/老虎.png"),
+        ranks: [
+            { type: '入门课', price: 15.20, isLocked: true },
+            { type: '进阶课', price: 20.20, isLocked: true },
+            { type: '专业课', price: 25.20, isLocked: true }
+        ]
 
+    },
+    {
+        owner: "刘师傅",
+        name: "夏布课程2",
+        image: asset("/images/围巾.png"),
+        ranks: [
+            { type: '入门课', price: 5.20, isLocked: true },
+            { type: '进阶课', price: 10.20, isLocked: true },
+            { type: '专业课', price: 15.20, isLocked: true }
+        ]
+
+    }
+
+]
 
 /**************************************************************************************************************************
  *  工坊列表数据开始
@@ -358,25 +382,25 @@ let craftmanList = [
     {
         avatar: asset("/images/头像.png"),
         name: "刘师傅",
-        tag: "石柱县夏布",
+        tag: "工艺大师",
     },
     {
-        avatar: asset("/images/头像.png"),
+        avatar: asset("/images/头像 (2).png"),
         name: "张师傅",
         tag: "布包艺人",
     },
     {
-        avatar: asset("/images/头像.png"),
+        avatar: asset("/images/头像 (3).png"),
         name: "王师傅",
         tag: "景德镇陶艺",
     },
     {
-        avatar: asset("/images/头像.png"),
+        avatar: asset("/images/头像 (4).png"),
         name: "李师傅",
         tag: "景德镇陶艺",
     },
     {
-        avatar: asset("/images/头像.png"),
+        avatar: asset("/images/头像 (5).png"),
         name: "杨师傅",
         tag: "景德镇陶艺",
     },
@@ -404,14 +428,17 @@ class DB {
         })
         craftmanList.forEach(i => {
             this.collection("craftmen")
-                .add(i)
+                .add({
+                    ...i,
+                    courseList: []
+                })
         })
 
         workshopList.forEach(i => {
             this.collection("workshops")
                 .add(i)
-
         })
+
 
 
 
@@ -458,6 +485,30 @@ class DB {
             let craftman_zhang = (await this.collection("craftmen").where({ name: "张师傅" }).get()).data[0]
             // const craftman_liu_id = craftman_liu._id
             // const craftman_zhang_id = craftman_zhang._id
+
+            // 添加课程
+            for (let i of courseList){
+                if (i.owner == "刘师傅") {
+                    const {_id} = (await this.collection("courses").add({
+                        ...i,
+                        owner: craftman_liu,
+                    }))
+                    craftman_liu.courseList.push(_id)
+                    this.collection("craftmen").update({ name: "刘师傅" }, {
+                        ...craftman_liu
+                    })
+                    console.log(craftman_liu)
+                } else if (i.owner == "张师傅") {
+                    this.collection("courses").add({
+                        ...i,
+                        owner: craftman_zhang
+                    })
+                    craftman_liu.courseList.push(_id)
+                    this.collection("craftmen").update({ name: "刘师傅" }, {
+                        ...craftman_zhang
+                    })
+                }
+            }
 
             this.collection("posts").add({
                 blogger: craftman_liu,

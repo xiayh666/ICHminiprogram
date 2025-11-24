@@ -1,4 +1,6 @@
 import { storage } from "../../src/Storage";
+import { db } from "../../src/DataBase";
+
 
 let asset = url => storage.get(url)
 
@@ -13,10 +15,19 @@ Page({
     icon_lock: asset("/images/lock.png"),
     icon_unlock: asset("/images/unlock.png"),
     courses: [
-      { id: 1, name: '入门课', price: 15.20, isLocked: true },
-      { id: 2, name: '进阶课', price: 20.20, isLocked: true },
-      { id: 3, name: '专业课', price: 25.20, isLocked: true }
+      // { id: 1, name: '入门课', price: 15.20, isLocked: true },
+      // { id: 2, name: '进阶课', price: 20.20, isLocked: true },
+      // { id: 3, name: '专业课', price: 25.20, isLocked: true }
     ]
+  },
+
+  onLoad() {
+    (async () => {
+      db.collection("")
+
+
+    })()
+
   },
 
 

@@ -26,7 +26,8 @@
     "pages/order-finish/order-finish",
     "pages/course-detail/course-detail",
     "pages/workshops/workshops",
-    "pages/workshop-detail/workshop-detail"
+    "pages/workshop-detail/workshop-detail",
+    "pages/online-courses/online-courses"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

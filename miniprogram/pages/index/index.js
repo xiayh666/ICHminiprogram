@@ -31,11 +31,11 @@ Page({
       image: asset("/images/更多.png"),
       goods: {
         title: "匠心之选 非遗好物",
-        destination: ""
+        destination: "/pages/goods/goods"
       },
       courses: {
-        title: "线上线下预约通道",
-        destination: ""
+        title: "线上课程",
+        destination: "/pages/online-courses/online-courses"
       }
 
     },
@@ -86,16 +86,32 @@ Page({
     })
   },
 
-  gotoGoodsPage(e) {
+  gotoTab(e) {
     wx.switchTab({
-      url: '/pages/goods/goods',
-      success: function(res){
+      url: e.currentTarget.dataset.destination,
+      success: function (res) {
         // success
       },
-      fail: function() {
+      fail: function () {
         // fail
       },
-      complete: function() {
+      complete: function () {
+        // complete
+      }
+    })
+
+  },
+  gotoPage(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: e.currentTarget.dataset.destination,
+      success: function (res) {
+        // success
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
         // complete
       }
     })
@@ -105,13 +121,13 @@ Page({
   tapLocate() {
     wx.navigateTo({
       url: '/pages/workshops/workshops',
-      success: function(res){
+      success: function (res) {
         // success
       },
-      fail: function() {
+      fail: function () {
         // fail
       },
-      complete: function() {
+      complete: function () {
         // complete
       }
     })
