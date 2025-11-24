@@ -219,13 +219,16 @@ page {
 .topic-meta {
   margin-top: 20rpx;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   color: #999;
   font-size: 28rpx;
 }
+.topic-tag2{
+  width: 80%;
+  font-size: 28rpx;
+}
 .meta-item {
-  margin-right: 30rpx;
-  display: flex;
   height: 30rpx;
   align-items: center;
 }
@@ -233,15 +236,7 @@ page {
   width: 35rpx;
   height: 35rpx;
 }
-.meta-item .cart {
-  margin-right: 4rpx;
-  color:"#999";
-  font-size: 30rpx;
-  line-height: 30rpx;
-}
-.meta-item icon{
-  margin-right: 4rpx;
-}
+
 
 /* 活跃匠人栏 */
 /* .craftsman-section {
@@ -297,22 +292,9 @@ page {
 .craftsman-num-null{
   display: none;
 }
-.craftsman-name-identity {
-  width: 140rpx;
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: space-around;
-}
 .craftsman-name{
   font-size: 30rpx;
   font-weight: bold;
-}
-.craftsman-identity{
-  font-size: 21rpx;
-  text-align: center;
-  color: white;
-  background-color: #c92a2a;
 }
 .craftsman-tag {
   font-size: 22rpx;

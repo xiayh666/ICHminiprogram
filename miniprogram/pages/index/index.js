@@ -156,4 +156,16 @@ Page({
   //   return swiper_images
   // }
 
+  ToWorkshopList(){
+    console.log(`触发跳转到workshop-list`);
+  wx.navigateTo({
+    url: '/pages/workshop-list/workshop-list',
+    success: () => {
+      console.log(`跳转成功，已打开workshop-list`);
+    },
+    fail: (err) => {
+      console.error('跳转失败：', err);
+    }
+  });
+  }
 })

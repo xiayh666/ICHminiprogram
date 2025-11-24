@@ -26,7 +26,7 @@
 <!-- 首页地图 -->
 <view class="map fade-in-item">
     重庆非遗工坊地图
-    <image class="img" src="{{map.image}}" />
+    <image class="img" src="{{map.image}}" bind:tap="ToWorkshopList" />
 </view>
 <!-- 推荐内容(商品) -->
 <view class="suggestion-goods">

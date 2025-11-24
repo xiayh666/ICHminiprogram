@@ -23,7 +23,8 @@
     "pages/waitpay/waitpay",
     "pages/waitdispatch/waitdispatch",
     "pages/waitreceive/waitreceive",
-    "pages/order-finish/order-finish"
+    "pages/order-finish/order-finish",
+    "pages/workshop-list/workshop-list"
     
   
   

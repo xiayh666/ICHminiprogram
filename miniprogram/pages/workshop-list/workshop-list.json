@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "backgroundColor": "#a02c2c",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#a02c2c",
+  "navigationBarTitleText": "石柱县工坊",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false
+}

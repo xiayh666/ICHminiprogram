@@ -1,0 +1,7 @@
+<!-- 工坊列表 -->
+<view class="workshop-list" >
+  <view class="workshop-item" bindtap="goToDetail" data-id="{{index}}" wx:for="{{workshopList}}" wx:key="index">
+    <image class="workshop-img" src="{{item.img}}" mode="aspectFill"></image>
+    <text class="workshop-name">{{item.name}}</text>
+  </view>
+</view>
