@@ -6,6 +6,10 @@
         <view class="search-input">搜索非遗好物</view>
     </navigator>
 </view>
+<view class="index-impression">
+    <image class="slogan" src="{{slogan_img}}" />
+    <image class="logo" src="{{logo_img}}" />
+</view>
 <!-- 轮播图 -->
 <!-- <view class="swiper">
     <swiper class="swiper-wrapper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}" duration="{{500}}">
@@ -26,6 +30,12 @@
 <!-- 首页地图 -->
 <view class="map fade-in-item">
     重庆非遗工坊地图
+    <view class="mascot">
+        <view class="mascot-say">
+            <text class="mascot-text">小承带你共赴非遗之旅</text>
+        </view>
+        <image class="mascot-img" src="{{mascot_img}}"  mode="aspectFit"/>
+    </view>
     <image class="img" src="{{map.image}}" />
 </view>
 <!-- 推荐内容(商品) -->

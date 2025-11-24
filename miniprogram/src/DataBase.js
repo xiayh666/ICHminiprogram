@@ -22,6 +22,46 @@ var asset = (url) => storage.get(url)
 
 
 
+
+let workshopList = [
+    {
+        name: "中益乡 夏布工坊",
+        star: 5,
+        image: asset(""),
+        desc: "",
+        reviews: [
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 3, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 2, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+        ],
+        goodsList: [
+
+
+        ],
+        courseList: [
+
+        ]
+    },
+    {
+        name: "中益乡 夏布工坊",
+        star: 5,
+        image: asset("/images/Unsplash.png"),
+        desc: "",
+        reviews: [
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 5, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 4, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 3, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 2, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' },
+            { user: '老虎', avatar: asset("/images/头像.png"), star: 1, content: '入手很多，活动力度大，长短合适，颜色好看，质量好，不愧是非遗工艺。第一次看到这样的质量' }
+        ]
+
+    }
+
+]
+
+
 /**************************************************************************************************************************
  *  商品列表数据开始
  *  商品数据有如下字段:
@@ -273,7 +313,7 @@ let userData = [
         username: "曹操",
         password: "123456",
         phone: "12345678910",
-        avatar:asset("/images/userimg.png"),
+        avatar: asset("/images/userimg.png"),
         addressList: [
             { recipient: "曹操1", phone: "12345678910", address: "中国重庆市北碚区天生路101", isDefault: false },
             { recipient: "曹操2", phone: "12345678911", address: "中国重庆市北碚区天生路102", isDefault: false },
@@ -287,7 +327,7 @@ let userData = [
         username: "User2",
         password: "666666",
         phone: "12345678911",
-        avatar:asset("/images/userimg.png"),
+        avatar: asset("/images/userimg.png"),
         addressList: [
             { recipient: "曹操5", phone: "12345678910", address: "中国重庆市北碚区天生路201", isDefault: false },
             { recipient: "曹操6", phone: "12345678910", address: "中国重庆市北碚区天生路202", isDefault: true }
@@ -297,6 +337,7 @@ let userData = [
     }
 
 ]
+
 
 /*************************************************************************************************************************
  * 用户数据结束

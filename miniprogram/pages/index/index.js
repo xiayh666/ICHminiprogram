@@ -21,6 +21,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    slogan_img: asset("/images/slogan.png"),
+    logo_img: asset("/images/logo.png"),
+    mascot_img: asset("/images/mascot.png"),
     app: app,
     animation: "anim-disable",
     more: {

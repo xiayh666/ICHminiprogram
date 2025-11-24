@@ -184,7 +184,7 @@ page {
 
 .course-price {
     font-size: 28rpx;
-    color: #f03838;
+    color: #a02c2c;
     font-weight: 500;
 }
 
