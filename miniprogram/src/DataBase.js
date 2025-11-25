@@ -588,7 +588,9 @@ class DB {
                 ],
             })
 
-
+        getApp().globalData.ready = true
+           
+              
 
         })()
 

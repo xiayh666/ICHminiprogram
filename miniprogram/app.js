@@ -13,6 +13,7 @@ App({
       env: "xiayh-6gep3q1aa40cc550",
       cloud_path: "cloud://xiayh-6gep3q1aa40cc550.7869-xiayh-6gep3q1aa40cc550-1386130600",
       cloud: false,
+      ready: false,
       username: "曹操"
     };
     this.getAsset = (url) => {

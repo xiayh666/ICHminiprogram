@@ -9,7 +9,6 @@ let app = getApp();
 import { db } from "../../src/DataBase";
 import { storage } from "../../src/Storage";
 let asset = (url) => {
-
   let res = storage.get(url)
   console.log(res)
   return res
@@ -40,23 +39,15 @@ Page({
       }
 
     },
-    search_icon: app.getAsset("/icons/搜索.png"),
+    // search_icon: app.getAsset("/icons/搜索.png"),
     map: {
-      image: app.getAsset("/images/地图.png")
+      image: asset("/images/地图.png")
     },
     swiper_images: [],
     menu: {
     },
     suggestions: {
       courses: [
-        {
-          name: "夏布课程",
-          avatar: app.getAsset("/images/头像.png"),
-          destination: "/pages/",
-          craftman: "张师傅",
-          desc: "从艺40年，坚守夏布工艺，融合现代设计理念，让千年技艺绽放新生命",
-          tag: "工艺大师"
-        }
 
       ]
 
@@ -68,7 +59,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    (async () => {
+    let setup = (async () => {
       const goodsData = (await db.collection("goods").limit(4).get()).data
       this.setData({
         "suggestions.goods.items": goodsData
@@ -81,7 +72,11 @@ Page({
         })
 
 
-    })()
+    })
+    setTimeout(() => {
+      setup()
+      
+    }, 500);
 
 
     // this.setData({
