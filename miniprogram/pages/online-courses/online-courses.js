@@ -29,6 +29,7 @@ Page({
 
 
   gotoCourseDetail(e) {
+    console.log(e)
     wx.navigateTo({
       url: '/pages/course-detail/course-detail'
     });

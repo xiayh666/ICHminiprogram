@@ -26,6 +26,7 @@ let courseList = [
         owner: "刘师傅",
         name: "夏布课程",
         image: asset("/images/老虎.png"),
+        desc: "desc1",
         ranks: [
             { type: '入门课', price: 15.20, isLocked: true },
             { type: '进阶课', price: 20.20, isLocked: true },
@@ -37,6 +38,19 @@ let courseList = [
         owner: "刘师傅",
         name: "夏布课程2",
         image: asset("/images/围巾.png"),
+        desc: "desc2",
+        ranks: [
+            { type: '入门课', price: 5.20, isLocked: true },
+            { type: '进阶课', price: 10.20, isLocked: true },
+            { type: '专业课', price: 15.20, isLocked: true }
+        ]
+
+    },
+    {
+        owner: "赵师傅",
+        name: "夏布课程3",
+        image: asset("/images/手提包.png"),
+        desc: "desc3",
         ranks: [
             { type: '入门课', price: 5.20, isLocked: true },
             { type: '进阶课', price: 10.20, isLocked: true },
@@ -485,31 +499,54 @@ class DB {
             let craftman_zhang = (await this.collection("craftmen").where({ name: "张师傅" }).get()).data[0]
             // const craftman_liu_id = craftman_liu._id
             // const craftman_zhang_id = craftman_zhang._id
-
-            // 添加课程
-            for (let i of courseList){
-                if (i.owner == "刘师傅") {
-                    const {_id} = (await this.collection("courses").add({
-                        ...i,
-                        owner: craftman_liu,
-                    }))
-                    craftman_liu.courseList.push(_id)
-                    this.collection("craftmen").update({ name: "刘师傅" }, {
-                        ...craftman_liu
-                    })
-                    console.log(craftman_liu)
-                } else if (i.owner == "张师傅") {
-                    this.collection("courses").add({
-                        ...i,
-                        owner: craftman_zhang
-                    })
-                    craftman_liu.courseList.push(_id)
-                    this.collection("craftmen").update({ name: "刘师傅" }, {
-                        ...craftman_zhang
-                    })
+            let add_course = async (craftman_name) => {
+                let craftman = (await this.collection("craftmen").where({ name: craftman_name }).get()).data[0]
+                for (let i of courseList) {
+                    if (i.owner == craftman_name) {
+                        const { _id } = (await this.collection("courses").add({
+                            ...i,
+                            owner: craftman,
+                        }))
+                        craftman.courseList.push(_id)
+                        this.collection("craftmen").update({ name: "刘师傅" }, {
+                            ...craftman
+                        })
+                        console.log(craftman)
+                    }
                 }
+
             }
 
+            // 添加课程
+            add_course("刘师傅")
+            add_course("赵师傅")
+
+
+
+            // for (let i of courseList) {
+            //     if (i.owner == "刘师傅") {
+            //         const { _id } = (await this.collection("courses").add({
+            //             ...i,
+            //             owner: craftman_liu,
+            //         }))
+            //         craftman_liu.courseList.push(_id)
+            //         this.collection("craftmen").update({ name: "刘师傅" }, {
+            //             ...craftman_liu
+            //         })
+            //         console.log(craftman_liu)
+            //     } else if (i.owner == "张师傅") {
+            //         this.collection("courses").add({
+            //             ...i,
+            //             owner: craftman_zhang
+            //         })
+            //         craftman_liu.courseList.push(_id)
+            //         this.collection("craftmen").update({ name: "刘师傅" }, {
+            //             ...craftman_zhang
+            //         })
+            //     }
+            // }
+
+            // 添加帖子
             this.collection("posts").add({
                 blogger: craftman_liu,
                 date: "2025-11-20",

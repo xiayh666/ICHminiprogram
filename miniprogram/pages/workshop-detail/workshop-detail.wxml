@@ -1,1 +1,52 @@
-<view>New Page</view>
+<view class="page-title">{{title}}</view>
+<view class="section-title">线下预约</view>
+<view class="workshop-card">
+    <view class="workshop-image">
+        <image class="workshop-image" src="{{workshop_image}}" mode="aspectFit"></image>
+    </view>
+    <view class="workshop-info">
+        <text class="workshop-name">夏布工坊</text>
+        <view class="rating">
+            <text class="stars">★★★★★</text>
+            <text class="score">5.0</text>
+            <text class="review-count">139条</text>
+        </view>
+        <text class="location">石柱县中益乡</text>
+        <view class="reviews">
+            <text class="review-text">"定期开展半富有趣的线下活动，值得..."</text>
+            <text class="review-text">"带家人去过好几次了，确实是一个放..."</text>
+        </view>
+        <view class="btn-container">
+            <view class="reserve-btn">立即预约</view>
+        </view>
+    </view>
+</view>
+<!-- 商品区域 -->
+<view class="section-title">商品</view>
+<view class="products">
+    <scroll-view scroll-y class="goods-scroll-view">
+        <view class="goods-container" wx:if="{{goodsList.length > 0}}">
+            <view class="goods-item" wx:for="{{goodsList}}" wx:key="_id" bindtap="goToDetail" data-id="{{item._id}}">
+                <!-- 商品图片 -->
+                <view class="goods-image">
+                    <image src="{{item.image}}" mode="aspectFill"></image>
+                </view>
+                <!-- 商品信息 -->
+                <view class="goods-info">
+                    <text class="goods-name">{{item.name}}</text>
+                    <text class="goods-desc">{{item.desc}}</text>
+                    <view class="goods-price">¥{{item.price}}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<!-- 课程区域 -->
+<view class="section-title">课程</view>
+<view class="course-card">
+    <image src="{{workshop_image}}" mode="widthFix" class="course-img"></image>
+    <view class="course-info">
+        <text class="course-name">张师傅夏布制作课程</text>
+        <button class="experience-btn">立即体验</button>
+    </view>
+</view>

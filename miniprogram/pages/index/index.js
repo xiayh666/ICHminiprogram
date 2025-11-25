@@ -6,6 +6,7 @@
 // ]
 
 let app = getApp();
+import { db } from "../../src/DataBase";
 import { storage } from "../../src/Storage";
 let asset = (url) => {
 
@@ -51,6 +52,7 @@ Page({
         {
           name: "夏布课程",
           avatar: app.getAsset("/images/头像.png"),
+          destination: "/pages/",
           craftman: "张师傅",
           desc: "从艺40年，坚守夏布工艺，融合现代设计理念，让千年技艺绽放新生命",
           tag: "工艺大师"
@@ -66,12 +68,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.DataBase.collection("goods").limit(4).get().then((res) => {
+    (async () => {
+      const goodsData = (await db.collection("goods").limit(4).get()).data
       this.setData({
-        "suggestions.goods.items": res.data
-      }, () => {
+        "suggestions.goods.items": goodsData
       })
-    })
+
+      const coursesData = (await db.collection("courses").limit(1).get()).data
+      console.log(coursesData)
+        this.setData({
+          "suggestions.courses": coursesData
+        })
+
+
+    })()
+
 
     // this.setData({
     //   "swiper_images": this.getSwiperImages(),
@@ -192,16 +203,4 @@ Page({
   //   return swiper_images
   // }
 
-  ToWorkshopList(){
-    console.log(`触发跳转到workshop-list`);
-  wx.navigateTo({
-    url: '/pages/workshop-list/workshop-list',
-    success: () => {
-      console.log(`跳转成功，已打开workshop-list`);
-    },
-    fail: (err) => {
-      console.error('跳转失败：', err);
-    }
-  });
-  }
 })

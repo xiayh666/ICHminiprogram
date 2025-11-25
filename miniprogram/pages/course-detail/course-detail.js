@@ -21,7 +21,7 @@ Page({
     ]
   },
 
-  onLoad() {
+  onLoad(param) {
     (async () => {
 
 

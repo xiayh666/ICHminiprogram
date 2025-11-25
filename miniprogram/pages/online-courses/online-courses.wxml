@@ -3,7 +3,7 @@
     <!-- 课程列表 -->
     <view class="course-list">
         <!-- 课程项1 -->
-        <view class="course-item" bindtap="goToCourseDetail" wx:for="{{courses}}">
+        <view class="course-item" bindtap="gotoCourseDetail" wx:for="{{courses}}">
             <image class="course-img" src="{{item.image}}" mode="aspectFill"></image>
             <view class="course-info">
                 <view class="course-header">
