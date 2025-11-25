@@ -1,0 +1,32 @@
+<view class="section精选课程">
+    <view class="section-title">精选课程</view>
+    <!-- 课程列表 -->
+    <view class="course-list">
+        <!-- 课程项1 -->
+        <view class="course-item" bindtap="gotoCourseDetail" wx:for="{{courses}}">
+            <image class="course-img" src="{{item.image}}" mode="aspectFill"></image>
+            <view class="course-info">
+                <view class="course-header">
+                    <text class="course-name">{{item.owner.name}} {{item.name}}</text>
+                    <view class="master-tag">{{item.owner.tag}}</view>
+                </view>
+                <text class="course-desc">从艺40年，坚守夏布工艺，融合现代设计理念，让千年技艺绽放新生命...</text>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 匠人匠心区域 -->
+<view class="section-craftsmen">
+    <view class="section-title">匠人匠心</view>
+    <!-- 匠人列表 -->
+    <view class="craftsmen-list" scroll-x="{{true}}">
+        <view class="craftsman-item" bindtap="goToCraftsmanDetail" wx:for="{{craftmen}}">
+            <view class="avatar-container">
+                <image class="avatar" src="{{item.avatar}}" mode="widthFix"></image>
+            </view>
+            <text class="craftsman-name">{{item.name}}</text>
+            <view class="craftsman-tag">{{item.tag}}</view>
+        </view>
+    </view>
+</view>
+<!-- <view class="bottom-space"></view> -->

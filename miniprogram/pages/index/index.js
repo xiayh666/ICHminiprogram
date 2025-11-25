@@ -6,9 +6,9 @@
 // ]
 
 let app = getApp();
+import { db } from "../../src/DataBase";
 import { storage } from "../../src/Storage";
 let asset = (url) => {
-
   let res = storage.get(url)
   console.log(res)
   return res
@@ -31,30 +31,23 @@ Page({
       image: asset("/images/更多.png"),
       goods: {
         title: "匠心之选 非遗好物",
-        destination: ""
+        destination: "/pages/goods/goods"
       },
       courses: {
-        title: "线上线下预约通道",
-        destination: ""
+        title: "线上课程",
+        destination: "/pages/online-courses/online-courses"
       }
 
     },
-    search_icon: app.getAsset("/icons/搜索.png"),
+    // search_icon: app.getAsset("/icons/搜索.png"),
     map: {
-      image: app.getAsset("/images/地图.png")
+      image: asset("/images/地图.png")
     },
     swiper_images: [],
     menu: {
     },
     suggestions: {
       courses: [
-        {
-          name: "夏布课程",
-          avatar: app.getAsset("/images/头像.png"),
-          craftman: "张师傅",
-          desc: "从艺40年，坚守夏布工艺，融合现代设计理念，让千年技艺绽放新生命",
-          tag: "工艺大师"
-        }
 
       ]
 
@@ -66,12 +59,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.DataBase.collection("goods").limit(4).get().then((res) => {
+    let setup = (async () => {
+      const goodsData = (await db.collection("goods").limit(4).get()).data
       this.setData({
-        "suggestions.goods.items": res.data
-      }, () => {
+        "suggestions.goods.items": goodsData
       })
+
+      const coursesData = (await db.collection("courses").limit(1).get()).data
+      console.log(coursesData)
+        this.setData({
+          "suggestions.courses": coursesData
+        })
+
+
     })
+    setTimeout(() => {
+      setup()
+      
+    }, 500);
+
 
     // this.setData({
     //   "swiper_images": this.getSwiperImages(),
@@ -86,16 +92,32 @@ Page({
     })
   },
 
-  gotoGoodsPage(e) {
+  gotoTab(e) {
     wx.switchTab({
-      url: '/pages/goods/goods',
-      success: function(res){
+      url: e.currentTarget.dataset.destination,
+      success: function (res) {
         // success
       },
-      fail: function() {
+      fail: function () {
         // fail
       },
-      complete: function() {
+      complete: function () {
+        // complete
+      }
+    })
+
+  },
+  gotoPage(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: e.currentTarget.dataset.destination,
+      success: function (res) {
+        // success
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
         // complete
       }
     })
@@ -105,13 +127,13 @@ Page({
   tapLocate() {
     wx.navigateTo({
       url: '/pages/workshops/workshops',
-      success: function(res){
+      success: function (res) {
         // success
       },
-      fail: function() {
+      fail: function () {
         // fail
       },
-      complete: function() {
+      complete: function () {
         // complete
       }
     })
@@ -176,16 +198,4 @@ Page({
   //   return swiper_images
   // }
 
-  ToWorkshopList(){
-    console.log(`触发跳转到workshop-list`);
-  wx.navigateTo({
-    url: '/pages/workshop-list/workshop-list',
-    success: () => {
-      console.log(`跳转成功，已打开workshop-list`);
-    },
-    fail: (err) => {
-      console.error('跳转失败：', err);
-    }
-  });
-  }
 })

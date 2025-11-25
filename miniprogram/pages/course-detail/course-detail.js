@@ -1,4 +1,6 @@
 import { storage } from "../../src/Storage";
+import { db } from "../../src/DataBase";
+
 
 let asset = url => storage.get(url)
 
@@ -17,6 +19,14 @@ Page({
       { id: 2, name: '进阶课', price: 20.20, isLocked: true },
       { id: 3, name: '专业课', price: 25.20, isLocked: true }
     ]
+  },
+
+  onLoad(param) {
+    (async () => {
+
+
+    })()
+
   },
 
 

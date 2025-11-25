@@ -1,12 +1,12 @@
 <!-- index.wxml -->
-<view class="search-input-area">
+<view class="search-input-area fade-in-item" >
     <navigator class="search fade-in-item" url="/pages/search/search">
         <!-- <image class="search-icon" src="{{searchIcon}}"></image> -->
         <icon class="nav-left" type="search" size="30rpx" color=""></icon>
         <view class="search-input">搜索非遗好物</view>
     </navigator>
 </view>
-<view class="index-impression">
+<view class="index-impression fade-in-item">
     <image class="slogan" src="{{slogan_img}}" />
     <image class="logo" src="{{logo_img}}" />
 </view>
@@ -30,22 +30,20 @@
 <!-- 首页地图 -->
 <view class="map fade-in-item">
     重庆非遗工坊地图
-    <image class="img" src="{{map.image}}" bind:tap="ToWorkshopList" />
+    <image class="img" src="{{map.image}}"  />
     <view class="mascot">
         <view class="mascot-say">
             <text class="mascot-text">小承带你共赴非遗之旅</text>
         </view>
         <image class="mascot-img" src="{{mascot_img}}" mode="aspectFit" />
     </view>
-    <image class="locate" src="{{locate_img}}" mode="aspectFit" bind:tap="tapLocate" />
-    <image class="img" src="{{map.image}}" />
->>>>>>> 67a05fd27aebf9ca48eb234a8a42bcf285f2f1f8
+    <image class="locate" src="{{locate_img}}" mode="aspectFit" bind:tap="tapLocate"/>
 </view>
 <!-- 推荐内容(商品) -->
 <view class="suggestion-goods">
     <view class="section-header fade-in-item">
         <text>{{more.goods.title}}</text>
-        <image src="{{more.image}}" class="more" mode="widthFix" bind:tap="gotoGoodsPage" data-destination="{{more.goods.destination}}" />
+        <image src="{{more.image}}" class="more" mode="widthFix" bind:tap="gotoTab" data-destination="{{more.goods.destination}}" />
     </view>
     <view class="goods">
         <navigator class="suggestion-card fade-in-item {{animation}}" wx:for="{{suggestions.goods.items}}" url="/pages/goods-detail/goods-detail?id={{item._id}}">
@@ -78,16 +76,16 @@
 <view class="reservation fade-in-item">
     <view class="section-header">
         <text>{{more.courses.title}}</text>
-        <image src="{{more.image}}" class="more" mode="widthFix" />
+        <image src="{{more.image}}" class="more" mode="widthFix" bind:tap="gotoPage" data-destination="{{more.courses.destination}}" />
     </view>
-    <view class="suggestion-course" wx:for="{{suggestions.courses}}">
+    <view class="suggestion-course" wx:for="{{suggestions.courses}}" bind:tap="gotoPage" data-destination="/pages/course-detail/course-detail?id={{item._id}}">
         <view class="avatar">
-            <image class="" src="{{item.avatar}}" />
+            <image class="" src="{{item.owner.avatar}}" />
         </view>
         <view class="details">
-            <view class="course-name">{{item.craftman}} {{item.name}}</view>
+            <view class="course-name">{{item.owner.name}} {{item.name}}</view>
             <view class="course-desc">{{item.desc}}</view>
-            <view class="course-tag">{{item.tag}}</view>
+            <view class="course-tag">{{item.owner.tag}}</view>
             <view class="learn-more">了解更多></view>
         </view>
     </view>

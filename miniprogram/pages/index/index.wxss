@@ -304,17 +304,17 @@ page {
 
 }
 
-/* .suggestion-courses {
+.suggestion-course {
     display: flex;
     overflow-x: scroll;
     margin-left: 20rpx;
 }
+.suggestion-course > .avatar {
 
-.suggestion-courses .suggestion-card {
-    flex-shrink: 0;
-    width: 35vw;
-    height: 50vw;
-} */
+}
+.suggestion-course > .details {
+    flex: 1;
+}
 
 .reservation {
     margin-left: 10rpx;
@@ -368,6 +368,8 @@ page {
 .suggestion-course>.details>.learn-more {
     color: #a02c2c;
     font-size: 25rpx;
+    position: absolute;
+    bottom: 30rpx;
 }
 
 .suggestion-course>.details>.course-tag {

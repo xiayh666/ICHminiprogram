@@ -1,0 +1,154 @@
+page {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f4e9;
+  
+}
+
+/* 顶部导航栏 */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  background-color: #a02c2c;
+  padding: 0 24rpx;
+  position: relative;
+  z-index: 10;
+}
+.nav-left {
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-back-white {
+  width: 36rpx;
+  height: 36rpx;
+  color: #fff;
+}
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* 通用区域标题 */
+.section-title {
+  font-size: 34rpx;
+  color: #333;
+  font-weight: 500;
+  padding: 30rpx 24rpx 20rpx;
+}
+
+/* 精选课程区域 */
+.course-list {
+  padding: 0 24rpx;
+}
+.course-item {
+  display: flex;
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+.course-img {
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+.course-info {
+  flex: 1;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10rpx;
+}
+.course-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.master-tag {
+  background-color: #a02c2c;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 4rpx;
+  margin-left: 10rpx;
+}
+.course-desc {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* 匠人匠心区域 */
+.section-craftsmen {
+  margin-top: 20rpx;
+}
+.craftsmen-list {
+  height: 300rpx;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  
+  /* flex-wrap: wrap; */
+  padding-left: 50rpx;
+  gap: 100rpx;
+}
+.craftsman-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 260rpx;
+}
+.avatar-container {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+.avatar {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.craftsman-name {
+  font-size: 26rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+.craftsman-tag {
+  background-color: rgba(160, 44, 44, .1);
+  color: #a02c2c;
+  font-size: 22rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  width: 100%;
+  text-align: center;
+}
+
+/* 底部留白 */
+.bottom-space {
+  height: 120rpx;
+}
