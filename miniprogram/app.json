@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/star/star",
     "pages/orderList/index",
@@ -27,7 +28,9 @@
     "pages/workshop-list/workshop-list",
     "pages/course-detail/course-detail",
     "pages/workshops/workshops",
-    "pages/workshop-detail/workshop-detail"
+    "pages/workshop-detail/workshop-detail",
+    "pages/login/login"
+    
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

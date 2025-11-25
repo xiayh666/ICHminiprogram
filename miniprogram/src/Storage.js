@@ -24,8 +24,9 @@
  */
 const data = {
   icons: {
-    "定位.png": "https://youke1.picui.cn/s1/2025/11/24/692414083dfe4.png"
-
+    "定位.png": "https://youke1.picui.cn/s1/2025/11/24/692414083dfe4.png",
+    "微信.png":"https://youke1.picui.cn/s1/2025/11/25/6925be6b13a3c.png",
+    "QQ.png":"https://youke1.picui.cn/s1/2025/11/25/6925be6b213b2.png"
   },
   images: {
     "mascot.png": "https://youke1.picui.cn/s1/2025/11/24/6923eab6061ac.png",

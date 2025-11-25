@@ -1,0 +1,40 @@
+<view class="login-page">
+  <!-- 标题 -->
+  <view class="title">手机号码登录</view>
+
+  <!-- 手机号输入框 -->
+  <input 
+    class="input-item" 
+    placeholder="请输入手机号码" 
+    placeholder-class="placeholder-style"
+    bindinput="handlePhoneInput"
+  />
+
+  <!-- 验证码输入框 + 获取验证码按钮 -->
+  <view class="code-wrap">
+    <input 
+      class="input-item code-input" 
+      placeholder="请输入手机验证码" 
+      placeholder-class="placeholder-style"
+      bindinput="handleCodeInput"
+    />
+    <button class="get-code-btn" bindtap="getVerifyCode">获取验证码</button>
+  </view>
+
+  <!-- 登录按钮 -->
+  <button class="login-btn {{isLoginBtnActive ? 'login-btn-active' :''}}" bindtap="handleLogin">登录</button>
+
+  <!-- 新用户注册 -->
+  <navigator class="register-link" url="/pages/register/register">新用户注册 ></navigator>
+
+  <!-- 其他登录方式 -->
+  <view class="other-login">
+    <view class="other-title">其他登录方式</view>
+    <view class="icon-group">
+      <!-- 微信图标 -->
+      <image class="login-icon" src="{{weixin}}" bindtap="wxLogin"></image>
+      <!-- QQ图标 -->
+      <image class="login-icon" src="{{qq}}" bindtap="qqLogin"></image>
+    </view>
+  </view>
+</view>

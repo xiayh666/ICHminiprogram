@@ -1,0 +1,104 @@
+/* 页面容器 */
+.login-page {
+  padding: 40rpx 30rpx;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* 标题 */
+.title {
+  font-size: 48rpx;
+  font-weight: bolder;
+  color: black;
+  margin-bottom: 80rpx;
+}
+
+/* 输入框通用样式 */
+.input-item {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  border-bottom: 1rpx solid #eee;
+  padding-left: 10rpx;
+  padding-top:10rpx ;
+  padding-bottom:10rpx ;
+}
+
+/* 输入框占位符样式 */
+.placeholder-style {
+  color: #ccc;
+}
+
+/* 验证码行容器 */
+.code-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 验证码输入框 */
+.code-input {
+  flex: 1;
+}
+
+/* 获取验证码按钮 */
+.get-code-btn {
+  font-size: 28rpx;
+  font-weight: lighter;
+  color: #ccc;
+  width: 35% !important;
+  background: none;
+}
+
+/* 登录按钮 */
+.login-btn {
+  width: 90% !important;
+  height: 90rpx;
+  text-align: center;
+  background-color: #ff99a5;
+  color: #fff;
+  font-size: 34rpx;
+  border-radius: 45rpx;
+  padding-top:19rpx ;
+  margin: 60rpx auto;
+}
+.login-btn-active{
+  background-color: red;
+}
+/* 新用户注册链接 */
+.register-link {
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 30rpx;
+}
+
+/* 其他登录方式区域 */
+.other-login {
+  margin-top: 120rpx;
+  text-align: center;
+}
+
+/* 其他登录方式标题 */
+.other-title {
+  font-size: 28rpx;
+  color: #ccc;
+  margin-bottom: 40rpx;
+}
+
+/* 图标组 */
+.icon-group {
+  display: flex;
+  justify-content: center;
+  gap: 80rpx;
+}
+
+/* 第三方登录图标 */
+.login-icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: blanchedalmond;
+}
